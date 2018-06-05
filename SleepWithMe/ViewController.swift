@@ -76,7 +76,7 @@ class ViewController: NSViewController {
             stepSize = 1.0/CGFloat(currentMinutes)
             activationButton.title = "Stop Timer"
             self.activationButton.layer?.backgroundColor = self.redColor
-            timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true) { (timer) in
+            timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { (timer) in
                 self.currentMinutes -= 1
                 self.timerView.animateForegroundArc(toPosition: CGFloat(self.currentMinutes) * self.stepSize, duration: 1.0)
                 if self.currentMinutes == 0 {
@@ -85,7 +85,7 @@ class ViewController: NSViewController {
                     self.timer = nil
                     self.activationButton.title = "Start Timer"
                     self.activationButton.layer?.backgroundColor = self.greenColor
-                    self.appleScript()
+                    self.sush()
                 }
             }
             currentMinutes += 1
@@ -98,23 +98,9 @@ class ViewController: NSViewController {
         }
     }
     
-    func appleScript() {
-        let path = Bundle.main.bundleURL
-        print(path)
-        let task = Process()
-        task.launchPath = "/usr/bin/osascript"
-        task.arguments = ["./SleepWithMe/SleepScript.scpt"]
-        
-        task.launch()
-//        let appleScript: NSAppleScript = NSAppleScript(source:
-//            """
-//            tell application \"System Events\"
-//                sleep
-//            end tell
-//            """)!
-//        let err: AutoreleasingUnsafeMutablePointer<NSDictionary?>? = nil
-//        appleScript.executeAndReturnError(err)
-//        print(err?.pointee)
+    func sush() {
+        let putMeToSleep = PutMeToSleep.getObject() as! AppleScriptProtocol
+        putMeToSleep.sush()
     }
 }
 

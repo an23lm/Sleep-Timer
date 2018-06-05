@@ -17,6 +17,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         
+        PutMeToSleep.load()
+        
         if let statusButton = statusItem.button {
             statusButton.title = "Zzz"
             statusButton.action = #selector(togglePopover)

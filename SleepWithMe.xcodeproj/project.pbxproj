@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F728FD3720C695B50008AC5A /* PutMeToSleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = F728FD3620C695B50008AC5A /* PutMeToSleep.swift */; };
+		F728FD3820C695B50008AC5A /* PutMeToSleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = F728FD3620C695B50008AC5A /* PutMeToSleep.swift */; };
+		F728FD3920C695B50008AC5A /* PutMeToSleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = F728FD3620C695B50008AC5A /* PutMeToSleep.swift */; };
+		F728FD3B20C6978D0008AC5A /* AppleScriptProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F728FD3A20C6978D0008AC5A /* AppleScriptProtocol.swift */; };
+		F728FD3C20C6978D0008AC5A /* AppleScriptProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F728FD3A20C6978D0008AC5A /* AppleScriptProtocol.swift */; };
+		F728FD3D20C6978D0008AC5A /* AppleScriptProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F728FD3A20C6978D0008AC5A /* AppleScriptProtocol.swift */; };
+		F728FD4020C69CE60008AC5A /* AppleScriptObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F728FD3F20C69CE60008AC5A /* AppleScriptObjC.framework */; };
+		F728FD4620C6B0A50008AC5A /* PutMeToSleep.applescript in Sources */ = {isa = PBXBuildFile; fileRef = F728FD4520C6B0A50008AC5A /* PutMeToSleep.applescript */; };
+		F728FD4720C6B0A50008AC5A /* PutMeToSleep.applescript in Sources */ = {isa = PBXBuildFile; fileRef = F728FD4520C6B0A50008AC5A /* PutMeToSleep.applescript */; };
+		F728FD4820C6B0A50008AC5A /* PutMeToSleep.applescript in Sources */ = {isa = PBXBuildFile; fileRef = F728FD4520C6B0A50008AC5A /* PutMeToSleep.applescript */; };
 		F7BB7DE120C5CE1D00824919 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB7DE020C5CE1D00824919 /* AppDelegate.swift */; };
 		F7BB7DE320C5CE1D00824919 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB7DE220C5CE1D00824919 /* ViewController.swift */; };
 		F7BB7DE520C5CE1F00824919 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7BB7DE420C5CE1F00824919 /* Assets.xcassets */; };
@@ -36,6 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F728FD3620C695B50008AC5A /* PutMeToSleep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutMeToSleep.swift; sourceTree = "<group>"; };
+		F728FD3A20C6978D0008AC5A /* AppleScriptProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptProtocol.swift; sourceTree = "<group>"; };
+		F728FD3F20C69CE60008AC5A /* AppleScriptObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppleScriptObjC.framework; path = System/Library/Frameworks/AppleScriptObjC.framework; sourceTree = SDKROOT; };
+		F728FD4520C6B0A50008AC5A /* PutMeToSleep.applescript */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.applescript; path = PutMeToSleep.applescript; sourceTree = "<group>"; };
 		F7BB7DDD20C5CE1D00824919 /* SleepWithMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepWithMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7BB7DE020C5CE1D00824919 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7BB7DE220C5CE1D00824919 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F728FD4020C69CE60008AC5A /* AppleScriptObjC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +92,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F728FD3E20C69CE60008AC5A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F728FD3F20C69CE60008AC5A /* AppleScriptObjC.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F7BB7DD420C5CE1D00824919 = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +107,7 @@
 				F7BB7DF220C5CE1F00824919 /* SleepWithMeTests */,
 				F7BB7DFD20C5CE1F00824919 /* SleepWithMeUITests */,
 				F7BB7DDE20C5CE1D00824919 /* Products */,
+				F728FD3E20C69CE60008AC5A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +124,9 @@
 		F7BB7DDF20C5CE1D00824919 /* SleepWithMe */ = {
 			isa = PBXGroup;
 			children = (
+				F728FD4520C6B0A50008AC5A /* PutMeToSleep.applescript */,
+				F728FD3620C695B50008AC5A /* PutMeToSleep.swift */,
+				F728FD3A20C6978D0008AC5A /* AppleScriptProtocol.swift */,
 				F7BB7DE020C5CE1D00824919 /* AppDelegate.swift */,
 				F7BB7DE220C5CE1D00824919 /* ViewController.swift */,
 				F7BB7E0C20C5DA4F00824919 /* NSTimerView.swift */,
@@ -259,8 +286,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F728FD3720C695B50008AC5A /* PutMeToSleep.swift in Sources */,
+				F728FD4620C6B0A50008AC5A /* PutMeToSleep.applescript in Sources */,
 				F7BB7DE320C5CE1D00824919 /* ViewController.swift in Sources */,
 				F7BB7E0D20C5DA4F00824919 /* NSTimerView.swift in Sources */,
+				F728FD3B20C6978D0008AC5A /* AppleScriptProtocol.swift in Sources */,
 				F7BB7DE120C5CE1D00824919 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,7 +299,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F728FD4720C6B0A50008AC5A /* PutMeToSleep.applescript in Sources */,
 				F7BB7DF420C5CE1F00824919 /* SleepWithMeTests.swift in Sources */,
+				F728FD3C20C6978D0008AC5A /* AppleScriptProtocol.swift in Sources */,
+				F728FD3820C695B50008AC5A /* PutMeToSleep.swift in Sources */,
 				F7BB7E0E20C5DA4F00824919 /* NSTimerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,7 +311,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F728FD4820C6B0A50008AC5A /* PutMeToSleep.applescript in Sources */,
 				F7BB7DFF20C5CE1F00824919 /* SleepWithMeUITests.swift in Sources */,
+				F728FD3D20C6978D0008AC5A /* AppleScriptProtocol.swift in Sources */,
+				F728FD3920C695B50008AC5A /* PutMeToSleep.swift in Sources */,
 				F7BB7E0F20C5DA4F00824919 /* NSTimerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
