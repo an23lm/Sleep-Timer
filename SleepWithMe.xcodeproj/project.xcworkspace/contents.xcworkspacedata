@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../SleepWithMe/SleepScript.scpt">
+   </FileRef>
+   <FileRef
       location = "self:SleepWithMe.xcodeproj">
    </FileRef>
 </Workspace>

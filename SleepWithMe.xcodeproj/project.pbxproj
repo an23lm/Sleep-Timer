@@ -13,6 +13,9 @@
 		F7BB7DE820C5CE1F00824919 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7BB7DE620C5CE1F00824919 /* Main.storyboard */; };
 		F7BB7DF420C5CE1F00824919 /* SleepWithMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB7DF320C5CE1F00824919 /* SleepWithMeTests.swift */; };
 		F7BB7DFF20C5CE1F00824919 /* SleepWithMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB7DFE20C5CE1F00824919 /* SleepWithMeUITests.swift */; };
+		F7BB7E0D20C5DA4F00824919 /* NSTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB7E0C20C5DA4F00824919 /* NSTimerView.swift */; };
+		F7BB7E0E20C5DA4F00824919 /* NSTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB7E0C20C5DA4F00824919 /* NSTimerView.swift */; };
+		F7BB7E0F20C5DA4F00824919 /* NSTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB7E0C20C5DA4F00824919 /* NSTimerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,7 @@
 		F7BB7DFA20C5CE1F00824919 /* SleepWithMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SleepWithMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7BB7DFE20C5CE1F00824919 /* SleepWithMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepWithMeUITests.swift; sourceTree = "<group>"; };
 		F7BB7E0020C5CE1F00824919 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7BB7E0C20C5DA4F00824919 /* NSTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTimerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,7 @@
 			children = (
 				F7BB7DE020C5CE1D00824919 /* AppDelegate.swift */,
 				F7BB7DE220C5CE1D00824919 /* ViewController.swift */,
+				F7BB7E0C20C5DA4F00824919 /* NSTimerView.swift */,
 				F7BB7DE420C5CE1F00824919 /* Assets.xcassets */,
 				F7BB7DE620C5CE1F00824919 /* Main.storyboard */,
 				F7BB7DE920C5CE1F00824919 /* Info.plist */,
@@ -255,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7BB7DE320C5CE1D00824919 /* ViewController.swift in Sources */,
+				F7BB7E0D20C5DA4F00824919 /* NSTimerView.swift in Sources */,
 				F7BB7DE120C5CE1D00824919 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7BB7DF420C5CE1F00824919 /* SleepWithMeTests.swift in Sources */,
+				F7BB7E0E20C5DA4F00824919 /* NSTimerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7BB7DFF20C5CE1F00824919 /* SleepWithMeUITests.swift in Sources */,
+				F7BB7E0F20C5DA4F00824919 /* NSTimerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
