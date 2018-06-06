@@ -1,0 +1,6 @@
+framework module Pods_SleepWithMe {
+  umbrella header "Pods-SleepWithMe-umbrella.h"
+
+  export *
+  module * { export * }
+}

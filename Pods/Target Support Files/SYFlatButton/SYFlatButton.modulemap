@@ -1,0 +1,6 @@
+framework module SYFlatButton {
+  umbrella header "SYFlatButton-umbrella.h"
+
+  export *
+  module * { export * }
+}

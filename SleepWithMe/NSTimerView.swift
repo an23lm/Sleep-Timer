@@ -33,7 +33,6 @@ class NSTimerView: NSView {
         wantsLayer = true
         
         let bgArcPath = NSBezierPath()
-//        bgArcPath.appendOval(in: rect)
         bgArcPath.appendArc(
             withCenter: center,
             radius: (rect.width/2) - 5,
@@ -45,7 +44,7 @@ class NSTimerView: NSView {
         bgArc = CAShapeLayer()
         bgArc.path = bgArcPath.cgPath
         bgArc.fillColor = CGColor.clear
-        bgArc.strokeColor = CGColor(red: 1, green: 1, blue: 1, alpha: 0.5)
+        bgArc.strokeColor = CGColor(gray: 0.5, alpha: 0.5)
         bgArc.lineWidth = 5.0
         bgArc.strokeStart = 0
         bgArc.strokeEnd = 0
@@ -62,11 +61,11 @@ class NSTimerView: NSView {
         fgArc = CAShapeLayer()
         fgArc.path = bgArcPath.cgPath
         fgArc.fillColor = CGColor.clear
-        fgArc.strokeColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
+        fgArc.strokeColor = NSColor(displayP3Red: 238/256.0, green: 96/256.0, blue: 2/256.0, alpha: 1.0).cgColor
         fgArc.lineWidth = 5.0
         fgArc.strokeStart = 0
         fgArc.strokeEnd = 0
-        bgArc.lineCap = kCALineCapRound
+        fgArc.lineCap = kCALineCapRound
         
         layer!.addSublayer(bgArc)
         layer!.addSublayer(fgArc)

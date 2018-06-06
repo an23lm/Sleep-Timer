@@ -717,29 +717,29 @@
                                     <constraint firstItem="epY-Ya-XPQ" firstAttribute="centerX" secondItem="Hw2-Jj-ZsP" secondAttribute="centerX" id="vaX-Q8-I4G"/>
                                 </constraints>
                             </customView>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CwL-XQ-D5i">
-                                <rect key="frame" x="150" y="79" width="50" height="52"/>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CwL-XQ-D5i" customClass="NSTimerButton" customModule="SleepWithMe" customModuleProvider="target">
+                                <rect key="frame" x="150" y="80" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="mve-68-hkz"/>
                                     <constraint firstAttribute="height" constant="50" id="o8y-fb-ip2"/>
                                 </constraints>
-                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wrq-HB-jgv">
-                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES" accelerator="YES"/>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wrq-HB-jgv">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="increaseTimer:" target="XfG-lQ-9wD" id="6EH-vF-M6T"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xid-3O-a9E">
-                                <rect key="frame" x="60" y="79" width="50" height="52"/>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xid-3O-a9E" customClass="NSTimerButton" customModule="SleepWithMe" customModuleProvider="target">
+                                <rect key="frame" x="60" y="80" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="RCr-vL-M7f"/>
                                     <constraint firstAttribute="width" constant="50" id="mvQ-TS-uyy"/>
                                 </constraints>
-                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="829-Pj-eX5">
-                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES" accelerator="YES"/>
-                                    <font key="font" metaFont="system" size="20"/>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="829-Pj-eX5">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="decreaseTimer:" target="XfG-lQ-9wD" id="UKx-sD-RVP"/>
@@ -754,25 +754,25 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jv8-OM-A3S">
-                                <rect key="frame" x="44" y="13" width="172" height="51"/>
+                                <rect key="frame" x="50" y="20" width="160" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="7TI-MX-PZg"/>
                                 </constraints>
-                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dda-2I-H3I">
+                                <buttonCell key="cell" type="square" title="Button" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dda-2I-H3I">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" size="17" name="SFProDisplay-Medium"/>
+                                    <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="activateTimer:" target="XfG-lQ-9wD" id="8re-zv-w6D"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6Gm-XB-Rtb">
-                                <rect key="frame" x="232" y="315" width="20" height="22"/>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6Gm-XB-Rtb" customClass="NSTimerButton" customModule="SleepWithMe" customModuleProvider="target">
+                                <rect key="frame" x="232" y="316" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="1ru-U7-7Jr"/>
                                     <constraint firstAttribute="width" constant="20" id="HbG-jH-SZl"/>
                                 </constraints>
-                                <buttonCell key="cell" type="smallSquare" title="X" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OUT-kR-mVY">
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OUT-kR-mVY">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -817,8 +817,4 @@
             <point key="canvasLocation" x="75" y="674"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="NSAddTemplate" width="11" height="11"/>
-        <image name="NSRemoveTemplate" width="11" height="11"/>
-    </resources>
 </document>

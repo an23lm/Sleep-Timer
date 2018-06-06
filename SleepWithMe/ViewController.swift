@@ -15,40 +15,63 @@ class ViewController: NSViewController {
     @IBOutlet weak var timerLabel: NSTextField!
     @IBOutlet weak var minuteTitleLabel: NSTextField!
     
-    @IBOutlet weak var decreaseTimeButton: NSButton!
-    @IBOutlet weak var increaseTimeButton: NSButton!
+    @IBOutlet weak var decreaseTimeButton: NSTimerButton!
+    @IBOutlet weak var increaseTimeButton: NSTimerButton!
     
     @IBOutlet weak var activationButton: NSButton!
     
-    @IBOutlet weak var closeButton: NSButton!
+    @IBOutlet weak var closeButton: NSTimerButton!
     
     private var timer: Timer? = nil
     
     private var currentMinutes: Int = 0 {
         didSet {
             timerLabel.stringValue = String(currentMinutes)
+            if isTimerRunning {
+                (NSApplication.shared.delegate as! AppDelegate).setMenuBarTitle(String(currentMinutes))
+            } else {
+                (NSApplication.shared.delegate as! AppDelegate).setMenuBarTitle("")
+            }
         }
     }
+    
+    private var isTimerRunning: Bool = false
+    private var isRestartingTimer: Bool = false
     
     private var stepSize: CGFloat = 0
     
-    let greenColor = CGColor(red: 0, green: 0.7, blue: 0, alpha: 0.6)
-    let redColor = CGColor(red: 0.7, green: 0, blue: 0, alpha: 0.6)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.view.wantsLayer = true
-        activationButton.title = "Start Timer"
-        activationButton.wantsLayer = true
-        activationButton.isBordered = false
-        activationButton.layer?.backgroundColor = greenColor
+        setup()
     }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
+    
+    private func setup() {
+        self.view.wantsLayer = true
+        let pstyle = NSMutableParagraphStyle()
+        pstyle.alignment = .center
+        
+        activationButton.wantsLayer = true
+        setStartTimerButton()
+        activationButton.isBordered = false
+        activationButton.layer?.cornerRadius = 5
+        
+        decreaseTimeButton.style = .decrement
+        decreaseTimeButton.wantsLayer = true
+        decreaseTimeButton.isBordered = false
+        decreaseTimeButton.layer?.backgroundColor = NSColor(displayP3Red: 0, green: 105/256.0, blue: 91/256.0, alpha: 1).cgColor //rgb(0,105,92)
+        decreaseTimeButton.layer?.cornerRadius = 25
+        
+        increaseTimeButton.style = .increment
+        increaseTimeButton.wantsLayer = true
+        increaseTimeButton.isBordered = false
+        increaseTimeButton.layer?.backgroundColor = NSColor(displayP3Red: 0, green: 105/256.0, blue: 91/256.0, alpha: 1).cgColor //rgb(0,105,92)
+        increaseTimeButton.layer?.cornerRadius = 25
+        
+        closeButton.style = .close
+        closeButton.wantsLayer = true
+        closeButton.isBordered = false
+        closeButton.layer?.backgroundColor = NSColor(displayP3Red: 213/256.0, green: 0/256.0, blue: 0/256.0, alpha: 1).cgColor //rgb(213,0,0)
+        closeButton.layer?.cornerRadius = 10
     }
     
     override func viewDidAppear() {
@@ -69,32 +92,70 @@ class ViewController: NSViewController {
     
     @IBAction func increaseTimer(_ sender: Any) {
         currentMinutes += 1
+        if !isRestartingTimer {
+            isRestartingTimer = true
+            timerView.animateForegroundArc(duration: 1.0)
+            Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { (timer) in
+                self.isRestartingTimer = false
+                if self.isTimerRunning {
+                    self.restartTimer()
+                }
+            }
+        }
+    }
+    
+    private func setStopTimerButton() {
+        isTimerRunning = true
+        let pstyle = NSMutableParagraphStyle()
+        pstyle.alignment = .center
+        self.activationButton.attributedTitle = NSAttributedString(string: "Stop Timer", attributes: [NSAttributedStringKey.foregroundColor: NSColor.white, NSAttributedStringKey.paragraphStyle: pstyle, NSAttributedStringKey.font: NSFont.systemFont(ofSize: 20, weight: .light)])
+        self.activationButton.layer?.backgroundColor = NSColor(displayP3Red: 238/256.0, green: 96/256.0, blue: 2/256.0, alpha: 1.0).cgColor
+    }
+    
+    private func setStartTimerButton() {
+        isTimerRunning = false
+        let pstyle = NSMutableParagraphStyle()
+        pstyle.alignment = .center
+        self.activationButton.attributedTitle = NSAttributedString(string: "Start Timer", attributes: [NSAttributedStringKey.foregroundColor: NSColor.white, NSAttributedStringKey.paragraphStyle: pstyle, NSAttributedStringKey.font: NSFont.systemFont(ofSize: 20, weight: .regular)])
+        self.activationButton.layer?.backgroundColor = NSColor(displayP3Red: 83/256.0, green: 0/256.0, blue: 232/256.0, alpha: 1.0).cgColor
     }
     
     @IBAction func activateTimer(_ sender: Any) {
         if timer == nil {
-            stepSize = 1.0/CGFloat(currentMinutes)
-            activationButton.title = "Stop Timer"
-            self.activationButton.layer?.backgroundColor = self.redColor
-            timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { (timer) in
+            self.setStopTimerButton()
+            self.stepSize = 1.0/CGFloat(self.currentMinutes)
+            timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { (timer) in
                 self.currentMinutes -= 1
-                self.timerView.animateForegroundArc(toPosition: CGFloat(self.currentMinutes) * self.stepSize, duration: 1.0)
+                if !self.isRestartingTimer {
+                    self.timerView.animateForegroundArc(toPosition: CGFloat(self.currentMinutes) * self.stepSize, duration: 1.0)
+                    print(CGFloat(self.currentMinutes))
+                    print(self.stepSize)
+                    print(CGFloat(self.currentMinutes) * self.stepSize)
+                }
                 if self.currentMinutes == 0 {
                     print("Timer done")
                     timer.invalidate()
                     self.timer = nil
-                    self.activationButton.title = "Start Timer"
-                    self.activationButton.layer?.backgroundColor = self.greenColor
+                    self.setStartTimerButton()
                     self.sush()
                 }
             }
-            currentMinutes += 1
-            timer?.fire()
+            if !self.isRestartingTimer {
+                self.timerView.animateForegroundArc(duration: 1.0)
+            }
         } else {
-            activationButton.title = "Start Timer"
-            self.activationButton.layer?.backgroundColor = self.greenColor
+            (NSApplication.shared.delegate as! AppDelegate).setMenuBarTitle("")
+            setStartTimerButton()
             timer?.invalidate()
             timer = nil
+        }
+    }
+    
+    func restartTimer() {
+        timer?.invalidate()
+        timer = nil
+        if !isRestartingTimer {
+            activateTimer(self)
         }
     }
     
