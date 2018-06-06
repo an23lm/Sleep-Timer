@@ -7,85 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01BFBD0851A5A1919201DCCBF292AEAF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF428FC7C7A6555B2B02D8E238C8D8F2 /* Cocoa.framework */; };
-		184B1D33F24BFFFD9EC62A7550D0AF9E /* SYFlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5282533216BC3A15A3FE03EC5DEEF62E /* SYFlatButton.m */; };
-		2094B820CECCBE2C32145E6E0A49985E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF428FC7C7A6555B2B02D8E238C8D8F2 /* Cocoa.framework */; };
-		350B42683516C02D879CEAF450EBED39 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF428FC7C7A6555B2B02D8E238C8D8F2 /* Cocoa.framework */; };
-		550F973B34402290D275CEE9CBFD78AA /* Pods-SleepWithMeUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 62759EC27DBD633335C4DE09398907AD /* Pods-SleepWithMeUITests-dummy.m */; };
-		5A7F7DE99D4E6312D898F97BFECB653C /* SYFlatButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 849B010E8DF4A40A15490CF8BF09DAA2 /* SYFlatButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		62B1D13C948F961D8CF222BC76AAFDAA /* Pods-SleepWithMeTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 902C01D67E9087234BB513C6EEA1CD1B /* Pods-SleepWithMeTests-dummy.m */; };
-		A236265F854C596C1153C1B0FE7D27D8 /* SYFlatButton-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E0C3D3E343E907E95F2B2207241C2412 /* SYFlatButton-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B9E2785A0E260F060BB06A9C6FC142F7 /* Pods-SleepWithMeUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B092BC2C80D722F06366C1266BD19F34 /* Pods-SleepWithMeUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BDEF28A486879F2D18E1124DF7FE5B97 /* Pods-SleepWithMeTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 852DD92288DBBD09AB4FE8992C385E35 /* Pods-SleepWithMeTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BE50DEFEBE67E677B78AF3DA42C9C64B /* Pods-SleepWithMe-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B6CEA1603A6AFB66DFB6036D58BC99B3 /* Pods-SleepWithMe-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D540247093DCB0226AE9109A18F042CB /* SYFlatButton-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC53A1FDBA81A44E93CB4209EA18F3A /* SYFlatButton-dummy.m */; };
-		DDC585868F5F0FE6DE6B7697D4E860F9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF428FC7C7A6555B2B02D8E238C8D8F2 /* Cocoa.framework */; };
-		E7A98DAAF2B3867AB8EEA1ED166E3057 /* Pods-SleepWithMe-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 61203F0AA98D857ADBD82965514EB603 /* Pods-SleepWithMe-dummy.m */; };
+		63B3FF28313292CD1B25492CDE2A14A2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF428FC7C7A6555B2B02D8E238C8D8F2 /* Cocoa.framework */; };
+		70F630697B6FDF4E0E791E9E6532B6FB /* Pods-SleepWithMeTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 852DD92288DBBD09AB4FE8992C385E35 /* Pods-SleepWithMeTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C9606247A459392B806A75B5153EA62 /* Pods-SleepWithMe-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B6CEA1603A6AFB66DFB6036D58BC99B3 /* Pods-SleepWithMe-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		83BCBD2A74005A5F201BC93729035342 /* Pods-SleepWithMeUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 62759EC27DBD633335C4DE09398907AD /* Pods-SleepWithMeUITests-dummy.m */; };
+		9090E94A931BD8014CB1C6F50592878E /* Pods-SleepWithMeUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B092BC2C80D722F06366C1266BD19F34 /* Pods-SleepWithMeUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		96A86742889A6B66F8A964D4CF0FA58A /* Pods-SleepWithMeTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 902C01D67E9087234BB513C6EEA1CD1B /* Pods-SleepWithMeTests-dummy.m */; };
+		CBEFD06272E0AD150E33D08E20B0871E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF428FC7C7A6555B2B02D8E238C8D8F2 /* Cocoa.framework */; };
+		E0D5BA3A5943ACB903110E3D2D12C17E /* Pods-SleepWithMe-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 61203F0AA98D857ADBD82965514EB603 /* Pods-SleepWithMe-dummy.m */; };
+		EF9DD01B0EF327A3632B057678F85530 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF428FC7C7A6555B2B02D8E238C8D8F2 /* Cocoa.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		C23CF4E915BDBF786F2DEBF6E2FEA68B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E0F7AC734A500877F5EEDACADF033ABE;
-			remoteInfo = SYFlatButton;
-		};
-		C951021EBF0885FED056E5D4F7D1E5F4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E0F7AC734A500877F5EEDACADF033ABE;
-			remoteInfo = SYFlatButton;
-		};
-		E658398D1894E8894A3B3B6FDEB7799B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E0F7AC734A500877F5EEDACADF033ABE;
-			remoteInfo = SYFlatButton;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1B70C00A372B5C3635F21C5237368430 /* Pods-SleepWithMe.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SleepWithMe.modulemap"; sourceTree = "<group>"; };
-		1EC53A1FDBA81A44E93CB4209EA18F3A /* SYFlatButton-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SYFlatButton-dummy.m"; sourceTree = "<group>"; };
-		298861F9D828D2F96BE40342B8EF1CFD /* SYFlatButton.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SYFlatButton.modulemap; sourceTree = "<group>"; };
-		2DCE5B4D38C487693CA163D9AC6D7E44 /* Pods_SleepWithMeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SleepWithMeUITests.framework; path = "Pods-SleepWithMeUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3528E559F09AE77AA4EC40AEBDD4EE25 /* Pods_SleepWithMeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SleepWithMeUITests.framework; path = "Pods-SleepWithMeUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35ACBF770B294430933502BEDC9D1D72 /* Pods-SleepWithMeUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SleepWithMeUITests.modulemap"; sourceTree = "<group>"; };
 		364C37480386E8E3C3318EE7761163E3 /* Pods-SleepWithMe-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SleepWithMe-frameworks.sh"; sourceTree = "<group>"; };
 		3D90755A1243AE13394C2960B065BC89 /* Pods-SleepWithMeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SleepWithMeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		43DA2EF763E661F2CE336D8405387676 /* Pods_SleepWithMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SleepWithMe.framework; path = "Pods-SleepWithMe.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DB09AC84556BC7B9629596792E61AB8 /* Pods-SleepWithMe-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SleepWithMe-acknowledgements.plist"; sourceTree = "<group>"; };
-		5282533216BC3A15A3FE03EC5DEEF62E /* SYFlatButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SYFlatButton.m; path = SYFlatButton/SYFlatButton/SYFlatButton.m; sourceTree = "<group>"; };
 		61203F0AA98D857ADBD82965514EB603 /* Pods-SleepWithMe-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SleepWithMe-dummy.m"; sourceTree = "<group>"; };
 		62759EC27DBD633335C4DE09398907AD /* Pods-SleepWithMeUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SleepWithMeUITests-dummy.m"; sourceTree = "<group>"; };
 		6351AEF4B77CFA2A89D5E9514B0DD8D5 /* Pods-SleepWithMeTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SleepWithMeTests.modulemap"; sourceTree = "<group>"; };
 		63E1EDA0B1C38FDE375E3D5119AF84A7 /* Pods-SleepWithMeTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SleepWithMeTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		64D8538E0728965AFD0FA7F6292C20DF /* Pods-SleepWithMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SleepWithMe.debug.xcconfig"; sourceTree = "<group>"; };
-		69CF4A50F674BBA1ECCCA8D6360FF0FB /* SYFlatButton.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SYFlatButton.xcconfig; sourceTree = "<group>"; };
 		6D778AB2CA3D72EE62DEC9259B60BF97 /* Pods-SleepWithMeUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SleepWithMeUITests-acknowledgements.plist"; sourceTree = "<group>"; };
-		6F4C3738B0F5A363A009C4D1C975B018 /* SYFlatButton-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SYFlatButton-prefix.pch"; sourceTree = "<group>"; };
+		772B9EE8E4000863C51DF2205716426C /* Pods_SleepWithMeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SleepWithMeTests.framework; path = "Pods-SleepWithMeTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		780A8D7563F05671F0B4279045A3A6BF /* Pods-SleepWithMeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SleepWithMeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7F92783B872E6B7ADDEE2D5B5B590213 /* Pods-SleepWithMe-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SleepWithMe-acknowledgements.markdown"; sourceTree = "<group>"; };
 		8417F3074E2E3B4098EC864F50D7FCD7 /* Pods-SleepWithMeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SleepWithMeTests.release.xcconfig"; sourceTree = "<group>"; };
-		849B010E8DF4A40A15490CF8BF09DAA2 /* SYFlatButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SYFlatButton.h; path = SYFlatButton/SYFlatButton/SYFlatButton.h; sourceTree = "<group>"; };
 		852DD92288DBBD09AB4FE8992C385E35 /* Pods-SleepWithMeTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SleepWithMeTests-umbrella.h"; sourceTree = "<group>"; };
 		902C01D67E9087234BB513C6EEA1CD1B /* Pods-SleepWithMeTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SleepWithMeTests-dummy.m"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		98816C477FF84FA621CEC071C80ED453 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2FF82414F0ACE734A1F0A0174BBFB01 /* Pods-SleepWithMeUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SleepWithMeUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		AAF8C2A6DB6F03D7AEAE19E2CDEB02C0 /* Pods-SleepWithMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SleepWithMe.release.xcconfig"; sourceTree = "<group>"; };
 		B092BC2C80D722F06366C1266BD19F34 /* Pods-SleepWithMeUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SleepWithMeUITests-umbrella.h"; sourceTree = "<group>"; };
 		B6CEA1603A6AFB66DFB6036D58BC99B3 /* Pods-SleepWithMe-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SleepWithMe-umbrella.h"; sourceTree = "<group>"; };
 		BFAE51194F3E7386995BEDB8F476F1DD /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C441B67E97ED9CDF95E6E036893C68EA /* SYFlatButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SYFlatButton.framework; path = SYFlatButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE10CE1334A07AAFD8B80588448D6717 /* Pods-SleepWithMeTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SleepWithMeTests-frameworks.sh"; sourceTree = "<group>"; };
 		D1CF8B121E991BD5D82D179A113F6916 /* Pods-SleepWithMeUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SleepWithMeUITests-frameworks.sh"; sourceTree = "<group>"; };
-		D788A7CC510589E7137598FED9D76DB4 /* Pods_SleepWithMeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SleepWithMeTests.framework; path = "Pods-SleepWithMeTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCEC763ED004E37C66BA4BD1AB2333EC /* Pods-SleepWithMe-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SleepWithMe-resources.sh"; sourceTree = "<group>"; };
 		DF428FC7C7A6555B2B02D8E238C8D8F2 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
-		DF85C5065874B0E6446441C9A4B6234D /* Pods_SleepWithMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SleepWithMe.framework; path = "Pods-SleepWithMe.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E0C3D3E343E907E95F2B2207241C2412 /* SYFlatButton-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SYFlatButton-umbrella.h"; sourceTree = "<group>"; };
 		E5E9CC72D09F19F606E3C03A8612839E /* Pods-SleepWithMeUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SleepWithMeUITests-resources.sh"; sourceTree = "<group>"; };
 		EA9F1D6D411C80AC7FBDC5E46D1D3341 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBD84A70020EA021A79D062010A8CA2E /* Pods-SleepWithMeTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SleepWithMeTests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -95,41 +57,43 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		011997CFF70B557F9610DE6184D9A6E6 /* Frameworks */ = {
+		1435CC8A7827531B905539947650ED11 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDC585868F5F0FE6DE6B7697D4E860F9 /* Cocoa.framework in Frameworks */,
+				63B3FF28313292CD1B25492CDE2A14A2 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0A80D4E7E4468F61C5D48341FD3DD285 /* Frameworks */ = {
+		607C9788BC88852E2A5E5320F77B5FF4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2094B820CECCBE2C32145E6E0A49985E /* Cocoa.framework in Frameworks */,
+				CBEFD06272E0AD150E33D08E20B0871E /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6709C1AA1C8D874A7C2FE03DABC146CE /* Frameworks */ = {
+		B457AB36DE8229306675295EE9EDC37C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01BFBD0851A5A1919201DCCBF292AEAF /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CF95B3E2F8C884AF7628943FE79FE1BB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				350B42683516C02D879CEAF450EBED39 /* Cocoa.framework in Frameworks */,
+				EF9DD01B0EF327A3632B057678F85530 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03ADBC80022A99F55B5E57093C2C9A4C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				43DA2EF763E661F2CE336D8405387676 /* Pods_SleepWithMe.framework */,
+				772B9EE8E4000863C51DF2205716426C /* Pods_SleepWithMeTests.framework */,
+				3528E559F09AE77AA4EC40AEBDD4EE25 /* Pods_SleepWithMeUITests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		0A5CB3B537E5F395ED9679780B1DE8C4 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,8 +135,7 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				39E9EE8210D861DFD82346C1F5EB7218 /* Frameworks */,
-				E32F0C192CB410C9E40C36EA1DD6F9AE /* Pods */,
-				F436D07D8D3FD8E40701E7D6F35E54CD /* Products */,
+				03ADBC80022A99F55B5E57093C2C9A4C /* Products */,
 				0A5CB3B537E5F395ED9679780B1DE8C4 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -195,25 +158,6 @@
 			path = "Target Support Files/Pods-SleepWithMe";
 			sourceTree = "<group>";
 		};
-		CBB20854D5FE17726442DFA063957142 /* SYFlatButton */ = {
-			isa = PBXGroup;
-			children = (
-				849B010E8DF4A40A15490CF8BF09DAA2 /* SYFlatButton.h */,
-				5282533216BC3A15A3FE03EC5DEEF62E /* SYFlatButton.m */,
-				FB75D15343460DDA05C7B3581CD9349D /* Support Files */,
-			);
-			name = SYFlatButton;
-			path = SYFlatButton;
-			sourceTree = "<group>";
-		};
-		E32F0C192CB410C9E40C36EA1DD6F9AE /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				CBB20854D5FE17726442DFA063957142 /* SYFlatButton */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		EF69CB08B123DC24FEB97321B47AAEA0 /* Pods-SleepWithMeTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,17 +176,6 @@
 			path = "Target Support Files/Pods-SleepWithMeTests";
 			sourceTree = "<group>";
 		};
-		F436D07D8D3FD8E40701E7D6F35E54CD /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				DF85C5065874B0E6446441C9A4B6234D /* Pods_SleepWithMe.framework */,
-				D788A7CC510589E7137598FED9D76DB4 /* Pods_SleepWithMeTests.framework */,
-				2DCE5B4D38C487693CA163D9AC6D7E44 /* Pods_SleepWithMeUITests.framework */,
-				C441B67E97ED9CDF95E6E036893C68EA /* SYFlatButton.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		FA7AC8429882A95AA0810A9DCDED54FF /* OS X */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,128 +184,85 @@
 			name = "OS X";
 			sourceTree = "<group>";
 		};
-		FB75D15343460DDA05C7B3581CD9349D /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				98816C477FF84FA621CEC071C80ED453 /* Info.plist */,
-				298861F9D828D2F96BE40342B8EF1CFD /* SYFlatButton.modulemap */,
-				69CF4A50F674BBA1ECCCA8D6360FF0FB /* SYFlatButton.xcconfig */,
-				1EC53A1FDBA81A44E93CB4209EA18F3A /* SYFlatButton-dummy.m */,
-				6F4C3738B0F5A363A009C4D1C975B018 /* SYFlatButton-prefix.pch */,
-				E0C3D3E343E907E95F2B2207241C2412 /* SYFlatButton-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SYFlatButton";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		0B52FDAB82ECE29D906FECBCCC1F7A0F /* Headers */ = {
+		38AAD4BFD73390A6FCC29E39E014C9C7 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9E2785A0E260F060BB06A9C6FC142F7 /* Pods-SleepWithMeUITests-umbrella.h in Headers */,
+				70F630697B6FDF4E0E791E9E6532B6FB /* Pods-SleepWithMeTests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		105D17C33CFBAECFA7F5C2A714E2428D /* Headers */ = {
+		BB10A9600F52AA9991EE2ECCC1C2E4FE /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDEF28A486879F2D18E1124DF7FE5B97 /* Pods-SleepWithMeTests-umbrella.h in Headers */,
+				9090E94A931BD8014CB1C6F50592878E /* Pods-SleepWithMeUITests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		99122473FF6906EB1CA88B074270383E /* Headers */ = {
+		E6D85C7E5C003E9AE84D7B9DB22D4045 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A236265F854C596C1153C1B0FE7D27D8 /* SYFlatButton-umbrella.h in Headers */,
-				5A7F7DE99D4E6312D898F97BFECB653C /* SYFlatButton.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D7854755C4A7EC7AB0308AD8A44C071E /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BE50DEFEBE67E677B78AF3DA42C9C64B /* Pods-SleepWithMe-umbrella.h in Headers */,
+				7C9606247A459392B806A75B5153EA62 /* Pods-SleepWithMe-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		0100F0A23D4B78820B3FE2F8A71CC3A6 /* Pods-SleepWithMeUITests */ = {
+		1F1C98BDBA942CF48170E46AB8033257 /* Pods-SleepWithMe */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 15226471E551C4144BB6A7719045E03D /* Build configuration list for PBXNativeTarget "Pods-SleepWithMeUITests" */;
+			buildConfigurationList = 3B7B915C01ED56E82F934F2AE432DEF9 /* Build configuration list for PBXNativeTarget "Pods-SleepWithMe" */;
 			buildPhases = (
-				75B72C1E938DCEA2E587C544F77CE4A9 /* Sources */,
-				6709C1AA1C8D874A7C2FE03DABC146CE /* Frameworks */,
-				0B52FDAB82ECE29D906FECBCCC1F7A0F /* Headers */,
+				254CD009BBD1EE67688C444606EE74E9 /* Sources */,
+				B457AB36DE8229306675295EE9EDC37C /* Frameworks */,
+				E6D85C7E5C003E9AE84D7B9DB22D4045 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DFFBF2E9F12C23552D0DC61A27517D2B /* PBXTargetDependency */,
-			);
-			name = "Pods-SleepWithMeUITests";
-			productName = "Pods-SleepWithMeUITests";
-			productReference = 2DCE5B4D38C487693CA163D9AC6D7E44 /* Pods_SleepWithMeUITests.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		BB7BAC19616B1C2F47E689FEC003B4FF /* Pods-SleepWithMeTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 445CA460868CF1BE7114EF29EFFC9F25 /* Build configuration list for PBXNativeTarget "Pods-SleepWithMeTests" */;
-			buildPhases = (
-				D13AFBFD2734EEF927C6FF6AD4E7BF92 /* Sources */,
-				CF95B3E2F8C884AF7628943FE79FE1BB /* Frameworks */,
-				105D17C33CFBAECFA7F5C2A714E2428D /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				15F64F1D23E88BF54591F7A4C3627CA5 /* PBXTargetDependency */,
-			);
-			name = "Pods-SleepWithMeTests";
-			productName = "Pods-SleepWithMeTests";
-			productReference = D788A7CC510589E7137598FED9D76DB4 /* Pods_SleepWithMeTests.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		BC4706E1D28AA2F8BC43EA23E7EDC554 /* Pods-SleepWithMe */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 99BC16FC9DDE2B0D210907DE242970EB /* Build configuration list for PBXNativeTarget "Pods-SleepWithMe" */;
-			buildPhases = (
-				87BCDA276AE8AA0FA3389735985F7812 /* Sources */,
-				011997CFF70B557F9610DE6184D9A6E6 /* Frameworks */,
-				D7854755C4A7EC7AB0308AD8A44C071E /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5741F74909CA4D2B382EDEB0160F9819 /* PBXTargetDependency */,
 			);
 			name = "Pods-SleepWithMe";
 			productName = "Pods-SleepWithMe";
-			productReference = DF85C5065874B0E6446441C9A4B6234D /* Pods_SleepWithMe.framework */;
+			productReference = 43DA2EF763E661F2CE336D8405387676 /* Pods_SleepWithMe.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		E0F7AC734A500877F5EEDACADF033ABE /* SYFlatButton */ = {
+		D344952DA3D09607CC199ABC5EEE365D /* Pods-SleepWithMeUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1BCB8480CD646D158308AF9490576ECC /* Build configuration list for PBXNativeTarget "SYFlatButton" */;
+			buildConfigurationList = E79A42F9D1927C1294B8DE8674073FD5 /* Build configuration list for PBXNativeTarget "Pods-SleepWithMeUITests" */;
 			buildPhases = (
-				50E8DE029ACACF4AC208D96FAEF4614D /* Sources */,
-				0A80D4E7E4468F61C5D48341FD3DD285 /* Frameworks */,
-				99122473FF6906EB1CA88B074270383E /* Headers */,
+				4FC405F3B24EF71641A6C1E62B70F55B /* Sources */,
+				607C9788BC88852E2A5E5320F77B5FF4 /* Frameworks */,
+				BB10A9600F52AA9991EE2ECCC1C2E4FE /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = SYFlatButton;
-			productName = SYFlatButton;
-			productReference = C441B67E97ED9CDF95E6E036893C68EA /* SYFlatButton.framework */;
+			name = "Pods-SleepWithMeUITests";
+			productName = "Pods-SleepWithMeUITests";
+			productReference = 3528E559F09AE77AA4EC40AEBDD4EE25 /* Pods_SleepWithMeUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F740788D7C14FC1EDE3254C907EE4942 /* Pods-SleepWithMeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1594762337782A6F4F6C71031AFBCE14 /* Build configuration list for PBXNativeTarget "Pods-SleepWithMeTests" */;
+			buildPhases = (
+				C3B18FA07A7B73745144F28F38479D07 /* Sources */,
+				1435CC8A7827531B905539947650ED11 /* Frameworks */,
+				38AAD4BFD73390A6FCC29E39E014C9C7 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-SleepWithMeTests";
+			productName = "Pods-SleepWithMeTests";
+			productReference = 772B9EE8E4000863C51DF2205716426C /* Pods_SleepWithMeTests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -392,79 +282,48 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = F436D07D8D3FD8E40701E7D6F35E54CD /* Products */;
+			productRefGroup = 03ADBC80022A99F55B5E57093C2C9A4C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BC4706E1D28AA2F8BC43EA23E7EDC554 /* Pods-SleepWithMe */,
-				BB7BAC19616B1C2F47E689FEC003B4FF /* Pods-SleepWithMeTests */,
-				0100F0A23D4B78820B3FE2F8A71CC3A6 /* Pods-SleepWithMeUITests */,
-				E0F7AC734A500877F5EEDACADF033ABE /* SYFlatButton */,
+				1F1C98BDBA942CF48170E46AB8033257 /* Pods-SleepWithMe */,
+				F740788D7C14FC1EDE3254C907EE4942 /* Pods-SleepWithMeTests */,
+				D344952DA3D09607CC199ABC5EEE365D /* Pods-SleepWithMeUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		50E8DE029ACACF4AC208D96FAEF4614D /* Sources */ = {
+		254CD009BBD1EE67688C444606EE74E9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D540247093DCB0226AE9109A18F042CB /* SYFlatButton-dummy.m in Sources */,
-				184B1D33F24BFFFD9EC62A7550D0AF9E /* SYFlatButton.m in Sources */,
+				E0D5BA3A5943ACB903110E3D2D12C17E /* Pods-SleepWithMe-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		75B72C1E938DCEA2E587C544F77CE4A9 /* Sources */ = {
+		4FC405F3B24EF71641A6C1E62B70F55B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				550F973B34402290D275CEE9CBFD78AA /* Pods-SleepWithMeUITests-dummy.m in Sources */,
+				83BCBD2A74005A5F201BC93729035342 /* Pods-SleepWithMeUITests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		87BCDA276AE8AA0FA3389735985F7812 /* Sources */ = {
+		C3B18FA07A7B73745144F28F38479D07 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7A98DAAF2B3867AB8EEA1ED166E3057 /* Pods-SleepWithMe-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D13AFBFD2734EEF927C6FF6AD4E7BF92 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				62B1D13C948F961D8CF222BC76AAFDAA /* Pods-SleepWithMeTests-dummy.m in Sources */,
+				96A86742889A6B66F8A964D4CF0FA58A /* Pods-SleepWithMeTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		15F64F1D23E88BF54591F7A4C3627CA5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SYFlatButton;
-			target = E0F7AC734A500877F5EEDACADF033ABE /* SYFlatButton */;
-			targetProxy = C23CF4E915BDBF786F2DEBF6E2FEA68B /* PBXContainerItemProxy */;
-		};
-		5741F74909CA4D2B382EDEB0160F9819 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SYFlatButton;
-			target = E0F7AC734A500877F5EEDACADF033ABE /* SYFlatButton */;
-			targetProxy = C951021EBF0885FED056E5D4F7D1E5F4 /* PBXContainerItemProxy */;
-		};
-		DFFBF2E9F12C23552D0DC61A27517D2B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SYFlatButton;
-			target = E0F7AC734A500877F5EEDACADF033ABE /* SYFlatButton */;
-			targetProxy = E658398D1894E8894A3B3B6FDEB7799B /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		0EB33FD5FB5E4C24D24C57C00641B9C3 /* Debug */ = {
+		1F65E44267785CD51F071793C18A7C5E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 69CF4A50F674BBA1ECCCA8D6360FF0FB /* SYFlatButton.xcconfig */;
+			baseConfigurationReference = 780A8D7563F05671F0B4279045A3A6BF /* Pods-SleepWithMeUITests.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -478,57 +337,25 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				GCC_PREFIX_HEADER = "Target Support Files/SYFlatButton/SYFlatButton-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SYFlatButton/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MODULEMAP_FILE = "Target Support Files/SYFlatButton/SYFlatButton.modulemap";
-				PRODUCT_NAME = SYFlatButton;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		3A67E72CB3C2F8D69241DFF140026050 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64D8538E0728965AFD0FA7F6292C20DF /* Pods-SleepWithMe.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "Target Support Files/Pods-SleepWithMe/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-SleepWithMeUITests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MODULEMAP_FILE = "Target Support Files/Pods-SleepWithMe/Pods-SleepWithMe.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-SleepWithMeUITests/Pods-SleepWithMeUITests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_SleepWithMe;
+				PRODUCT_NAME = Pods_SleepWithMeUITests;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
-		4BB40C6C8377B83B06A98B029DB967D9 /* Release */ = {
+		317B9A38B1704AD6983965F91296DC4C /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8417F3074E2E3B4098EC864F50D7FCD7 /* Pods-SleepWithMeTests.release.xcconfig */;
 			buildSettings = {
@@ -561,40 +388,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		5A40419CA77045F3FF1BFC5E3A524B07 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3D90755A1243AE13394C2960B065BC89 /* Pods-SleepWithMeUITests.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "Target Support Files/Pods-SleepWithMeUITests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MODULEMAP_FILE = "Target Support Files/Pods-SleepWithMeUITests/Pods-SleepWithMeUITests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_SleepWithMeUITests;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 		7776E8668CCA96B6A01D370004E6DE01 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -659,9 +452,9 @@
 			};
 			name = Debug;
 		};
-		82216F9DE9A340D1E3BAEA6A14FD8F92 /* Release */ = {
+		78A48EDBA3E802EA2CE544655205E90F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 780A8D7563F05671F0B4279045A3A6BF /* Pods-SleepWithMeUITests.release.xcconfig */;
+			baseConfigurationReference = AAF8C2A6DB6F03D7AEAE19E2CDEB02C0 /* Pods-SleepWithMe.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -675,17 +468,17 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "Target Support Files/Pods-SleepWithMeUITests/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-SleepWithMe/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MODULEMAP_FILE = "Target Support Files/Pods-SleepWithMeUITests/Pods-SleepWithMeUITests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-SleepWithMe/Pods-SleepWithMe.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_SleepWithMeUITests;
+				PRODUCT_NAME = Pods_SleepWithMe;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -751,9 +544,9 @@
 			};
 			name = Release;
 		};
-		89E8E2CD1954DCD4DB997B1FD4F7B28F /* Release */ = {
+		9189649728B82545AD2573C3E9E9A97F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AAF8C2A6DB6F03D7AEAE19E2CDEB02C0 /* Pods-SleepWithMe.release.xcconfig */;
+			baseConfigurationReference = 3D90755A1243AE13394C2960B065BC89 /* Pods-SleepWithMeUITests.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -767,57 +560,25 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "Target Support Files/Pods-SleepWithMe/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-SleepWithMeUITests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MODULEMAP_FILE = "Target Support Files/Pods-SleepWithMe/Pods-SleepWithMe.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-SleepWithMeUITests/Pods-SleepWithMeUITests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_SleepWithMe;
+				PRODUCT_NAME = Pods_SleepWithMeUITests;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
-		9E7E791E4A0818062E605E529B6CC561 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 69CF4A50F674BBA1ECCCA8D6360FF0FB /* SYFlatButton.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				GCC_PREFIX_HEADER = "Target Support Files/SYFlatButton/SYFlatButton-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SYFlatButton/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MODULEMAP_FILE = "Target Support Files/SYFlatButton/SYFlatButton.modulemap";
-				PRODUCT_NAME = SYFlatButton;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		EB5AD1324335EFB4BD854B7878E6F3EF /* Debug */ = {
+		A53E61C60DF96F5910B69B4B65CE3D3B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA6868C4DBAD82517D78225202103813 /* Pods-SleepWithMeTests.debug.xcconfig */;
 			buildSettings = {
@@ -851,23 +612,48 @@
 			};
 			name = Debug;
 		};
+		F10EF297588BBF4B199DE1422A7707B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64D8538E0728965AFD0FA7F6292C20DF /* Pods-SleepWithMe.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "Target Support Files/Pods-SleepWithMe/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MODULEMAP_FILE = "Target Support Files/Pods-SleepWithMe/Pods-SleepWithMe.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_SleepWithMe;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		15226471E551C4144BB6A7719045E03D /* Build configuration list for PBXNativeTarget "Pods-SleepWithMeUITests" */ = {
+		1594762337782A6F4F6C71031AFBCE14 /* Build configuration list for PBXNativeTarget "Pods-SleepWithMeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5A40419CA77045F3FF1BFC5E3A524B07 /* Debug */,
-				82216F9DE9A340D1E3BAEA6A14FD8F92 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1BCB8480CD646D158308AF9490576ECC /* Build configuration list for PBXNativeTarget "SYFlatButton" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0EB33FD5FB5E4C24D24C57C00641B9C3 /* Debug */,
-				9E7E791E4A0818062E605E529B6CC561 /* Release */,
+				A53E61C60DF96F5910B69B4B65CE3D3B /* Debug */,
+				317B9A38B1704AD6983965F91296DC4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -881,20 +667,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		445CA460868CF1BE7114EF29EFFC9F25 /* Build configuration list for PBXNativeTarget "Pods-SleepWithMeTests" */ = {
+		3B7B915C01ED56E82F934F2AE432DEF9 /* Build configuration list for PBXNativeTarget "Pods-SleepWithMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EB5AD1324335EFB4BD854B7878E6F3EF /* Debug */,
-				4BB40C6C8377B83B06A98B029DB967D9 /* Release */,
+				F10EF297588BBF4B199DE1422A7707B9 /* Debug */,
+				78A48EDBA3E802EA2CE544655205E90F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		99BC16FC9DDE2B0D210907DE242970EB /* Build configuration list for PBXNativeTarget "Pods-SleepWithMe" */ = {
+		E79A42F9D1927C1294B8DE8674073FD5 /* Build configuration list for PBXNativeTarget "Pods-SleepWithMeUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3A67E72CB3C2F8D69241DFF140026050 /* Debug */,
-				89E8E2CD1954DCD4DB997B1FD4F7B28F /* Release */,
+				9189649728B82545AD2573C3E9E9A97F /* Debug */,
+				1F65E44267785CD51F071793C18A7C5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
