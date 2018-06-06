@@ -9,7 +9,7 @@
 import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate {
 
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     let popover = NSPopover()
@@ -20,6 +20,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        
+        NSUserNotificationCenter.default.delegate = self
         
         PutMeToSleep.load()
         
@@ -71,8 +73,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     public func setMenuBarTitle(_ title: String) {
         textField.stringValue = title
         textField.sizeToFit()
-        statusItem.length = imageView.frame.width + textField.frame.width
-        imageView.frame.origin.x = textField.frame.width
+        if title == "" {
+            statusItem.length = 40
+            imageView.frame.origin.x = (imageView.frame.width - statusItem.length)/2
+        } else if (imageView.frame.width + textField.frame.width) <= 65 {
+            statusItem.length = 65
+            let tLen = textField.frame.width + imageView.frame.width
+            textField.frame.origin.x = (statusItem.length - tLen) / 2
+            imageView.frame.origin.x = textField.frame.origin.x + textField.frame.width
+        } else if (imageView.frame.width + textField.frame.width) <= 70 {
+            statusItem.length = 70
+            let tLen = textField.frame.width + imageView.frame.width
+            textField.frame.origin.x = (statusItem.length - tLen) / 2
+            imageView.frame.origin.x = textField.frame.origin.x + textField.frame.width
+        } else {
+            let tLen = textField.frame.width + imageView.frame.width
+            statusItem.length = tLen
+            textField.frame.origin.x = (statusItem.length - tLen) / 2
+            imageView.frame.origin.x = textField.frame.origin.x + textField.frame.width
+        }
     }
     
     @objc private func togglePopover(_ sender: Any) {
@@ -84,8 +103,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     private func showPopover(_ sender: Any?) {
-        if statusItem.button != nil {
-            popover.show(relativeTo: NSRect(origin: CGPoint(x: statusItem.length, y: 0), size: CGSize.zero), of: imageView, preferredEdge: NSRectEdge.maxY)
+        if let button = statusItem.button {
+            popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
             eventMonitor?.start()
         }
     }
@@ -93,5 +112,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private func closePopover(_ sender: Any?) {
         popover.performClose(sender)
         eventMonitor?.stop()
+    }
+    
+    func userNotificationCenter(_ center: NSUserNotificationCenter, didActivate notification: NSUserNotification) {
+        if notification.activationType == .actionButtonClicked {
+            (popover.contentViewController as? ViewController)?.stopTimer()
+        } else if notification.activationType == .contentsClicked {
+            showPopover(notification)
+        }
     }
 }

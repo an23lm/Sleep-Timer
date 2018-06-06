@@ -29,6 +29,11 @@ class ViewController: NSViewController {
             timerLabel.stringValue = String(currentMinutes)
             if isTimerRunning {
                 (NSApplication.shared.delegate as! AppDelegate).setMenuBarTitle(String(currentMinutes))
+                if !isRestartingTimer {
+                    if currentMinutes == 5 {
+                        sendNotification()
+                    }
+                }
             } else {
                 (NSApplication.shared.delegate as! AppDelegate).setMenuBarTitle("")
             }
@@ -37,7 +42,6 @@ class ViewController: NSViewController {
     
     private var isTimerRunning: Bool = false
     private var isRestartingTimer: Bool = false
-    
     private var stepSize: CGFloat = 0
     
     override func viewDidLoad() {
@@ -124,7 +128,8 @@ class ViewController: NSViewController {
         if timer == nil {
             self.setStopTimerButton()
             self.stepSize = 1.0/CGFloat(self.currentMinutes)
-            timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { (timer) in
+            (NSApplication.shared.delegate as! AppDelegate).setMenuBarTitle(String(currentMinutes))
+            timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { (timer) in
                 self.currentMinutes -= 1
                 if !self.isRestartingTimer {
                     self.timerView.animateForegroundArc(toPosition: CGFloat(self.currentMinutes) * self.stepSize, duration: 1.0)
@@ -135,6 +140,7 @@ class ViewController: NSViewController {
                 if self.currentMinutes == 0 {
                     print("Timer done")
                     timer.invalidate()
+                    (NSApplication.shared.delegate as! AppDelegate).setMenuBarTitle("")
                     self.timer = nil
                     self.setStartTimerButton()
                     self.sush()
@@ -144,11 +150,27 @@ class ViewController: NSViewController {
                 self.timerView.animateForegroundArc(duration: 1.0)
             }
         } else {
-            (NSApplication.shared.delegate as! AppDelegate).setMenuBarTitle("")
-            setStartTimerButton()
-            timer?.invalidate()
-            timer = nil
+            stopTimer()
         }
+    }
+    
+    func stopTimer() {
+        (NSApplication.shared.delegate as! AppDelegate).setMenuBarTitle("")
+        setStartTimerButton()
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    func sendNotification() {
+        let notif = NSUserNotification()
+        notif.title = "\(currentMinutes) mins to zzz"
+        notif.informativeText = "SleepWithMe will put your Mac to sleep with you in \(currentMinutes) mins."
+        notif.soundName = nil
+        notif.hasActionButton = true
+        notif.actionButtonTitle = "Stop Timer"
+        
+        let center = NSUserNotificationCenter.default
+        center.deliver(notif)
     }
     
     func restartTimer() {
@@ -164,4 +186,3 @@ class ViewController: NSViewController {
         putMeToSleep.sush()
     }
 }
-
