@@ -133,12 +133,8 @@ class ViewController: NSViewController {
                 self.currentMinutes -= 1
                 if !self.isRestartingTimer {
                     self.timerView.animateForegroundArc(toPosition: CGFloat(self.currentMinutes) * self.stepSize, duration: 1.0)
-                    print(CGFloat(self.currentMinutes))
-                    print(self.stepSize)
-                    print(CGFloat(self.currentMinutes) * self.stepSize)
                 }
                 if self.currentMinutes == 0 {
-                    print("Timer done")
                     timer.invalidate()
                     (NSApplication.shared.delegate as! AppDelegate).setMenuBarTitle("")
                     self.timer = nil

@@ -14,13 +14,12 @@ class PutMeToSleep {
         Bundle.main.loadAppleScriptObjectiveCScripts()
     }
     static func getObject() -> AnyObject {
-        let scriptPath = Bundle.main.bundleURL.appendingPathComponent("Resources", isDirectory: true).appendingPathComponent("PutMeToSleep.applescript").absoluteString
-        print(scriptPath)
-        
+    
         guard let scriptObj = NSClassFromString("PutMeToSleep") else {
             assertionFailure()
             fatalError()
         }
+        
         let obj = scriptObj.alloc()
         return obj as AnyObject
     }
