@@ -74,7 +74,7 @@ class ViewController: NSViewController {
         closeButton.style = .close
         closeButton.wantsLayer = true
         closeButton.isBordered = false
-        closeButton.layer?.backgroundColor = NSColor(displayP3Red: 213/256.0, green: 0/256.0, blue: 0/256.0, alpha: 1).cgColor //rgb(213,0,0)
+        closeButton.layer?.backgroundColor = NSColor(displayP3Red: 237/256.0, green: 108/256.0, blue: 97/256.0, alpha: 1).cgColor 
         closeButton.layer?.cornerRadius = 10
     }
     
