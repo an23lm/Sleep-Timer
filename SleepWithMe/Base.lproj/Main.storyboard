@@ -101,8 +101,8 @@
                                 <rect key="frame" x="50" y="138" width="160" height="160"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="th6-g0-XwF">
-                                        <rect key="frame" x="60" y="40" width="40" height="86"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="5" id="Ltr-da-xN9">
+                                        <rect key="frame" x="58" y="40" width="44" height="86"/>
+                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="5" id="Ltr-da-xN9">
                                             <font key="font" size="60" name="SFProDisplay-Medium"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -133,7 +133,7 @@
                                     <constraint firstAttribute="height" constant="50" id="o8y-fb-ip2"/>
                                 </constraints>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wrq-HB-jgv">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES" accelerator="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
@@ -147,7 +147,7 @@
                                     <constraint firstAttribute="width" constant="50" id="mvQ-TS-uyy"/>
                                 </constraints>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="829-Pj-eX5">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES" accelerator="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
