@@ -61,7 +61,11 @@ class NSTimerView: NSView {
         fgArc = CAShapeLayer()
         fgArc.path = bgArcPath.cgPath
         fgArc.fillColor = CGColor.clear
-        fgArc.strokeColor = NSColor(displayP3Red: 238/256.0, green: 96/256.0, blue: 2/256.0, alpha: 1.0).cgColor
+        if #available(OSX 10.12, *) {
+            fgArc.strokeColor = NSColor(displayP3Red: 238/256.0, green: 96/256.0, blue: 2/256.0, alpha: 1.0).cgColor
+        } else {
+            fgArc.strokeColor = NSColor(deviceRed: 238/256.0, green: 96/256.0, blue: 2/256.0, alpha: 1.0).cgColor
+        }
         fgArc.lineWidth = 5.0
         fgArc.strokeStart = 0
         fgArc.strokeEnd = 0

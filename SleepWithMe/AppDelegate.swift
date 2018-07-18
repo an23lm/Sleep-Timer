@@ -63,9 +63,18 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
                 strongSelf.closePopover(event)
             }
         }
-        
     }
 
+    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+        if flag {
+            return false
+        }
+        let mainWC = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
+            .instantiateInitialController() as! NSWindowController
+        mainWC.showWindow(self)
+        return true
+    }
+    
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
@@ -94,7 +103,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         }
     }
     
-    @objc private func togglePopover(_ sender: Any) {
+    @objc internal func togglePopover(_ sender: Any) {
         if popover.isShown {
             closePopover(sender)
         } else {
@@ -102,14 +111,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         }
     }
     
-    private func showPopover(_ sender: Any?) {
+    internal func showPopover(_ sender: Any?) {
         if let button = statusItem.button {
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
             eventMonitor?.start()
         }
     }
     
-    private func closePopover(_ sender: Any?) {
+    internal func closePopover(_ sender: Any?) {
         popover.performClose(sender)
         eventMonitor?.stop()
     }

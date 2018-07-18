@@ -67,7 +67,11 @@ class NSTimerButton: NSButton {
             quitTitle.isBordered = false
             quitTitle.isEditable = false
             quitTitle.isSelectable = false
-            quitTitle.backgroundColor = NSColor(displayP3Red: 237/256.0, green: 108/256.0, blue: 97/256.0, alpha: 1)
+            if #available(OSX 10.12, *) {
+                quitTitle.backgroundColor = NSColor(displayP3Red: 237/256.0, green: 108/256.0, blue: 97/256.0, alpha: 1)
+            } else {
+                quitTitle.backgroundColor = NSColor(deviceRed: 237/256.0, green: 108/256.0, blue: 97/256.0, alpha: 1)
+            }
             quitTitle.sizeToFit()
             quitTitle.frame.origin.y = (dirtyRect.height - quitTitle.frame.height) / 2
             addSubview(quitTitle)
