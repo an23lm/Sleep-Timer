@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="ShX-Vd-0Pg">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
@@ -72,8 +72,8 @@
         <!--Window Controller-->
         <scene sceneID="IGU-uX-pJ0">
             <objects>
-                <windowController showSeguePresentationStyle="single" id="ShX-Vd-0Pg" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" tabbingMode="disallowed" titlebarAppearsTransparent="YES" id="zmb-1a-Tpp">
+                <windowController storyboardIdentifier="MainWindowController" showSeguePresentationStyle="single" id="ShX-Vd-0Pg" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" tabbingMode="disallowed" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="zmb-1a-Tpp">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowCollectionBehavior key="collectionBehavior" fullScreenNone="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -94,7 +94,7 @@
         <!--ViewController-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController title="ViewController" identifier="ViewController" storyboardIdentifier="ViewController" id="XfG-lQ-9wD" customClass="ViewController" customModule="SleepWithMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="ViewController" identifier="ViewController" storyboardIdentifier="ViewController" showSeguePresentationStyle="single" id="XfG-lQ-9wD" customClass="ViewController" customModule="SleepWithMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="260" height="336"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -174,7 +174,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="activateTimer:" target="XfG-lQ-9wD" id="8re-zv-w6D"/>
+                                    <action selector="timerToggleButton:" target="XfG-lQ-9wD" id="dpT-Ze-cbA"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6Gm-XB-Rtb" customClass="NSTimerButton" customModule="SleepWithMe" customModuleProvider="target">
@@ -237,6 +237,7 @@
                         <outlet property="timerLabel" destination="th6-g0-XwF" id="h0R-rq-DtX"/>
                         <outlet property="timerView" destination="Hw2-Jj-ZsP" id="ZRq-1H-XKc"/>
                         <outlet property="titleLabel" destination="0UV-Nz-8vF" id="5p4-X3-eVH"/>
+                        <segue destination="IuC-9I-mYl" kind="show" identifier="ShowPreferences" id="ltN-sa-zXF"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

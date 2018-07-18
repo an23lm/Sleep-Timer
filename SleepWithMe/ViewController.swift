@@ -23,31 +23,26 @@ class ViewController: NSViewController {
     @IBOutlet weak var closeButton: NSTimerButton!
     @IBOutlet weak var preferencesButton: NSButton!
     
-    private var timer: Timer? = nil
-    
-    private var currentMinutes: Int = 0 {
-        didSet {
-            timerLabel.stringValue = String(currentMinutes)
-            if isTimerRunning {
-                (NSApplication.shared.delegate as! AppDelegate).setMenuBarTitle(String(currentMinutes))
-                if !isRestartingTimer {
-                    if currentMinutes == 5 {
-                        sendNotification()
-                    }
-                }
-            } else {
-                (NSApplication.shared.delegate as! AppDelegate).setMenuBarTitle("")
-            }
-        }
+    private var currentMinutes: Int {
+       return SleepTimer.shared.currentMinutes
     }
     
-    private var isTimerRunning: Bool = false
-    private var isRestartingTimer: Bool = false
-    private var stepSize: CGFloat = 0
+    private var isTimerRunning: Bool {
+        return SleepTimer.shared.isTimerRunning
+    }
+
+    private var stepSize: CGFloat {
+        return SleepTimer.shared.stepSize
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setup()
+        
+        SleepTimer.shared.onTimeRemainingChange(onTimeRemainingChange)
+        SleepTimer.shared.onTimerActivated(onTimerActivated)
+        SleepTimer.shared.onTimerInvalidated(onTimerInvalidated)
     }
     
     private func setup() {
@@ -101,50 +96,46 @@ class ViewController: NSViewController {
         timerView.animateForegroundArc(toPosition: CGFloat(self.currentMinutes) * self.stepSize, fromPosition: 0, duration: 1.0)
     }
     
+    //MARK: - Callback closures
+    lazy var onTimeRemainingChange: SleepTimer.onTimeRemainingCallback = {[weak self] (minutes) in
+        self?.timerLabel.stringValue = String(minutes)
+        self?.timerView.moveForegorundArc(toPosition: CGFloat(minutes) * SleepTimer.shared.stepSize)
+    }
+    
+    lazy var onTimerActivated: SleepTimer.onTimerActivatedCallback = {[weak self] in
+        self?.setStopTimerButton()
+    }
+    
+    lazy var onTimerInvalidated: SleepTimer.onTimerInvalidatedCallback = {[weak self] (_) in
+        self?.setStartTimerButton()
+    }
+    
+    //MARK: - Actions
     @IBAction func exit(_ sender: Any) {
         NSApplication.shared.terminate(self)
     }
     
     @IBAction func onClickPreferencesButton(_ sender: Any) {
         (NSApplication.shared.delegate as! AppDelegate).closePopover(sender)
-        let storyboard = NSStoryboard.init(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
+        /* let storyboard = NSStoryboard.init(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
         let prefWindowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "PreferencesController")) as! NSWindowController
-        prefWindowController.showWindow(self)
+        prefWindowController.showWindow(self) */
+        performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "ShowPreferences"), sender: self)
     }
     
     @IBAction func decreaseTimer(_ sender: Any) {
-        if currentMinutes > 1 {
-            currentMinutes -= 1
-        }
+        SleepTimer.shared.decreaseTime()
     }
     
     @IBAction func increaseTimer(_ sender: Any) {
-        currentMinutes += 1
-        if !isRestartingTimer {
-            isRestartingTimer = true
-            timerView.animateForegroundArc(duration: 1.0)
-            if #available(OSX 10.12, *) {
-                Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { (timer) in
-                    self.isRestartingTimer = false
-                    if self.isTimerRunning {
-                        self.restartTimer()
-                    }
-                }
-            } else {
-                Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(increaseTimerScheduledTimer(_:)), userInfo: nil, repeats: false)
-            }
-        }
+        SleepTimer.shared.increaseTime()
     }
     
-    @objc func increaseTimerScheduledTimer(_ timer: Any) {
-        self.isRestartingTimer = false
-        if self.isTimerRunning {
-            self.restartTimer()
-        }
+    @IBAction func timerToggleButton(_ sender: Any) {
+        SleepTimer.shared.toggleTimer()
     }
     
     private func setStopTimerButton() {
-        isTimerRunning = true
         let pstyle = NSMutableParagraphStyle()
         pstyle.alignment = .center
         self.activationButton.attributedTitle = NSAttributedString(string: "Stop Timer", attributes: [NSAttributedStringKey.foregroundColor: NSColor.white, NSAttributedStringKey.paragraphStyle: pstyle, NSAttributedStringKey.font: NSFont.systemFont(ofSize: 20, weight: .light)])
@@ -156,7 +147,6 @@ class ViewController: NSViewController {
     }
     
     private func setStartTimerButton() {
-        isTimerRunning = false
         let pstyle = NSMutableParagraphStyle()
         pstyle.alignment = .center
         self.activationButton.attributedTitle = NSAttributedString(string: "Start Timer", attributes: [NSAttributedStringKey.foregroundColor: NSColor.white, NSAttributedStringKey.paragraphStyle: pstyle, NSAttributedStringKey.font: NSFont.systemFont(ofSize: 20, weight: .regular)])
@@ -165,81 +155,5 @@ class ViewController: NSViewController {
         } else {
             self.activationButton.layer?.backgroundColor = NSColor(deviceRed: 83/256.0, green: 0/256.0, blue: 232/256.0, alpha: 1.0).cgColor
         }
-    }
-    
-    @IBAction func activateTimer(_ sender: Any) {
-        if timer == nil {
-            self.setStopTimerButton()
-            self.stepSize = 1.0/CGFloat(self.currentMinutes)
-            (NSApplication.shared.delegate as! AppDelegate).setMenuBarTitle(String(currentMinutes))
-            if #available(OSX 10.12, *) {
-                timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { (timer) in
-                    self.currentMinutes -= 1
-                    if !self.isRestartingTimer {
-                        self.timerView.animateForegroundArc(toPosition: CGFloat(self.currentMinutes) * self.stepSize, duration: 1.0)
-                    }
-                    if self.currentMinutes == 0 {
-                        timer.invalidate()
-                        (NSApplication.shared.delegate as! AppDelegate).setMenuBarTitle("")
-                        self.timer = nil
-                        self.setStartTimerButton()
-                        self.sush()
-                    }
-                }
-            } else {
-                timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(activateTimerScheduledTimer(_:)), userInfo: nil, repeats: true)
-            }
-            if !self.isRestartingTimer {
-                self.timerView.animateForegroundArc(duration: 1.0)
-            }
-        } else {
-            stopTimer()
-        }
-    }
-    
-    @objc func activateTimerScheduledTimer(_ timer: Timer) {
-        self.currentMinutes -= 1
-        if !self.isRestartingTimer {
-            self.timerView.animateForegroundArc(toPosition: CGFloat(self.currentMinutes) * self.stepSize, duration: 1.0)
-        }
-        if self.currentMinutes == 0 {
-            timer.invalidate()
-            (NSApplication.shared.delegate as! AppDelegate).setMenuBarTitle("")
-            self.timer = nil
-            self.setStartTimerButton()
-            self.sush()
-        }
-    }
-    
-    func stopTimer() {
-        (NSApplication.shared.delegate as! AppDelegate).setMenuBarTitle("")
-        setStartTimerButton()
-        timer?.invalidate()
-        timer = nil
-    }
-    
-    func sendNotification() {
-        let notif = NSUserNotification()
-        notif.title = "\(currentMinutes) mins to zzz"
-        notif.informativeText = "SleepWithMe will put your Mac to sleep with you in \(currentMinutes) mins."
-        notif.soundName = nil
-        notif.hasActionButton = true
-        notif.actionButtonTitle = "Stop Timer"
-        
-        let center = NSUserNotificationCenter.default
-        center.deliver(notif)
-    }
-    
-    func restartTimer() {
-        timer?.invalidate()
-        timer = nil
-        if !isRestartingTimer {
-            activateTimer(self)
-        }
-    }
-    
-    func sush() {
-        let putMeToSleep = PutMeToSleep.getObject() as! AppleScriptProtocol
-        putMeToSleep.sush()
     }
 }

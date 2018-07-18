@@ -99,6 +99,11 @@ class NSTimerView: NSView {
         fgArc.add(animation, forKey: "animateFgArc")
     }
     
+    func moveForegorundArc(toPosition: CGFloat) {
+        fgArc.strokeEnd = toPosition
+        fgArcStokeEnd = toPosition
+    }
+    
     func animateForegroundArc(toPosition: CGFloat, fromPosition: CGFloat, duration: TimeInterval) {
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.duration = duration
