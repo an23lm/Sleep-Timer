@@ -10,6 +10,8 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    var isPopover: Bool = false
+    
     @IBOutlet weak var titleLabel: NSTextField!
     @IBOutlet weak var timerView: NSTimerView!
     @IBOutlet weak var timerLabel: NSTextField!
@@ -37,12 +39,15 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setup()
-        
         SleepTimer.shared.onTimeRemainingChange(onTimeRemainingChange)
         SleepTimer.shared.onTimerActivated(onTimerActivated)
         SleepTimer.shared.onTimerInvalidated(onTimerInvalidated)
+    }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        self.view.window?.isMovableByWindowBackground = true
     }
     
     private func setup() {
@@ -88,6 +93,11 @@ class ViewController: NSViewController {
         preferencesButton.wantsLayer = true
         preferencesButton.isBordered = false
         preferencesButton.layer?.backgroundColor = NSColor(calibratedWhite: 1, alpha: 0).cgColor
+        
+        if !isPopover {
+            closeButton.isHidden = true
+            preferencesButton.isHidden = true
+        }
     }
     
     override func viewDidAppear() {
@@ -117,9 +127,6 @@ class ViewController: NSViewController {
     
     @IBAction func onClickPreferencesButton(_ sender: Any) {
         (NSApplication.shared.delegate as! AppDelegate).closePopover(sender)
-        /* let storyboard = NSStoryboard.init(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
-        let prefWindowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "PreferencesController")) as! NSWindowController
-        prefWindowController.showWindow(self) */
         performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "ShowPreferences"), sender: self)
     }
     

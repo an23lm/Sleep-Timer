@@ -24,7 +24,11 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
+                                            <connections>
+                                                <segue destination="IuC-9I-mYl" kind="show" id="lE5-h5-zTW"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem title="Services" id="NMo-om-nkz">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -89,7 +93,7 @@
                 </windowController>
                 <customObject id="yvt-1c-XLU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="99" y="258"/>
+            <point key="canvasLocation" x="-191" y="261"/>
         </scene>
         <!--ViewController-->
         <scene sceneID="hIz-AP-VOD">
@@ -413,4 +417,7 @@
     <resources>
         <image name="SettingsIconTemplate" width="75" height="75"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="lE5-h5-zTW"/>
+    </inferredMetricsTieBreakers>
 </document>

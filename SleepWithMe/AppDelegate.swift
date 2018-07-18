@@ -176,6 +176,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             assertionFailure()
             return
         }
+        vc.isPopover = true
         popover.contentViewController = vc
         
         eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [weak self] event in
