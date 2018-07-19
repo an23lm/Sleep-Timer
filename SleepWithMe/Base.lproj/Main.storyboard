@@ -269,16 +269,16 @@
             </objects>
             <point key="canvasLocation" x="682" y="784"/>
         </scene>
-        <!--View Controller-->
+        <!--Preferences View Controller-->
         <scene sceneID="iH9-YF-eLf">
             <objects>
-                <viewController showSeguePresentationStyle="single" id="wSh-KX-gF6" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PreferencesViewController" showSeguePresentationStyle="single" id="wSh-KX-gF6" customClass="PreferencesViewController" customModule="SleepWithMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Sy4-kX-3J8">
-                        <rect key="frame" x="0.0" y="0.0" width="467" height="350"/>
+                        <rect key="frame" x="0.0" y="0.0" width="467" height="376"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Adr-gC-unM">
-                                <rect key="frame" x="6" y="258" width="463" height="84"/>
+                                <rect key="frame" x="6" y="284" width="463" height="84"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="459" id="fCB-iJ-d77"/>
                                 </constraints>
@@ -289,7 +289,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="u9b-Lz-IBr">
-                                <rect key="frame" x="18" y="258" width="431" height="15"/>
+                                <rect key="frame" x="18" y="284" width="431" height="15"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Version 2.0" id="6Gq-0z-QEm">
                                     <font key="font" size="10" name="SFProText-Semibold"/>
                                     <color key="textColor" name="knobColor" catalog="System" colorSpace="catalog"/>
@@ -297,7 +297,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="68i-05-xsc">
-                                <rect key="frame" x="18" y="244" width="431" height="14"/>
+                                <rect key="frame" x="18" y="270" width="431" height="14"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Build 23" id="0M3-0s-mdc">
                                     <font key="font" size="9" name="SFProText-Semibold"/>
                                     <color key="textColor" name="knobColor" catalog="System" colorSpace="catalog"/>
@@ -305,7 +305,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dph-r3-gfF">
-                                <rect key="frame" x="18" y="208" width="431" height="18"/>
+                                <rect key="frame" x="18" y="234" width="431" height="18"/>
                                 <buttonCell key="cell" type="check" title="Show Dock Icon" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="7rR-no-NN9">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="systemMedium" size="13"/>
@@ -357,18 +357,22 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="doneButton:" target="wSh-KX-gF6" id="Vhm-nA-0Kg"/>
+                                </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="va1-3L-u7l">
-                                <rect key="frame" x="18" y="159" width="431" height="13"/>
-                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Puts your Mac to sleep at the set time everyday unless interupted." id="boY-ZC-RfR">
+                                <rect key="frame" x="18" y="159" width="431" height="39"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="boY-ZC-RfR">
                                     <font key="font" metaFont="system" size="10"/>
+                                    <string key="title">Puts your Mac to sleep at the scheduled time everyday unless interupted. You will be notified 30 minutes prior to the scheduled sleep time; the scheduled sleep will be cancelled if there is already exists an active timer.</string>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UuR-t0-zoT">
-                                <rect key="frame" x="18" y="174" width="431" height="18"/>
-                                <buttonCell key="cell" type="check" title="Default Sleep Time" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="clJ-Nz-W4c">
+                                <rect key="frame" x="18" y="200" width="431" height="18"/>
+                                <buttonCell key="cell" type="check" title="Schedule Daily Sleep Time" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="clJ-Nz-W4c">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="systemMedium" size="13"/>
                                 </buttonCell>
@@ -408,16 +412,22 @@
                             <constraint firstItem="Adr-gC-unM" firstAttribute="leading" secondItem="Sy4-kX-3J8" secondAttribute="leading" constant="8" id="xX3-w8-qkR"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="defaultSleepTimerChecker" destination="UuR-t0-zoT" id="KS4-hv-284"/>
+                        <outlet property="defaultSleepTimerPicker" destination="We8-zT-5tU" id="xEM-GF-9SB"/>
+                        <outlet property="defaultTimerTextField" destination="xTu-Xc-ucX" id="LRd-yp-Bhw"/>
+                        <outlet property="showDockChecker" destination="dph-r3-gfF" id="4Dn-xJ-mH8"/>
+                    </connections>
                 </viewController>
                 <customObject id="cXj-Uf-5Iu" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1325" y="777"/>
+            <point key="canvasLocation" x="1324.5" y="777"/>
         </scene>
     </scenes>
     <resources>
         <image name="SettingsIconTemplate" width="75" height="75"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lE5-h5-zTW"/>
+        <segue reference="ltN-sa-zXF"/>
     </inferredMetricsTieBreakers>
 </document>

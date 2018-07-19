@@ -70,6 +70,11 @@ internal class SleepTimer {
         }
     }
     
+    internal func set(minutes: Int) {
+        currentMinutes = minutes
+        stepSize = 1.0/CGFloat(currentMinutes)
+    }
+    
     internal func increaseTime() {
         currentMinutes += 1
         stepSize = 1.0/CGFloat(currentMinutes)
@@ -83,21 +88,22 @@ internal class SleepTimer {
     
     internal func startTimer() {
         if #available(OSX 10.12, *) {
-            timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { (timer) in
+            timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { (timer) in
                 self.timerFired(timer)
             }
         } else {
-            timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(timerFired(_:)), userInfo: nil, repeats: true)
+            timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(timerFired(_:)), userInfo: nil, repeats: true)
         }
         isTimerRunning = true
         notifyTimerActivated()
     }
     
     @objc private func timerFired(_ timer: Timer) {
-        self.currentMinutes -= 1
-        if self.currentMinutes == 0 {
+        if self.currentMinutes <= 0 {
             stopTimer(didComplete: true)
+            return
         }
+        self.currentMinutes -= 1
     }
     
     internal func stopTimer(didComplete: Bool) {

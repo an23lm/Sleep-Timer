@@ -24,10 +24,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     func applicationWillFinishLaunching(_ notification: Notification) {
         self.sleepTimer = SleepTimer()
         SleepTimer.shared = self.sleepTimer
-        
         SleepTimer.shared.onTimeRemainingChange(onTimeRemainingChange)
         SleepTimer.shared.onTimerActivated(onTimerActivated)
         SleepTimer.shared.onTimerInvalidated(onTimerInvalidated)
+        
+        firstLaunch()
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -35,6 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         PutMeToSleep.load()
         setupMenuBarAsset()
         setupPopoverAsset()
+        loadPreferences()
     }
 
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
@@ -183,6 +185,73 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             if let strongSelf = self, strongSelf.popover.isShown {
                 strongSelf.closePopover(event)
             }
+        }
+    }
+    
+    private func firstLaunch() {
+        guard !UserDefaults.standard.bool(forKey: Constants.notFirstLaunch) else {
+            return
+        }
+        UserDefaults.standard.set(true, forKey: Constants.notFirstLaunch)
+        UserDefaults.standard.set(true, forKey: Constants.isDockIconEnabled)
+        UserDefaults.standard.set(false, forKey: Constants.isSleepTimerEnabled)
+        let ti: Double = Date(timeIntervalSince1970: 0).timeIntervalSince1970
+        UserDefaults.standard.set(ti, forKey: Constants.sleepTime)
+        UserDefaults.standard.set(0, forKey: Constants.defaultTimer)
+        UserDefaults.standard.synchronize()
+    }
+    
+    internal func loadPreferences() {
+        if UserDefaults.standard.bool(forKey: Constants.isDockIconEnabled) {
+            NSApplication.shared.setActivationPolicy(.regular)
+        } else {
+            NSApplication.shared.setActivationPolicy(.accessory)
+        }
+        if UserDefaults.standard.bool(forKey: Constants.isSleepTimerEnabled) {
+            let sleepTime = Date(timeIntervalSince1970: UserDefaults.standard.double(forKey: Constants.sleepTime))
+            let components = Calendar.current.dateComponents([.hour, .minute], from: sleepTime)
+            let todayComponents = Calendar.current.dateComponents([.hour, .minute], from: Date())
+            var selectDate = Date()
+            if components.hour! < todayComponents.hour! {
+                selectDate = Calendar.current.date(byAdding: .day, value: 1, to: selectDate)!
+            } else if components.hour! == todayComponents.hour! && components.minute! <= todayComponents.minute! {
+                selectDate = Calendar.current.date(byAdding: .day, value: 1, to: selectDate)!
+            }
+            
+            let date = Calendar.current.date(bySettingHour: components.hour!, minute: components.minute!, second: 0, of: selectDate)!
+
+            let diff = Calendar.current.dateComponents([.hour, .minute], from: selectDate, to: date)
+            
+            if diff.hour! == 0 && diff.minute! <= 30 {
+                self.autoSleep(minutes: diff.minute!)
+            } else {
+                let fDate = Calendar.current.date(byAdding: .minute, value: -30, to: date)!
+                if #available(OSX 10.12, *) {
+                    let timer = Timer(fire: fDate, interval: 86400, repeats: false) { (timer) in
+                        self.autoSleep(minutes: 30)
+                    }
+                    RunLoop.current.add(timer, forMode: .defaultRunLoopMode)
+                } else {
+                    let timer = Timer(fireAt: fDate, interval: 86400, target: self, selector: #selector(autoSleep(_:)), userInfo: nil, repeats: false)
+                    RunLoop.current.add(timer, forMode: .defaultRunLoopMode)
+                }
+            }
+            
+        }
+        if !SleepTimer.shared.isTimerRunning {
+            SleepTimer.shared.set(minutes: UserDefaults.standard.integer(forKey: Constants.defaultTimer))
+        }
+    }
+    
+    @objc func autoSleep(_ sender: Any) {
+        autoSleep(minutes: 30)
+    }
+    
+    func autoSleep(minutes: Int) {
+        if !SleepTimer.shared.isTimerRunning {
+            SleepTimer.shared.set(minutes: minutes)
+            SleepTimer.shared.toggleTimer()
+            sendNotification(withCurrentMinutes: minutes)
         }
     }
 }

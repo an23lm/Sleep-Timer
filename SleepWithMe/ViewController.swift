@@ -48,6 +48,11 @@ class ViewController: NSViewController {
     override func viewWillAppear() {
         super.viewWillAppear()
         self.view.window?.isMovableByWindowBackground = true
+        if SleepTimer.shared.isTimerRunning {
+            setStopTimerButton()
+        } else {
+            setStartTimerButton()
+        }
     }
     
     private func setup() {
