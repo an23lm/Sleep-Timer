@@ -10,6 +10,9 @@ import Cocoa
 
 class PreferencesViewController: NSViewController {
 
+    @IBOutlet weak var versionLabel: NSTextField!
+    @IBOutlet weak var buildLabel: NSTextField!
+    
     @IBOutlet weak var showDockChecker: NSButton!
     @IBOutlet weak var defaultSleepTimerChecker: NSButton!
     @IBOutlet weak var defaultSleepTimerPicker: NSDatePicker!
@@ -22,6 +25,9 @@ class PreferencesViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        versionLabel.stringValue = "Version " + Bundle.main.releaseVersionNumber!
+        buildLabel.stringValue = "Build " + Bundle.main.buildVersionNumber!
         
         isShowDockEnabled = UserDefaults.standard.bool(forKey: Constants.isDockIconEnabled)
         isSleepTimerEnabled = UserDefaults.standard.bool(forKey: Constants.isSleepTimerEnabled)
@@ -71,5 +77,14 @@ class PreferencesViewController: NSViewController {
         default:
             return false
         }
+    }
+}
+
+extension Bundle {
+    var releaseVersionNumber: String? {
+        return infoDictionary?["CFBundleShortVersionString"] as? String
+    }
+    var buildVersionNumber: String? {
+        return infoDictionary?["CFBundleVersion"] as? String
     }
 }
