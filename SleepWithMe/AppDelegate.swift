@@ -12,13 +12,17 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate {
 
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-    let popover = NSPopover()
+    var popover: NSPopover! = nil
     var eventMonitor: EventMonitor?
     
     let textField = NSTextField()
     let imageView = NSImageView()
     
     private(set) var sleepTimer: SleepTimer! = nil
+    private var scheduledSleepTimer: Timer? = nil
+    private var defaultTimer: Int = 0
+    
+    private var preferences: (isDockEnabled: Bool, isScheduledSleepTimerEnabled: Bool, scheduledSleepTime: Date, defaultTimer: Int)! = (true, false, Date(timeIntervalSince1970: 0), 0)
     
     //MARK: - Life cycle methods
     func applicationWillFinishLaunching(_ notification: Notification) {
@@ -34,8 +38,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         NSUserNotificationCenter.default.delegate = self
         PutMeToSleep.load()
-        setupMenuBarAsset()
         setupPopoverAsset()
+        setupMenuBarAsset()
         loadPreferences()
     }
 
@@ -76,6 +80,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     
     lazy var onTimerInvalidated: SleepTimer.onTimerInvalidatedCallback = {[weak self] (didComplete) in
         if didComplete {
+            SleepTimer.shared.set(minutes: (self?.defaultTimer) ?? 0)
             self?.sush()
         } else {
             self?.setMenuBarTitle("")
@@ -85,8 +90,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     //MARK: - Helper methods
     private func sendNotification(withCurrentMinutes currentMinutes: Int) {
         let notif = NSUserNotification()
-        notif.title = "\(currentMinutes) mins to zzz"
-        notif.informativeText = "SleepWithMe will put your Mac to sleep with you in \(currentMinutes) mins."
+        notif.title = "\(currentMinutes) mins to ZZZ"
+        notif.informativeText = "Sleep With Me will put your Mac to sleep with you in \(currentMinutes) mins."
         notif.soundName = nil
         notif.hasActionButton = true
         notif.actionButtonTitle = "Stop Timer"
@@ -174,12 +179,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     }
     
     private func setupPopoverAsset() {
+        popover = NSPopover()
         guard let vc = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "ViewController")) as? ViewController else {
             assertionFailure()
             return
         }
         vc.isPopover = true
         popover.contentViewController = vc
+        popover.animates = true
         
         eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [weak self] event in
             if let strongSelf = self, strongSelf.popover.isShown {
@@ -195,7 +202,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         UserDefaults.standard.set(true, forKey: Constants.notFirstLaunch)
         UserDefaults.standard.set(true, forKey: Constants.isDockIconEnabled)
         UserDefaults.standard.set(false, forKey: Constants.isSleepTimerEnabled)
-        let ti: Double = Date(timeIntervalSince1970: 0).timeIntervalSince1970
+        let date = Date(timeIntervalSince1970: 0)
+        let ti: Double = date.timeIntervalSince1970
         UserDefaults.standard.set(ti, forKey: Constants.sleepTime)
         UserDefaults.standard.set(0, forKey: Constants.defaultTimer)
         UserDefaults.standard.synchronize()
@@ -204,14 +212,24 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     internal func loadPreferences() {
         if UserDefaults.standard.bool(forKey: Constants.isDockIconEnabled) {
             NSApplication.shared.setActivationPolicy(.regular)
+            preferences.isDockEnabled = true
         } else {
             NSApplication.shared.setActivationPolicy(.accessory)
+            preferences.isDockEnabled = false
         }
         if UserDefaults.standard.bool(forKey: Constants.isSleepTimerEnabled) {
+            preferences.isScheduledSleepTimerEnabled = true
+            
             let sleepTime = Date(timeIntervalSince1970: UserDefaults.standard.double(forKey: Constants.sleepTime))
+            guard sleepTime != preferences.scheduledSleepTime else {
+                return
+            }
+            preferences.scheduledSleepTime = sleepTime
+            
             let components = Calendar.current.dateComponents([.hour, .minute], from: sleepTime)
             let todayComponents = Calendar.current.dateComponents([.hour, .minute], from: Date())
             var selectDate = Date()
+   
             if components.hour! < todayComponents.hour! {
                 selectDate = Calendar.current.date(byAdding: .day, value: 1, to: selectDate)!
             } else if components.hour! == todayComponents.hour! && components.minute! <= todayComponents.minute! {
@@ -220,26 +238,32 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             
             let date = Calendar.current.date(bySettingHour: components.hour!, minute: components.minute!, second: 0, of: selectDate)!
 
-            let diff = Calendar.current.dateComponents([.hour, .minute], from: selectDate, to: date)
+            let diff = Calendar.current.dateComponents([.day, .hour, .minute], from: Date(), to: date)
             
-            if diff.hour! == 0 && diff.minute! <= 30 {
+            if diff.day! == 0 && diff.hour! == 0 && diff.minute! <= 30 {
                 self.autoSleep(minutes: diff.minute!)
             } else {
                 let fDate = Calendar.current.date(byAdding: .minute, value: -30, to: date)!
                 if #available(OSX 10.12, *) {
-                    let timer = Timer(fire: fDate, interval: 86400, repeats: false) { (timer) in
+                    scheduledSleepTimer?.invalidate()
+                    scheduledSleepTimer = Timer(fire: fDate, interval: 86400, repeats: false) { (timer) in
                         self.autoSleep(minutes: 30)
                     }
-                    RunLoop.current.add(timer, forMode: .defaultRunLoopMode)
+                    RunLoop.current.add(scheduledSleepTimer!, forMode: .defaultRunLoopMode)
                 } else {
-                    let timer = Timer(fireAt: fDate, interval: 86400, target: self, selector: #selector(autoSleep(_:)), userInfo: nil, repeats: false)
-                    RunLoop.current.add(timer, forMode: .defaultRunLoopMode)
+                    scheduledSleepTimer?.invalidate()
+                    scheduledSleepTimer = Timer(fireAt: fDate, interval: 86400, target: self, selector: #selector(autoSleep(_:)), userInfo: nil, repeats: false)
+                    RunLoop.current.add(scheduledSleepTimer!, forMode: .defaultRunLoopMode)
                 }
             }
-            
+        } else {
+            preferences.isScheduledSleepTimerEnabled = false
+            preferences.scheduledSleepTime = Date(timeIntervalSince1970: 0)
         }
         if !SleepTimer.shared.isTimerRunning {
-            SleepTimer.shared.set(minutes: UserDefaults.standard.integer(forKey: Constants.defaultTimer))
+            defaultTimer = UserDefaults.standard.integer(forKey: Constants.defaultTimer)
+            preferences.defaultTimer = defaultTimer
+            SleepTimer.shared.set(minutes: defaultTimer)
         }
     }
     
