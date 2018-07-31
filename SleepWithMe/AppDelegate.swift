@@ -259,6 +259,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         } else {
             preferences.isScheduledSleepTimerEnabled = false
             preferences.scheduledSleepTime = Date(timeIntervalSince1970: 0)
+            scheduledSleepTimer?.invalidate()
         }
         if !SleepTimer.shared.isTimerRunning {
             defaultTimer = UserDefaults.standard.integer(forKey: Constants.defaultTimer)
