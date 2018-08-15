@@ -7,16 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		63B3FF28313292CD1B25492CDE2A14A2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF428FC7C7A6555B2B02D8E238C8D8F2 /* Cocoa.framework */; };
-		70F630697B6FDF4E0E791E9E6532B6FB /* Pods-SleepWithMeTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 852DD92288DBBD09AB4FE8992C385E35 /* Pods-SleepWithMeTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0A652CC78B94A7D48B1830992CDF8BE7 /* Pods-SleepWithMeUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B092BC2C80D722F06366C1266BD19F34 /* Pods-SleepWithMeUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		56F93ED185E9A9D77186A3DE32BC40F2 /* Pods-SleepWithMeTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 852DD92288DBBD09AB4FE8992C385E35 /* Pods-SleepWithMeTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5A4B99442B56EB73A51DD9C3B1C6E831 /* Pods-SleepWithMeUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 62759EC27DBD633335C4DE09398907AD /* Pods-SleepWithMeUITests-dummy.m */; };
+		74A80083D20C5CB980D0994CEC98F3CF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF428FC7C7A6555B2B02D8E238C8D8F2 /* Cocoa.framework */; };
 		7C9606247A459392B806A75B5153EA62 /* Pods-SleepWithMe-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B6CEA1603A6AFB66DFB6036D58BC99B3 /* Pods-SleepWithMe-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		83BCBD2A74005A5F201BC93729035342 /* Pods-SleepWithMeUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 62759EC27DBD633335C4DE09398907AD /* Pods-SleepWithMeUITests-dummy.m */; };
-		9090E94A931BD8014CB1C6F50592878E /* Pods-SleepWithMeUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B092BC2C80D722F06366C1266BD19F34 /* Pods-SleepWithMeUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96A86742889A6B66F8A964D4CF0FA58A /* Pods-SleepWithMeTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 902C01D67E9087234BB513C6EEA1CD1B /* Pods-SleepWithMeTests-dummy.m */; };
-		CBEFD06272E0AD150E33D08E20B0871E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF428FC7C7A6555B2B02D8E238C8D8F2 /* Cocoa.framework */; };
+		9F388F68CED7020C1EC76526FF6C9582 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF428FC7C7A6555B2B02D8E238C8D8F2 /* Cocoa.framework */; };
+		A48C356B8ED87D1403465B5EEE2F4D87 /* Pods-SleepWithMeTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 902C01D67E9087234BB513C6EEA1CD1B /* Pods-SleepWithMeTests-dummy.m */; };
 		E0D5BA3A5943ACB903110E3D2D12C17E /* Pods-SleepWithMe-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 61203F0AA98D857ADBD82965514EB603 /* Pods-SleepWithMe-dummy.m */; };
 		EF9DD01B0EF327A3632B057678F85530 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF428FC7C7A6555B2B02D8E238C8D8F2 /* Cocoa.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1117684C29D4A81D0E4D2E919EAC9DC9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F1C98BDBA942CF48170E46AB8033257;
+			remoteInfo = "Pods-SleepWithMe";
+		};
+		3253091C52BFCBA52E7D515A26B5ED1D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F1C98BDBA942CF48170E46AB8033257;
+			remoteInfo = "Pods-SleepWithMe";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1B70C00A372B5C3635F21C5237368430 /* Pods-SleepWithMe.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SleepWithMe.modulemap"; sourceTree = "<group>"; };
@@ -57,19 +74,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1435CC8A7827531B905539947650ED11 /* Frameworks */ = {
+		2231D460CACFE5789E6AFE620567AF0F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63B3FF28313292CD1B25492CDE2A14A2 /* Cocoa.framework in Frameworks */,
+				74A80083D20C5CB980D0994CEC98F3CF /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		607C9788BC88852E2A5E5320F77B5FF4 /* Frameworks */ = {
+		A43D7952005F6793E9E8689A2F15DCF0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBEFD06272E0AD150E33D08E20B0871E /* Cocoa.framework in Frameworks */,
+				9F388F68CED7020C1EC76526FF6C9582 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,19 +204,19 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		38AAD4BFD73390A6FCC29E39E014C9C7 /* Headers */ = {
+		54F7D56A479DA908A3DD7894580DE77E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70F630697B6FDF4E0E791E9E6532B6FB /* Pods-SleepWithMeTests-umbrella.h in Headers */,
+				56F93ED185E9A9D77186A3DE32BC40F2 /* Pods-SleepWithMeTests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BB10A9600F52AA9991EE2ECCC1C2E4FE /* Headers */ = {
+		9AA24FE4A7D87A67A63E9BDA1E2A562B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9090E94A931BD8014CB1C6F50592878E /* Pods-SleepWithMeUITests-umbrella.h in Headers */,
+				0A652CC78B94A7D48B1830992CDF8BE7 /* Pods-SleepWithMeUITests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,34 +248,36 @@
 			productReference = 43DA2EF763E661F2CE336D8405387676 /* Pods_SleepWithMe.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		D344952DA3D09607CC199ABC5EEE365D /* Pods-SleepWithMeUITests */ = {
+		3C6597CA4C58259671ED8A1686A02B6D /* Pods-SleepWithMeUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E79A42F9D1927C1294B8DE8674073FD5 /* Build configuration list for PBXNativeTarget "Pods-SleepWithMeUITests" */;
+			buildConfigurationList = B17452087A79A5C9D76E5CD778D6FBE2 /* Build configuration list for PBXNativeTarget "Pods-SleepWithMeUITests" */;
 			buildPhases = (
-				4FC405F3B24EF71641A6C1E62B70F55B /* Sources */,
-				607C9788BC88852E2A5E5320F77B5FF4 /* Frameworks */,
-				BB10A9600F52AA9991EE2ECCC1C2E4FE /* Headers */,
+				E1D24037BA0433B07B366F8202B0F735 /* Sources */,
+				A43D7952005F6793E9E8689A2F15DCF0 /* Frameworks */,
+				9AA24FE4A7D87A67A63E9BDA1E2A562B /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				32B5A1AF1B992E6CA85DFE2546656B6D /* PBXTargetDependency */,
 			);
 			name = "Pods-SleepWithMeUITests";
 			productName = "Pods-SleepWithMeUITests";
 			productReference = 3528E559F09AE77AA4EC40AEBDD4EE25 /* Pods_SleepWithMeUITests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		F740788D7C14FC1EDE3254C907EE4942 /* Pods-SleepWithMeTests */ = {
+		400C435F054A8EC2C2A2B79D21E10169 /* Pods-SleepWithMeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1594762337782A6F4F6C71031AFBCE14 /* Build configuration list for PBXNativeTarget "Pods-SleepWithMeTests" */;
+			buildConfigurationList = 49A52D159C33F71DFAF188C79298294C /* Build configuration list for PBXNativeTarget "Pods-SleepWithMeTests" */;
 			buildPhases = (
-				C3B18FA07A7B73745144F28F38479D07 /* Sources */,
-				1435CC8A7827531B905539947650ED11 /* Frameworks */,
-				38AAD4BFD73390A6FCC29E39E014C9C7 /* Headers */,
+				BE56CDA22B8D4B9A642022DF185642F8 /* Sources */,
+				2231D460CACFE5789E6AFE620567AF0F /* Frameworks */,
+				54F7D56A479DA908A3DD7894580DE77E /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A07014D6FE3738B8935CA8DACE361479 /* PBXTargetDependency */,
 			);
 			name = "Pods-SleepWithMeTests";
 			productName = "Pods-SleepWithMeTests";
@@ -287,8 +306,8 @@
 			projectRoot = "";
 			targets = (
 				1F1C98BDBA942CF48170E46AB8033257 /* Pods-SleepWithMe */,
-				F740788D7C14FC1EDE3254C907EE4942 /* Pods-SleepWithMeTests */,
-				D344952DA3D09607CC199ABC5EEE365D /* Pods-SleepWithMeUITests */,
+				400C435F054A8EC2C2A2B79D21E10169 /* Pods-SleepWithMeTests */,
+				3C6597CA4C58259671ED8A1686A02B6D /* Pods-SleepWithMeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -302,94 +321,41 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4FC405F3B24EF71641A6C1E62B70F55B /* Sources */ = {
+		BE56CDA22B8D4B9A642022DF185642F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83BCBD2A74005A5F201BC93729035342 /* Pods-SleepWithMeUITests-dummy.m in Sources */,
+				A48C356B8ED87D1403465B5EEE2F4D87 /* Pods-SleepWithMeTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C3B18FA07A7B73745144F28F38479D07 /* Sources */ = {
+		E1D24037BA0433B07B366F8202B0F735 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96A86742889A6B66F8A964D4CF0FA58A /* Pods-SleepWithMeTests-dummy.m in Sources */,
+				5A4B99442B56EB73A51DD9C3B1C6E831 /* Pods-SleepWithMeUITests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		32B5A1AF1B992E6CA85DFE2546656B6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-SleepWithMe";
+			target = 1F1C98BDBA942CF48170E46AB8033257 /* Pods-SleepWithMe */;
+			targetProxy = 3253091C52BFCBA52E7D515A26B5ED1D /* PBXContainerItemProxy */;
+		};
+		A07014D6FE3738B8935CA8DACE361479 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-SleepWithMe";
+			target = 1F1C98BDBA942CF48170E46AB8033257 /* Pods-SleepWithMe */;
+			targetProxy = 1117684C29D4A81D0E4D2E919EAC9DC9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		1F65E44267785CD51F071793C18A7C5E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 780A8D7563F05671F0B4279045A3A6BF /* Pods-SleepWithMeUITests.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "Target Support Files/Pods-SleepWithMeUITests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MODULEMAP_FILE = "Target Support Files/Pods-SleepWithMeUITests/Pods-SleepWithMeUITests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_SleepWithMeUITests;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		317B9A38B1704AD6983965F91296DC4C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8417F3074E2E3B4098EC864F50D7FCD7 /* Pods-SleepWithMeTests.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "Target Support Files/Pods-SleepWithMeTests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MODULEMAP_FILE = "Target Support Files/Pods-SleepWithMeTests/Pods-SleepWithMeTests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_SleepWithMeTests;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		7776E8668CCA96B6A01D370004E6DE01 /* Debug */ = {
+		2865D6CA54276FC287AEEA5628D514EE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -421,6 +387,299 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		451CBDBEBC6D45A038859CD654104C49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8417F3074E2E3B4098EC864F50D7FCD7 /* Pods-SleepWithMeTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "Target Support Files/Pods-SleepWithMeTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MODULEMAP_FILE = "Target Support Files/Pods-SleepWithMeTests/Pods-SleepWithMeTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6534055574C0B4DB42DDC630ED41300B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D90755A1243AE13394C2960B065BC89 /* Pods-SleepWithMeUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "Target Support Files/Pods-SleepWithMeUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MODULEMAP_FILE = "Target Support Files/Pods-SleepWithMeUITests/Pods-SleepWithMeUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		79264D5423F35F29C3AC40CA0876664A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA6868C4DBAD82517D78225202103813 /* Pods-SleepWithMeTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "Target Support Files/Pods-SleepWithMeTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MODULEMAP_FILE = "Target Support Files/Pods-SleepWithMeTests/Pods-SleepWithMeTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7A521B0CB8EC2302E2E16CCE49AC4D7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AAF8C2A6DB6F03D7AEAE19E2CDEB02C0 /* Pods-SleepWithMe.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "Target Support Files/Pods-SleepWithMe/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MODULEMAP_FILE = "Target Support Files/Pods-SleepWithMe/Pods-SleepWithMe.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		93CBA59A7466F6F3469028831247232F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64D8538E0728965AFD0FA7F6292C20DF /* Pods-SleepWithMe.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "Target Support Files/Pods-SleepWithMe/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MODULEMAP_FILE = "Target Support Files/Pods-SleepWithMe/Pods-SleepWithMe.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A93A22B8E74A2ADC10A28BB6FF225DE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 780A8D7563F05671F0B4279045A3A6BF /* Pods-SleepWithMeUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "Target Support Files/Pods-SleepWithMeUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MODULEMAP_FILE = "Target Support Files/Pods-SleepWithMeUITests/Pods-SleepWithMeUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BE5BFE8D01810C31013EFB6520C87162 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -441,228 +700,24 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		78A48EDBA3E802EA2CE544655205E90F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AAF8C2A6DB6F03D7AEAE19E2CDEB02C0 /* Pods-SleepWithMe.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "Target Support Files/Pods-SleepWithMe/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MODULEMAP_FILE = "Target Support Files/Pods-SleepWithMe/Pods-SleepWithMe.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_SleepWithMe;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		8609651D963F7BEC7028306B76B8D545 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Release;
-		};
-		9189649728B82545AD2573C3E9E9A97F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3D90755A1243AE13394C2960B065BC89 /* Pods-SleepWithMeUITests.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "Target Support Files/Pods-SleepWithMeUITests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MODULEMAP_FILE = "Target Support Files/Pods-SleepWithMeUITests/Pods-SleepWithMeUITests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_SleepWithMeUITests;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		A53E61C60DF96F5910B69B4B65CE3D3B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA6868C4DBAD82517D78225202103813 /* Pods-SleepWithMeTests.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "Target Support Files/Pods-SleepWithMeTests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MODULEMAP_FILE = "Target Support Files/Pods-SleepWithMeTests/Pods-SleepWithMeTests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_SleepWithMeTests;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		F10EF297588BBF4B199DE1422A7707B9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64D8538E0728965AFD0FA7F6292C20DF /* Pods-SleepWithMe.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "Target Support Files/Pods-SleepWithMe/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MODULEMAP_FILE = "Target Support Files/Pods-SleepWithMe/Pods-SleepWithMe.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_SleepWithMe;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1594762337782A6F4F6C71031AFBCE14 /* Build configuration list for PBXNativeTarget "Pods-SleepWithMeTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A53E61C60DF96F5910B69B4B65CE3D3B /* Debug */,
-				317B9A38B1704AD6983965F91296DC4C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7776E8668CCA96B6A01D370004E6DE01 /* Debug */,
-				8609651D963F7BEC7028306B76B8D545 /* Release */,
+				BE5BFE8D01810C31013EFB6520C87162 /* Debug */,
+				2865D6CA54276FC287AEEA5628D514EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -670,17 +725,26 @@
 		3B7B915C01ED56E82F934F2AE432DEF9 /* Build configuration list for PBXNativeTarget "Pods-SleepWithMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F10EF297588BBF4B199DE1422A7707B9 /* Debug */,
-				78A48EDBA3E802EA2CE544655205E90F /* Release */,
+				93CBA59A7466F6F3469028831247232F /* Debug */,
+				7A521B0CB8EC2302E2E16CCE49AC4D7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E79A42F9D1927C1294B8DE8674073FD5 /* Build configuration list for PBXNativeTarget "Pods-SleepWithMeUITests" */ = {
+		49A52D159C33F71DFAF188C79298294C /* Build configuration list for PBXNativeTarget "Pods-SleepWithMeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9189649728B82545AD2573C3E9E9A97F /* Debug */,
-				1F65E44267785CD51F071793C18A7C5E /* Release */,
+				79264D5423F35F29C3AC40CA0876664A /* Debug */,
+				451CBDBEBC6D45A038859CD654104C49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B17452087A79A5C9D76E5CD778D6FBE2 /* Build configuration list for PBXNativeTarget "Pods-SleepWithMeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6534055574C0B4DB42DDC630ED41300B /* Debug */,
+				A93A22B8E74A2ADC10A28BB6FF225DE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
