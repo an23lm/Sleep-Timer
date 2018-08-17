@@ -66,7 +66,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     
     @objc func willSleepNotification(notification: NSNotification) {
         print("will sleep")
-        SleepTimer.shared.toggleTimer()
+        if SleepTimer.shared.isTimerRunning {
+            SleepTimer.shared.toggleTimer()
+        }
         scheduledSleepTimer?.invalidate()
         scheduledSleepTimer = nil
         preferences.scheduledSleepTime = Date(timeIntervalSince1970: 0)
