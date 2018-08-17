@@ -13,11 +13,13 @@ class PreferencesViewController: NSViewController {
     @IBOutlet weak var versionLabel: NSTextField!
     @IBOutlet weak var buildLabel: NSTextField!
     
+    @IBOutlet weak var autoLaunchChecker: NSButton!
     @IBOutlet weak var showDockChecker: NSButton!
     @IBOutlet weak var defaultSleepTimerChecker: NSButton!
     @IBOutlet weak var defaultSleepTimerPicker: NSDatePicker!
     @IBOutlet weak var defaultTimerTextField: NSTextField!
     
+    var isAutoLaunchEnabled: Bool! = nil
     var isShowDockEnabled: Bool! = nil
     var isSleepTimerEnabled: Bool! = nil
     var sleepTime: Date! = nil
@@ -29,11 +31,13 @@ class PreferencesViewController: NSViewController {
         versionLabel.stringValue = "Version " + Bundle.main.releaseVersionNumber!
         buildLabel.stringValue = "Build " + Bundle.main.buildVersionNumber!
         
+        isAutoLaunchEnabled = UserDefaults.standard.bool(forKey: Constants.autoLaunch)
         isShowDockEnabled = UserDefaults.standard.bool(forKey: Constants.isDockIconEnabled)
         isSleepTimerEnabled = UserDefaults.standard.bool(forKey: Constants.isSleepTimerEnabled)
         sleepTime = Date(timeIntervalSince1970: UserDefaults.standard.double(forKey: Constants.sleepTime))
         defaultTimer = UserDefaults.standard.integer(forKey: Constants.defaultTimer)
         
+        autoLaunchChecker.state = isAutoLaunchEnabled ? .on : .off
         showDockChecker.state = isShowDockEnabled ? .on : .off
         defaultSleepTimerChecker.state = isSleepTimerEnabled ? .on : .off
         defaultSleepTimerPicker.dateValue = sleepTime
@@ -41,6 +45,7 @@ class PreferencesViewController: NSViewController {
     }
     
     @IBAction func doneButton(_ sender: Any) {
+        isAutoLaunchEnabled = getToF(fromState: autoLaunchChecker.state)
         isShowDockEnabled = getToF(fromState: showDockChecker.state)
         isSleepTimerEnabled = getToF(fromState: defaultSleepTimerChecker.state)
         sleepTime = defaultSleepTimerPicker.dateValue
@@ -51,6 +56,7 @@ class PreferencesViewController: NSViewController {
             defaultTimer = Int(defaultTimerTextField.stringValue.trimmingCharacters(in: .whitespaces))!
         }
         
+        UserDefaults.standard.set(isAutoLaunchEnabled, forKey: Constants.autoLaunch)
         UserDefaults.standard.set(isShowDockEnabled, forKey: Constants.isDockIconEnabled)
         UserDefaults.standard.set(isSleepTimerEnabled, forKey: Constants.isSleepTimerEnabled)
         let ti: Double = sleepTime.timeIntervalSince1970

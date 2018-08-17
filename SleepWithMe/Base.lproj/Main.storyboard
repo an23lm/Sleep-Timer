@@ -274,13 +274,13 @@
             <objects>
                 <viewController storyboardIdentifier="PreferencesViewController" showSeguePresentationStyle="single" id="wSh-KX-gF6" customClass="PreferencesViewController" customModule="SleepWithMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Sy4-kX-3J8">
-                        <rect key="frame" x="0.0" y="0.0" width="467" height="376"/>
+                        <rect key="frame" x="0.0" y="0.0" width="475" height="410"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Adr-gC-unM">
-                                <rect key="frame" x="6" y="284" width="463" height="84"/>
+                            <textField horizontalHuggingPriority="1000" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Adr-gC-unM">
+                                <rect key="frame" x="6" y="318" width="463" height="84"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="459" id="fCB-iJ-d77"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="459" id="fCB-iJ-d77"/>
                                 </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Sleep With Me" usesSingleLineMode="YES" id="O1g-5h-pAu">
                                     <font key="font" metaFont="systemBold" size="70"/>
@@ -289,7 +289,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="u9b-Lz-IBr">
-                                <rect key="frame" x="18" y="284" width="431" height="15"/>
+                                <rect key="frame" x="18" y="318" width="439" height="15"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Version 2.0" id="6Gq-0z-QEm">
                                     <font key="font" size="10" name="SFProText-Semibold"/>
                                     <color key="textColor" red="0.32549019610000002" green="0.0" blue="0.90980392160000001" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="displayP3"/>
@@ -297,7 +297,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="68i-05-xsc">
-                                <rect key="frame" x="18" y="270" width="431" height="14"/>
+                                <rect key="frame" x="18" y="304" width="439" height="14"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Build 2323" id="0M3-0s-mdc">
                                     <font key="font" size="9" name="SFProText-Semibold"/>
                                     <color key="textColor" red="0.32549019610000002" green="0.0" blue="0.90980392160000001" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="displayP3"/>
@@ -305,7 +305,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dph-r3-gfF">
-                                <rect key="frame" x="18" y="234" width="431" height="18"/>
+                                <rect key="frame" x="18" y="234" width="439" height="18"/>
                                 <buttonCell key="cell" type="check" title="Show Dock Icon" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="7rR-no-NN9">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="systemMedium" size="13"/>
@@ -324,7 +324,7 @@
                                 </datePickerCell>
                             </datePicker>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ovJ-fP-KJI">
-                                <rect key="frame" x="18" y="91" width="431" height="17"/>
+                                <rect key="frame" x="18" y="91" width="439" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Default Timer" id="TKx-Va-Yn4">
                                     <font key="font" metaFont="systemMedium" size="13"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -344,7 +344,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZSE-Gd-nTl">
-                                <rect key="frame" x="72" y="63" width="377" height="17"/>
+                                <rect key="frame" x="72" y="63" width="385" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Minutes" usesSingleLineMode="YES" id="aWE-or-Xgw">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -352,7 +352,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EgT-Xg-JpQ">
-                                <rect key="frame" x="198" y="13" width="72" height="32"/>
+                                <rect key="frame" x="202" y="13" width="72" height="32"/>
                                 <buttonCell key="cell" type="push" title="Done" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ULC-9f-I8l">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -361,8 +361,8 @@
                                     <action selector="doneButton:" target="wSh-KX-gF6" id="Vhm-nA-0Kg"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="va1-3L-u7l">
-                                <rect key="frame" x="18" y="159" width="431" height="39"/>
+                            <textField horizontalHuggingPriority="1" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="va1-3L-u7l">
+                                <rect key="frame" x="18" y="159" width="439" height="39"/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="boY-ZC-RfR">
                                     <font key="font" metaFont="system" size="10"/>
                                     <string key="title">Puts your Mac to sleep at the scheduled time everyday unless interupted. You will be notified 30 minutes prior to the scheduled sleep time; the scheduled sleep will be cancelled if there is already exists an active timer.</string>
@@ -371,8 +371,15 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UuR-t0-zoT">
-                                <rect key="frame" x="18" y="200" width="431" height="18"/>
+                                <rect key="frame" x="18" y="200" width="439" height="18"/>
                                 <buttonCell key="cell" type="check" title="Schedule Daily Sleep Time" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="clJ-Nz-W4c">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="systemMedium" size="13"/>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kXB-Wb-Wfe">
+                                <rect key="frame" x="18" y="268" width="439" height="18"/>
+                                <buttonCell key="cell" type="check" title="Auto Launch on Login" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="kJ3-kV-jgk">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="systemMedium" size="13"/>
                                 </buttonCell>
@@ -380,21 +387,24 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="ovJ-fP-KJI" firstAttribute="top" secondItem="We8-zT-5tU" secondAttribute="bottom" constant="20" id="0lV-wb-6v6"/>
-                            <constraint firstItem="dph-r3-gfF" firstAttribute="top" secondItem="68i-05-xsc" secondAttribute="bottom" constant="20" id="2mH-PU-syU"/>
                             <constraint firstItem="u9b-Lz-IBr" firstAttribute="leading" secondItem="Sy4-kX-3J8" secondAttribute="leading" constant="20" id="3bY-fg-eHf"/>
                             <constraint firstItem="ZSE-Gd-nTl" firstAttribute="leading" secondItem="xTu-Xc-ucX" secondAttribute="trailing" constant="4" id="66Z-BN-O7i"/>
+                            <constraint firstItem="dph-r3-gfF" firstAttribute="top" secondItem="kXB-Wb-Wfe" secondAttribute="bottom" constant="20" id="6fd-Zb-BJS"/>
                             <constraint firstAttribute="trailing" secondItem="va1-3L-u7l" secondAttribute="trailing" constant="20" id="B8v-ez-Mwn"/>
                             <constraint firstItem="Adr-gC-unM" firstAttribute="top" secondItem="Sy4-kX-3J8" secondAttribute="top" constant="8" id="FFG-EA-Mh7"/>
                             <constraint firstItem="We8-zT-5tU" firstAttribute="leading" secondItem="Sy4-kX-3J8" secondAttribute="leading" constant="20" id="Glc-BT-hbN"/>
                             <constraint firstItem="va1-3L-u7l" firstAttribute="top" secondItem="UuR-t0-zoT" secondAttribute="bottom" constant="4" id="IKE-ac-lqg"/>
                             <constraint firstItem="xTu-Xc-ucX" firstAttribute="leading" secondItem="Sy4-kX-3J8" secondAttribute="leading" constant="20" id="JFo-7I-rx0"/>
+                            <constraint firstItem="kXB-Wb-Wfe" firstAttribute="leading" secondItem="Sy4-kX-3J8" secondAttribute="leading" constant="20" id="MLo-qF-3oB"/>
                             <constraint firstItem="EgT-Xg-JpQ" firstAttribute="top" secondItem="xTu-Xc-ucX" secondAttribute="bottom" constant="20" id="OVh-qT-bmX"/>
-                            <constraint firstAttribute="trailing" secondItem="Adr-gC-unM" secondAttribute="trailing" id="PC4-uG-RPE"/>
+                            <constraint firstAttribute="trailing" secondItem="Adr-gC-unM" secondAttribute="trailing" constant="8" id="PC4-uG-RPE"/>
                             <constraint firstItem="ZSE-Gd-nTl" firstAttribute="centerY" secondItem="xTu-Xc-ucX" secondAttribute="centerY" id="Pg0-xi-Aao"/>
+                            <constraint firstItem="kXB-Wb-Wfe" firstAttribute="top" secondItem="68i-05-xsc" secondAttribute="bottom" constant="20" id="S7h-EM-hi7"/>
                             <constraint firstAttribute="trailing" secondItem="68i-05-xsc" secondAttribute="trailing" constant="20" id="TD6-vh-8zr"/>
                             <constraint firstItem="va1-3L-u7l" firstAttribute="leading" secondItem="Sy4-kX-3J8" secondAttribute="leading" constant="20" id="UdA-3E-n8J"/>
                             <constraint firstAttribute="trailing" secondItem="ZSE-Gd-nTl" secondAttribute="trailing" constant="20" id="Vuv-8S-KSX"/>
                             <constraint firstItem="UuR-t0-zoT" firstAttribute="leading" secondItem="Sy4-kX-3J8" secondAttribute="leading" constant="20" id="W1q-kb-vrS"/>
+                            <constraint firstAttribute="trailing" secondItem="kXB-Wb-Wfe" secondAttribute="trailing" constant="20" id="W5R-Wc-zxU"/>
                             <constraint firstItem="68i-05-xsc" firstAttribute="top" secondItem="Adr-gC-unM" secondAttribute="bottom" id="XET-fG-Q3L"/>
                             <constraint firstItem="xTu-Xc-ucX" firstAttribute="top" secondItem="ovJ-fP-KJI" secondAttribute="bottom" constant="8" id="bXr-Re-jjj"/>
                             <constraint firstItem="u9b-Lz-IBr" firstAttribute="bottom" secondItem="Adr-gC-unM" secondAttribute="bottom" id="d2b-Px-S5U"/>
@@ -413,6 +423,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="autoLaunchChecker" destination="kXB-Wb-Wfe" id="gZN-1u-1SN"/>
                         <outlet property="buildLabel" destination="68i-05-xsc" id="ZMV-NX-IZ9"/>
                         <outlet property="defaultSleepTimerChecker" destination="UuR-t0-zoT" id="KS4-hv-284"/>
                         <outlet property="defaultSleepTimerPicker" destination="We8-zT-5tU" id="xEM-GF-9SB"/>
@@ -423,7 +434,7 @@
                 </viewController>
                 <customObject id="cXj-Uf-5Iu" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1324.5" y="777"/>
+            <point key="canvasLocation" x="1332.5" y="777"/>
         </scene>
     </scenes>
     <resources>

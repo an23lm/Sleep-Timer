@@ -10,6 +10,7 @@ import Foundation
 
 struct Constants {
     static let notFirstLaunch = "FIRST_LAUNCH"
+    static let autoLaunch = "AUTO_LAUNCH"
     static let isDockIconEnabled = "SHOW_DOCK_ENABLED"
     static let isSleepTimerEnabled = "SLEEP_TIMER_ENABLED"
     static let sleepTime = "SLEEP_TIME"

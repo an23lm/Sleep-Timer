@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import ServiceManagement
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate {
@@ -22,7 +23,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     private var scheduledSleepTimer: Timer? = nil
     private var defaultTimer: Int = 0
     
-    private var preferences: (isDockEnabled: Bool, isScheduledSleepTimerEnabled: Bool, scheduledSleepTime: Date, defaultTimer: Int)! = (true, false, Date(timeIntervalSince1970: 0), 0)
+    private var notification: NSUserNotification? = nil
+    
+    private var preferences: (autoLaunchEnabled: Bool, isDockEnabled: Bool, isScheduledSleepTimerEnabled: Bool, scheduledSleepTime: Date, defaultTimer: Int)! = (false, true, false, Date(timeIntervalSince1970: 0), 0)
     
     //MARK: - Life cycle methods
     func applicationWillFinishLaunching(_ notification: Notification) {
@@ -49,9 +52,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         if flag {
             return true
         }
-        let mainWC = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
-            .instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "MainWindowController")) as! NSWindowController
-        mainWC.showWindow(self)
+        if preferences.isDockEnabled {
+            let mainWC = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
+                .instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "MainWindowController")) as! NSWindowController
+            mainWC.showWindow(self)
+        } else {
+            togglePopover(sender)
+        }
         return true
     }
     
@@ -72,6 +79,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         scheduledSleepTimer?.invalidate()
         scheduledSleepTimer = nil
         preferences.scheduledSleepTime = Date(timeIntervalSince1970: 0)
+        NSUserNotificationCenter.default.removeAllDeliveredNotifications()
     }
     
     @objc func didWakeNotification(notification: NSNotification) {
@@ -109,15 +117,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     
     //MARK: - Helper methods
     private func sendNotification(withCurrentMinutes currentMinutes: Int) {
-        let notif = NSUserNotification()
-        notif.title = "\(currentMinutes) mins to ZZZ"
-        notif.informativeText = "Sleep With Me will put your Mac to sleep with you in \(currentMinutes) mins."
-        notif.soundName = nil
-        notif.hasActionButton = true
-        notif.actionButtonTitle = "Stop Timer"
+        NSUserNotificationCenter.default.removeAllDeliveredNotifications()
+        
+        notification = NSUserNotification()
+        notification!.title = "\(currentMinutes) mins to ZZZ"
+        notification!.informativeText = "Sleep With Me will put your Mac to sleep with you in \(currentMinutes) mins."
+        notification!.soundName = nil
+        notification!.hasActionButton = true
+        notification!.actionButtonTitle = "Stop Timer"
         
         let center = NSUserNotificationCenter.default
-        center.deliver(notif)
+        center.deliver(notification!)
     }
     
     private func sush() {
@@ -220,6 +230,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             return
         }
         UserDefaults.standard.set(true, forKey: Constants.notFirstLaunch)
+        UserDefaults.standard.set(false, forKey: Constants.autoLaunch)
         UserDefaults.standard.set(true, forKey: Constants.isDockIconEnabled)
         UserDefaults.standard.set(false, forKey: Constants.isSleepTimerEnabled)
         let date = Date(timeIntervalSince1970: 0)
@@ -269,6 +280,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     }
     
     internal func loadPreferences() {
+        preferences.autoLaunchEnabled = UserDefaults.standard.bool(forKey: Constants.autoLaunch)
+        setLaunchOnLogin()
         if UserDefaults.standard.bool(forKey: Constants.isDockIconEnabled) {
             NSApplication.shared.setActivationPolicy(.regular)
             preferences.isDockEnabled = true
@@ -301,5 +314,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             SleepTimer.shared.toggleTimer()
             sendNotification(withCurrentMinutes: minutes)
         }
+    }
+    
+    func setLaunchOnLogin() {
+        let appBundleIdentifier: CFString = "com.an23lm.SleepWithMeHelper" as CFString
+        SMLoginItemSetEnabled(appBundleIdentifier, preferences.autoLaunchEnabled)
     }
 }
