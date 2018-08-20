@@ -72,9 +72,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     }
     
     @objc func willSleepNotification(notification: NSNotification) {
-        print("will sleep")
         if SleepTimer.shared.isTimerRunning {
             SleepTimer.shared.toggleTimer()
+            
         }
         scheduledSleepTimer?.invalidate()
         scheduledSleepTimer = nil
@@ -83,9 +83,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     }
     
     @objc func didWakeNotification(notification: NSNotification) {
-        print("did wake")
         if preferences.isScheduledSleepTimerEnabled {
-            print("did wak1e")
             setupScheduledSleepTimer()
         }
     }
