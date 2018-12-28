@@ -99,7 +99,7 @@ internal class SleepTimer {
     }
     
     @objc private func timerFired(_ timer: Timer) {
-        if self.currentMinutes <= 0 {
+        if self.currentMinutes <= 1 {
             stopTimer(didComplete: true)
             return
         }

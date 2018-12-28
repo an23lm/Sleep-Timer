@@ -129,8 +129,20 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     }
     
     private func sush() {
-        let putMeToSleep = PutMeToSleep.getObject() as! AppleScriptProtocol
-        putMeToSleep.sush()
+//        let putMeToSleep = PutMeToSleep.getObject() as! AppleScriptProtocol
+//        putMeToSleep.sush()
+        
+        @discardableResult
+        func shell(_ args: String...) -> Int32 {
+            let task = Process()
+            task.launchPath = "/usr/bin/pmset"
+            task.arguments = args
+            task.launch()
+            task.waitUntilExit()
+            return task.terminationStatus
+        }
+        
+        shell("sleepnow")
     }
 
     private func setMenuBarTitle(_ title: String) {
