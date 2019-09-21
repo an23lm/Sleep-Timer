@@ -35,7 +35,7 @@ class NSTimerButton: NSButton {
             path.line(to: NSPoint(x: dirtyRect.width/2, y: dirtyRect.height - 15))
             path.move(to: NSPoint(x: 15, y: dirtyRect.height/2))
             path.line(to: NSPoint(x: dirtyRect.width - 15, y: dirtyRect.height/2))
-            path.lineCapStyle = .roundLineCapStyle
+            path.lineCapStyle = .round
             NSColor.white.setStroke()
             path.lineWidth = 3
             path.stroke()
@@ -43,7 +43,7 @@ class NSTimerButton: NSButton {
             let path = NSBezierPath()
             path.move(to: NSPoint(x: 15, y: dirtyRect.height/2))
             path.line(to: NSPoint(x: dirtyRect.width - 15, y: dirtyRect.height/2))
-            path.lineCapStyle = .roundLineCapStyle
+            path.lineCapStyle = .round
             NSColor.white.setStroke()
             path.lineWidth = 3
             path.stroke()
@@ -54,7 +54,7 @@ class NSTimerButton: NSButton {
             path.line(to: NSPoint(x: rect.width - 7, y: rect.height - 7))
             path.move(to: NSPoint(x: 7, y: rect.height - 7))
             path.line(to: NSPoint(x: rect.width - 7, y: 7))
-            path.lineCapStyle = .roundLineCapStyle
+            path.lineCapStyle = .round
             NSColor.white.setStroke()
             path.lineWidth = 2
             path.stroke()

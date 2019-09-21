@@ -53,8 +53,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             return true
         }
         if preferences.isDockEnabled {
-            let mainWC = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
-                .instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "MainWindowController")) as! NSWindowController
+            let mainWC = NSStoryboard(name: "Main", bundle: nil)
+                .instantiateController(withIdentifier: "MainWindowController") as! NSWindowController
             mainWC.showWindow(self)
         } else {
             togglePopover(sender)
@@ -191,7 +191,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     
     private func setupMenuBarAsset() {
         func loadImageView() {
-            let image = NSImage(named: NSImage.Name.init(rawValue: "MenuBarIconTemplate"))
+            let image = NSImage(named: "MenuBarIconTemplate")
             imageView.frame = NSRect(origin: CGPoint(x: 0, y: 2), size: CGSize(width: 40, height: 18))
             imageView.image = image
             imageView.imageAlignment = .alignCenter
@@ -220,7 +220,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     
     private func setupPopoverAsset() {
         popover = NSPopover()
-        guard let vc = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "ViewController")) as? ViewController else {
+        guard let vc = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "ViewController") as? ViewController else {
             assertionFailure()
             return
         }
@@ -280,11 +280,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
                 scheduledSleepTimer = Timer(fire: fDate, interval: 86400, repeats: true) { (timer) in
                     self.autoSleep(minutes: 30)
                 }
-                RunLoop.current.add(scheduledSleepTimer!, forMode: .defaultRunLoopMode)
+                RunLoop.current.add(scheduledSleepTimer!, forMode: RunLoop.Mode.default)
             } else {
                 scheduledSleepTimer?.invalidate()
                 scheduledSleepTimer = Timer(fireAt: fDate, interval: 86400, target: self, selector: #selector(autoSleep(_:)), userInfo: nil, repeats: true)
-                RunLoop.current.add(scheduledSleepTimer!, forMode: .defaultRunLoopMode)
+                RunLoop.current.add(scheduledSleepTimer!, forMode: RunLoop.Mode.default)
             }
         }
     }

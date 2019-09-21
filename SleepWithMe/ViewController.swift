@@ -132,7 +132,7 @@ class ViewController: NSViewController {
     
     @IBAction func onClickPreferencesButton(_ sender: Any) {
         (NSApplication.shared.delegate as! AppDelegate).closePopover(sender)
-        performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "ShowPreferences"), sender: self)
+        performSegue(withIdentifier: "ShowPreferences", sender: self)
     }
     
     @IBAction func decreaseTimer(_ sender: Any) {
@@ -150,7 +150,7 @@ class ViewController: NSViewController {
     private func setStopTimerButton() {
         let pstyle = NSMutableParagraphStyle()
         pstyle.alignment = .center
-        self.activationButton.attributedTitle = NSAttributedString(string: "Stop Timer", attributes: [NSAttributedStringKey.foregroundColor: NSColor.white, NSAttributedStringKey.paragraphStyle: pstyle, NSAttributedStringKey.font: NSFont.systemFont(ofSize: 20, weight: .light)])
+        self.activationButton.attributedTitle = NSAttributedString(string: "Stop Timer", attributes: [NSAttributedString.Key.foregroundColor: NSColor.white, NSAttributedString.Key.paragraphStyle: pstyle, NSAttributedString.Key.font: NSFont.systemFont(ofSize: 20, weight: .light)])
         if #available(OSX 10.12, *) {
             self.activationButton.layer?.backgroundColor = NSColor(displayP3Red: 238/256.0, green: 96/256.0, blue: 2/256.0, alpha: 1.0).cgColor
         } else {
@@ -161,7 +161,7 @@ class ViewController: NSViewController {
     private func setStartTimerButton() {
         let pstyle = NSMutableParagraphStyle()
         pstyle.alignment = .center
-        self.activationButton.attributedTitle = NSAttributedString(string: "Start Timer", attributes: [NSAttributedStringKey.foregroundColor: NSColor.white, NSAttributedStringKey.paragraphStyle: pstyle, NSAttributedStringKey.font: NSFont.systemFont(ofSize: 20, weight: .regular)])
+        self.activationButton.attributedTitle = NSAttributedString(string: "Start Timer", attributes: [NSAttributedString.Key.foregroundColor: NSColor.white, NSAttributedString.Key.paragraphStyle: pstyle, NSAttributedString.Key.font: NSFont.systemFont(ofSize: 20, weight: .regular)])
         if #available(OSX 10.12, *) {
             self.activationButton.layer?.backgroundColor = NSColor(displayP3Red: 83/256.0, green: 0/256.0, blue: 232/256.0, alpha: 1.0).cgColor
         } else {

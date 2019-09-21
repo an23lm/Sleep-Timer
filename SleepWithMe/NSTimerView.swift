@@ -39,7 +39,7 @@ class NSTimerView: NSView {
             startAngle: CGFloat(210),
             endAngle: CGFloat(330),
             clockwise: true)
-        bgArcPath.lineCapStyle = .roundLineCapStyle
+        bgArcPath.lineCapStyle = .round
         
         bgArc = CAShapeLayer()
         bgArc.path = bgArcPath.cgPath
@@ -48,7 +48,7 @@ class NSTimerView: NSView {
         bgArc.lineWidth = 5.0
         bgArc.strokeStart = 0
         bgArc.strokeEnd = 0
-        bgArc.lineCap = kCALineCapRound
+        bgArc.lineCap = CAShapeLayerLineCap.round
         
         let fgArcPath = NSBezierPath()
         fgArcPath.appendArc(
@@ -69,7 +69,7 @@ class NSTimerView: NSView {
         fgArc.lineWidth = 5.0
         fgArc.strokeStart = 0
         fgArc.strokeEnd = 0
-        fgArc.lineCap = kCALineCapRound
+        fgArc.lineCap = CAShapeLayerLineCap.round
         
         layer!.addSublayer(bgArc)
         layer!.addSublayer(fgArc)
@@ -81,7 +81,7 @@ class NSTimerView: NSView {
         animation.duration = duration
         animation.fromValue = 0
         animation.toValue = 1
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
 
         bgArc.strokeEnd = 1.0
         bgArc.add(animation, forKey: "animateBgArc")
@@ -92,7 +92,7 @@ class NSTimerView: NSView {
         animation.duration = duration
         animation.fromValue = fgArcStokeEnd
         animation.toValue = 1
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         
         fgArc.strokeEnd = 1.0
         fgArcStokeEnd = 1.0
@@ -109,7 +109,7 @@ class NSTimerView: NSView {
         animation.duration = duration
         animation.fromValue = fromPosition
         animation.toValue = toPosition
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         
         fgArc.strokeEnd = toPosition
         fgArcStokeEnd = toPosition
@@ -121,7 +121,7 @@ class NSTimerView: NSView {
         animation.duration = duration
         animation.fromValue = fgArcStokeEnd
         animation.toValue = position
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         
         fgArc.strokeEnd = position
         fgArcStokeEnd = position
@@ -138,13 +138,13 @@ extension NSBezierPath {
         for i in 0 ..< self.elementCount {
             let type = self.element(at: i, associatedPoints: &points)
             switch type {
-            case .moveToBezierPathElement:
+            case .moveTo:
                 path.move(to: points[0])
-            case .lineToBezierPathElement:
+            case .lineTo:
                 path.addLine(to: points[0])
-            case .curveToBezierPathElement:
+            case .curveTo:
                 path.addCurve(to: points[2], control1: points[0], control2: points[1])
-            case .closePathBezierPathElement:
+            case .closePath:
                 path.closeSubpath()
             }
         }
