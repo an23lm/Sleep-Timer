@@ -28,8 +28,7 @@ class PreferencesViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        versionLabel.stringValue = "Version " + Bundle.main.releaseVersionNumber!
-        buildLabel.stringValue = "Build " + Bundle.main.buildVersionNumber!
+        NSApp.activate(ignoringOtherApps: true)
         
         isAutoLaunchEnabled = UserDefaults.standard.bool(forKey: Constants.autoLaunch)
         isShowDockEnabled = UserDefaults.standard.bool(forKey: Constants.isDockIconEnabled)

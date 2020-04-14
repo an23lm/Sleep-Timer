@@ -12,9 +12,6 @@
 		F7070F062126AC9100A1E643 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7070F042126AC9100A1E643 /* MainMenu.xib */; };
 		F7070F092126AC9100A1E643 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7070F082126AC9100A1E643 /* main.m */; };
 		F7070F0F2126ADE100A1E643 /* SleepWithMeHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = F7070EFD2126AC9000A1E643 /* SleepWithMeHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		F728FD3720C695B50008AC5A /* PutMeToSleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = F728FD3620C695B50008AC5A /* PutMeToSleep.swift */; };
-		F728FD3B20C6978D0008AC5A /* AppleScriptProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F728FD3A20C6978D0008AC5A /* AppleScriptProtocol.swift */; };
-		F728FD4620C6B0A50008AC5A /* PutMeToSleep.applescript in Sources */ = {isa = PBXBuildFile; fileRef = F728FD4520C6B0A50008AC5A /* PutMeToSleep.applescript */; };
 		F74F10DD20C81BB5000AB074 /* NSTimerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74F10DC20C81BB5000AB074 /* NSTimerButton.swift */; };
 		F74F10E120C82407000AB074 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74F10E020C82407000AB074 /* EventMonitor.swift */; };
 		F76DB24E20FFCC740097172D /* SleepTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76DB24D20FFCC740097172D /* SleepTimer.swift */; };
@@ -62,10 +59,7 @@
 		F7070F072126AC9100A1E643 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7070F082126AC9100A1E643 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F7070F0A2126AC9100A1E643 /* SleepWithMeHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SleepWithMeHelper.entitlements; sourceTree = "<group>"; };
-		F728FD3620C695B50008AC5A /* PutMeToSleep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutMeToSleep.swift; sourceTree = "<group>"; };
-		F728FD3A20C6978D0008AC5A /* AppleScriptProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptProtocol.swift; sourceTree = "<group>"; };
 		F728FD3F20C69CE60008AC5A /* AppleScriptObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppleScriptObjC.framework; path = System/Library/Frameworks/AppleScriptObjC.framework; sourceTree = SDKROOT; };
-		F728FD4520C6B0A50008AC5A /* PutMeToSleep.applescript */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.applescript; path = PutMeToSleep.applescript; sourceTree = "<group>"; };
 		F74F10DC20C81BB5000AB074 /* NSTimerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTimerButton.swift; sourceTree = "<group>"; };
 		F74F10E020C82407000AB074 /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		F76DB24D20FFCC740097172D /* SleepTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimer.swift; sourceTree = "<group>"; };
@@ -122,6 +116,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F764D4A3233692B8006ED9AC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F7BB7DE220C5CE1D00824919 /* ViewController.swift */,
+				F76DB251210001DA0097172D /* PreferencesViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F764D4A4233692DF006ED9AC /* View Components */ = {
+			isa = PBXGroup;
+			children = (
+				F74F10DC20C81BB5000AB074 /* NSTimerButton.swift */,
+				F7BB7E0C20C5DA4F00824919 /* NSTimerView.swift */,
+			);
+			path = "View Components";
+			sourceTree = "<group>";
+		};
 		F7BB7DD420C5CE1D00824919 = {
 			isa = PBXGroup;
 			children = (
@@ -144,17 +156,12 @@
 		F7BB7DDF20C5CE1D00824919 /* SleepWithMe */ = {
 			isa = PBXGroup;
 			children = (
+				F7BB7DE020C5CE1D00824919 /* AppDelegate.swift */,
+				F764D4A3233692B8006ED9AC /* Views */,
+				F764D4A4233692DF006ED9AC /* View Components */,
 				F76DB24D20FFCC740097172D /* SleepTimer.swift */,
 				F76DB255210003D40097172D /* Constants.swift */,
-				F7BB7DE020C5CE1D00824919 /* AppDelegate.swift */,
-				F7BB7DE220C5CE1D00824919 /* ViewController.swift */,
-				F76DB251210001DA0097172D /* PreferencesViewController.swift */,
 				F74F10E020C82407000AB074 /* EventMonitor.swift */,
-				F74F10DC20C81BB5000AB074 /* NSTimerButton.swift */,
-				F7BB7E0C20C5DA4F00824919 /* NSTimerView.swift */,
-				F728FD4520C6B0A50008AC5A /* PutMeToSleep.applescript */,
-				F728FD3620C695B50008AC5A /* PutMeToSleep.swift */,
-				F728FD3A20C6978D0008AC5A /* AppleScriptProtocol.swift */,
 				F7BB7DE420C5CE1F00824919 /* Assets.xcassets */,
 				F7BB7DE620C5CE1F00824919 /* Main.storyboard */,
 				F7BB7DE920C5CE1F00824919 /* Info.plist */,
@@ -209,7 +216,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = an23lm;
 				TargetAttributes = {
 					F7070EFC2126AC9000A1E643 = {
@@ -283,14 +290,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F728FD3720C695B50008AC5A /* PutMeToSleep.swift in Sources */,
 				F76DB256210003D40097172D /* Constants.swift in Sources */,
-				F728FD4620C6B0A50008AC5A /* PutMeToSleep.applescript in Sources */,
 				F74F10DD20C81BB5000AB074 /* NSTimerButton.swift in Sources */,
 				F7BB7DE320C5CE1D00824919 /* ViewController.swift in Sources */,
 				F7BB7E0D20C5DA4F00824919 /* NSTimerView.swift in Sources */,
 				F76DB252210001DA0097172D /* PreferencesViewController.swift in Sources */,
-				F728FD3B20C6978D0008AC5A /* AppleScriptProtocol.swift in Sources */,
 				F7BB7DE120C5CE1D00824919 /* AppDelegate.swift in Sources */,
 				F76DB24E20FFCC740097172D /* SleepTimer.swift in Sources */,
 				F74F10E120C82407000AB074 /* EventMonitor.swift in Sources */,
@@ -328,6 +332,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = F698675JBS;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SleepWithMeHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -348,6 +353,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = F698675JBS;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SleepWithMeHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

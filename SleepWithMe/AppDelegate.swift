@@ -42,7 +42,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(willSleepNotification(notification:)), name: NSWorkspace.willSleepNotification, object: nil)
         NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(didWakeNotification(notification:)), name: NSWorkspace.didWakeNotification, object: nil)
         NSUserNotificationCenter.default.delegate = self
-        PutMeToSleep.load()
         setupPopoverAsset()
         setupMenuBarAsset()
         loadPreferences()
@@ -129,20 +128,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     }
     
     private func sush() {
-//        let putMeToSleep = PutMeToSleep.getObject() as! AppleScriptProtocol
-//        putMeToSleep.sush()
-        
-        @discardableResult
-        func shell(_ args: String...) -> Int32 {
-            let task = Process()
-            task.launchPath = "/usr/bin/pmset"
-            task.arguments = args
-            task.launch()
-            task.waitUntilExit()
-            return task.terminationStatus
-        }
-        
-        shell("sleepnow")
+        let task = Process()
+        task.launchPath = "/usr/bin/pmset"
+        task.arguments = ["sleepnow"]
+        task.launch()
     }
 
     private func setMenuBarTitle(_ title: String) {

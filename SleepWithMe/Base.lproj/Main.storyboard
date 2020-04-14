@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -77,7 +76,7 @@
         <scene sceneID="IGU-uX-pJ0">
             <objects>
                 <windowController storyboardIdentifier="MainWindowController" showSeguePresentationStyle="single" id="ShX-Vd-0Pg" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" tabbingMode="disallowed" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="zmb-1a-Tpp">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" frameAutosaveName="" animationBehavior="default" tabbingMode="disallowed" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="zmb-1a-Tpp">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowCollectionBehavior key="collectionBehavior" fullScreenNone="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -100,14 +99,14 @@
             <objects>
                 <viewController title="ViewController" identifier="ViewController" storyboardIdentifier="ViewController" showSeguePresentationStyle="single" id="XfG-lQ-9wD" customClass="ViewController" customModule="SleepWithMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="260" height="336"/>
+                        <rect key="frame" x="0.0" y="0.0" width="260" height="330"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="Hw2-Jj-ZsP" customClass="NSTimerView" customModule="SleepWithMe" customModuleProvider="target">
                                 <rect key="frame" x="50" y="138" width="160" height="160"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="th6-g0-XwF">
-                                        <rect key="frame" x="58" y="40" width="44" height="86"/>
+                                        <rect key="frame" x="58" y="40" width="44" height="71"/>
                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="5" id="Ltr-da-xN9">
                                             <font key="font" size="60" name="SFProDisplay-Medium"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -115,7 +114,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="epY-Ya-XPQ">
-                                        <rect key="frame" x="57" y="21" width="47" height="19"/>
+                                        <rect key="frame" x="57" y="25" width="47" height="15"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="minutes" id="9oz-1V-SZe">
                                             <font key="font" size="13" name="SFProDisplay-Light"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -161,7 +160,7 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0UV-Nz-8vF">
-                                <rect key="frame" x="63" y="306" width="134" height="30"/>
+                                <rect key="frame" x="63" y="306" width="134" height="24"/>
                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Sleep With Me" id="0eR-Fq-WLU">
                                     <font key="font" size="20" name="SFProDisplay-Medium"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -182,7 +181,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6Gm-XB-Rtb" customClass="NSTimerButton" customModule="SleepWithMe" customModuleProvider="target">
-                                <rect key="frame" x="8" y="308" width="45" height="20"/>
+                                <rect key="frame" x="8" y="302" width="45" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="5H8-tA-EWK"/>
                                     <constraint firstAttribute="height" constant="20" id="QKa-bo-ZpG"/>
@@ -196,7 +195,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cti-Ua-K0g">
-                                <rect key="frame" x="234" y="309" width="18" height="20"/>
+                                <rect key="frame" x="234" y="303" width="18" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="9rK-wA-xXN"/>
                                     <constraint firstAttribute="width" constant="18" id="Vh9-OL-o4B"/>
@@ -252,7 +251,7 @@
         <scene sceneID="UiQ-8H-Jja">
             <objects>
                 <windowController storyboardIdentifier="PreferencesController" showSeguePresentationStyle="single" id="IuC-9I-mYl" sceneMemberID="viewController">
-                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="wjt-aN-RcN">
+                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="wjt-aN-RcN">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -273,46 +272,33 @@
         <scene sceneID="iH9-YF-eLf">
             <objects>
                 <viewController storyboardIdentifier="PreferencesViewController" showSeguePresentationStyle="single" id="wSh-KX-gF6" customClass="PreferencesViewController" customModule="SleepWithMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="Sy4-kX-3J8">
-                        <rect key="frame" x="0.0" y="0.0" width="475" height="410"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                    <view key="view" translatesAutoresizingMaskIntoConstraints="NO" id="Sy4-kX-3J8">
+                        <rect key="frame" x="0.0" y="0.0" width="500" height="386"/>
                         <subviews>
                             <textField horizontalHuggingPriority="1000" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Adr-gC-unM">
-                                <rect key="frame" x="6" y="318" width="463" height="84"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="459" id="fCB-iJ-d77"/>
-                                </constraints>
+                                <rect key="frame" x="14" y="307" width="472" height="59"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Sleep With Me" usesSingleLineMode="YES" id="O1g-5h-pAu">
-                                    <font key="font" metaFont="systemBold" size="70"/>
-                                    <color key="textColor" white="0.0" alpha="0.80000000000000004" colorSpace="deviceWhite"/>
+                                    <font key="font" metaFont="systemSemibold" size="50"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="u9b-Lz-IBr">
-                                <rect key="frame" x="18" y="318" width="439" height="15"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Version 2.0" id="6Gq-0z-QEm">
-                                    <font key="font" size="10" name="SFProText-Semibold"/>
-                                    <color key="textColor" red="0.32549019610000002" green="0.0" blue="0.90980392160000001" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="68i-05-xsc">
-                                <rect key="frame" x="18" y="304" width="439" height="14"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Build 2323" id="0M3-0s-mdc">
-                                    <font key="font" size="9" name="SFProText-Semibold"/>
-                                    <color key="textColor" red="0.32549019610000002" green="0.0" blue="0.90980392160000001" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kXB-Wb-Wfe">
+                                <rect key="frame" x="18" y="267" width="464" height="18"/>
+                                <buttonCell key="cell" type="check" title="Auto Launch on Login" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="kJ3-kV-jgk">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="systemMedium" size="13"/>
+                                </buttonCell>
+                            </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dph-r3-gfF">
-                                <rect key="frame" x="18" y="234" width="439" height="18"/>
+                                <rect key="frame" x="18" y="233" width="464" height="18"/>
                                 <buttonCell key="cell" type="check" title="Show Dock Icon" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="7rR-no-NN9">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="systemMedium" size="13"/>
                                 </buttonCell>
                             </button>
                             <datePicker verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="We8-zT-5tU">
-                                <rect key="frame" x="20" y="128" width="83" height="27"/>
+                                <rect key="frame" x="20" y="126" width="85" height="28"/>
                                 <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="hg1-Gu-GmJ">
                                     <font key="font" metaFont="system"/>
                                     <date key="date" timeIntervalSinceReferenceDate="-595922400">
@@ -324,7 +310,7 @@
                                 </datePickerCell>
                             </datePicker>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ovJ-fP-KJI">
-                                <rect key="frame" x="18" y="91" width="439" height="17"/>
+                                <rect key="frame" x="18" y="90" width="464" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Default Timer" id="TKx-Va-Yn4">
                                     <font key="font" metaFont="systemMedium" size="13"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -332,19 +318,19 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xTu-Xc-ucX">
-                                <rect key="frame" x="20" y="61" width="50" height="22"/>
+                                <rect key="frame" x="20" y="61" width="50" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="G1j-FO-QWN"/>
                                 </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="0" drawsBackground="YES" usesSingleLineMode="YES" id="qXU-cc-r48">
                                     <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="Ahs-wc-sV2"/>
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZSE-Gd-nTl">
-                                <rect key="frame" x="72" y="63" width="385" height="17"/>
+                                <rect key="frame" x="72" y="64" width="410" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Minutes" usesSingleLineMode="YES" id="aWE-or-Xgw">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -352,7 +338,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EgT-Xg-JpQ">
-                                <rect key="frame" x="202" y="13" width="72" height="32"/>
+                                <rect key="frame" x="214" y="13" width="72" height="32"/>
                                 <buttonCell key="cell" type="push" title="Done" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ULC-9f-I8l">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -362,7 +348,7 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="1" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="va1-3L-u7l">
-                                <rect key="frame" x="18" y="159" width="439" height="39"/>
+                                <rect key="frame" x="18" y="158" width="464" height="39"/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="boY-ZC-RfR">
                                     <font key="font" metaFont="system" size="10"/>
                                     <string key="title">Puts your Mac to sleep at the scheduled time everyday unless interupted. You will be notified 30 minutes prior to the scheduled sleep time; the scheduled sleep will be cancelled if there is already exists an active timer.</string>
@@ -371,15 +357,8 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UuR-t0-zoT">
-                                <rect key="frame" x="18" y="200" width="439" height="18"/>
+                                <rect key="frame" x="18" y="199" width="464" height="18"/>
                                 <buttonCell key="cell" type="check" title="Schedule Daily Sleep Time" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="clJ-Nz-W4c">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="systemMedium" size="13"/>
-                                </buttonCell>
-                            </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kXB-Wb-Wfe">
-                                <rect key="frame" x="18" y="268" width="439" height="18"/>
-                                <buttonCell key="cell" type="check" title="Auto Launch on Login" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="kJ3-kV-jgk">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="systemMedium" size="13"/>
                                 </buttonCell>
@@ -387,49 +366,42 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="ovJ-fP-KJI" firstAttribute="top" secondItem="We8-zT-5tU" secondAttribute="bottom" constant="20" id="0lV-wb-6v6"/>
-                            <constraint firstItem="u9b-Lz-IBr" firstAttribute="leading" secondItem="Sy4-kX-3J8" secondAttribute="leading" constant="20" id="3bY-fg-eHf"/>
                             <constraint firstItem="ZSE-Gd-nTl" firstAttribute="leading" secondItem="xTu-Xc-ucX" secondAttribute="trailing" constant="4" id="66Z-BN-O7i"/>
                             <constraint firstItem="dph-r3-gfF" firstAttribute="top" secondItem="kXB-Wb-Wfe" secondAttribute="bottom" constant="20" id="6fd-Zb-BJS"/>
+                            <constraint firstAttribute="trailing" secondItem="Adr-gC-unM" secondAttribute="trailing" constant="16" id="7Gu-fN-QEw"/>
                             <constraint firstAttribute="trailing" secondItem="va1-3L-u7l" secondAttribute="trailing" constant="20" id="B8v-ez-Mwn"/>
-                            <constraint firstItem="Adr-gC-unM" firstAttribute="top" secondItem="Sy4-kX-3J8" secondAttribute="top" constant="8" id="FFG-EA-Mh7"/>
+                            <constraint firstItem="kXB-Wb-Wfe" firstAttribute="top" secondItem="Adr-gC-unM" secondAttribute="bottom" constant="24" id="E3H-ib-vJe"/>
                             <constraint firstItem="We8-zT-5tU" firstAttribute="leading" secondItem="Sy4-kX-3J8" secondAttribute="leading" constant="20" id="Glc-BT-hbN"/>
                             <constraint firstItem="va1-3L-u7l" firstAttribute="top" secondItem="UuR-t0-zoT" secondAttribute="bottom" constant="4" id="IKE-ac-lqg"/>
                             <constraint firstItem="xTu-Xc-ucX" firstAttribute="leading" secondItem="Sy4-kX-3J8" secondAttribute="leading" constant="20" id="JFo-7I-rx0"/>
                             <constraint firstItem="kXB-Wb-Wfe" firstAttribute="leading" secondItem="Sy4-kX-3J8" secondAttribute="leading" constant="20" id="MLo-qF-3oB"/>
                             <constraint firstItem="EgT-Xg-JpQ" firstAttribute="top" secondItem="xTu-Xc-ucX" secondAttribute="bottom" constant="20" id="OVh-qT-bmX"/>
-                            <constraint firstAttribute="trailing" secondItem="Adr-gC-unM" secondAttribute="trailing" constant="8" id="PC4-uG-RPE"/>
                             <constraint firstItem="ZSE-Gd-nTl" firstAttribute="centerY" secondItem="xTu-Xc-ucX" secondAttribute="centerY" id="Pg0-xi-Aao"/>
-                            <constraint firstItem="kXB-Wb-Wfe" firstAttribute="top" secondItem="68i-05-xsc" secondAttribute="bottom" constant="20" id="S7h-EM-hi7"/>
-                            <constraint firstAttribute="trailing" secondItem="68i-05-xsc" secondAttribute="trailing" constant="20" id="TD6-vh-8zr"/>
                             <constraint firstItem="va1-3L-u7l" firstAttribute="leading" secondItem="Sy4-kX-3J8" secondAttribute="leading" constant="20" id="UdA-3E-n8J"/>
                             <constraint firstAttribute="trailing" secondItem="ZSE-Gd-nTl" secondAttribute="trailing" constant="20" id="Vuv-8S-KSX"/>
                             <constraint firstItem="UuR-t0-zoT" firstAttribute="leading" secondItem="Sy4-kX-3J8" secondAttribute="leading" constant="20" id="W1q-kb-vrS"/>
                             <constraint firstAttribute="trailing" secondItem="kXB-Wb-Wfe" secondAttribute="trailing" constant="20" id="W5R-Wc-zxU"/>
-                            <constraint firstItem="68i-05-xsc" firstAttribute="top" secondItem="Adr-gC-unM" secondAttribute="bottom" id="XET-fG-Q3L"/>
                             <constraint firstItem="xTu-Xc-ucX" firstAttribute="top" secondItem="ovJ-fP-KJI" secondAttribute="bottom" constant="8" id="bXr-Re-jjj"/>
-                            <constraint firstItem="u9b-Lz-IBr" firstAttribute="bottom" secondItem="Adr-gC-unM" secondAttribute="bottom" id="d2b-Px-S5U"/>
+                            <constraint firstAttribute="width" constant="500" id="cdE-Xj-tsR"/>
                             <constraint firstItem="ovJ-fP-KJI" firstAttribute="leading" secondItem="Sy4-kX-3J8" secondAttribute="leading" constant="20" id="dXQ-PH-JHq"/>
+                            <constraint firstItem="Adr-gC-unM" firstAttribute="top" secondItem="Sy4-kX-3J8" secondAttribute="top" constant="20" id="eS5-55-gJs"/>
                             <constraint firstItem="We8-zT-5tU" firstAttribute="top" secondItem="va1-3L-u7l" secondAttribute="bottom" constant="8" id="eiV-kC-x4U"/>
                             <constraint firstItem="dph-r3-gfF" firstAttribute="leading" secondItem="Sy4-kX-3J8" secondAttribute="leading" constant="20" id="gcr-UR-cqU"/>
                             <constraint firstItem="UuR-t0-zoT" firstAttribute="top" secondItem="dph-r3-gfF" secondAttribute="bottom" constant="20" id="gvt-zj-c04"/>
-                            <constraint firstAttribute="trailing" secondItem="u9b-Lz-IBr" secondAttribute="trailing" constant="20" id="hnk-mh-fZ5"/>
                             <constraint firstAttribute="bottom" secondItem="EgT-Xg-JpQ" secondAttribute="bottom" constant="20" id="hzk-ke-EdS"/>
                             <constraint firstAttribute="trailing" secondItem="UuR-t0-zoT" secondAttribute="trailing" constant="20" id="ihB-k1-98f"/>
                             <constraint firstItem="EgT-Xg-JpQ" firstAttribute="centerX" secondItem="Sy4-kX-3J8" secondAttribute="centerX" id="lKX-Nc-xcB"/>
                             <constraint firstAttribute="trailing" secondItem="ovJ-fP-KJI" secondAttribute="trailing" constant="20" id="m4B-be-Ek4"/>
                             <constraint firstAttribute="trailing" secondItem="dph-r3-gfF" secondAttribute="trailing" constant="20" id="nG5-Yh-8zO"/>
-                            <constraint firstItem="68i-05-xsc" firstAttribute="leading" secondItem="Sy4-kX-3J8" secondAttribute="leading" constant="20" id="sbZ-pU-Lgy"/>
-                            <constraint firstItem="Adr-gC-unM" firstAttribute="leading" secondItem="Sy4-kX-3J8" secondAttribute="leading" constant="8" id="xX3-w8-qkR"/>
+                            <constraint firstItem="Adr-gC-unM" firstAttribute="leading" secondItem="Sy4-kX-3J8" secondAttribute="leading" constant="16" id="xX3-w8-qkR"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="autoLaunchChecker" destination="kXB-Wb-Wfe" id="gZN-1u-1SN"/>
-                        <outlet property="buildLabel" destination="68i-05-xsc" id="ZMV-NX-IZ9"/>
                         <outlet property="defaultSleepTimerChecker" destination="UuR-t0-zoT" id="KS4-hv-284"/>
                         <outlet property="defaultSleepTimerPicker" destination="We8-zT-5tU" id="xEM-GF-9SB"/>
                         <outlet property="defaultTimerTextField" destination="xTu-Xc-ucX" id="LRd-yp-Bhw"/>
                         <outlet property="showDockChecker" destination="dph-r3-gfF" id="4Dn-xJ-mH8"/>
-                        <outlet property="versionLabel" destination="u9b-Lz-IBr" id="nai-Pa-U25"/>
                     </connections>
                 </viewController>
                 <customObject id="cXj-Uf-5Iu" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -437,10 +409,10 @@
             <point key="canvasLocation" x="1332.5" y="777"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="SettingsIconTemplate" width="75" height="75"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ltN-sa-zXF"/>
     </inferredMetricsTieBreakers>
+    <resources>
+        <image name="SettingsIconTemplate" width="50" height="50"/>
+    </resources>
 </document>
