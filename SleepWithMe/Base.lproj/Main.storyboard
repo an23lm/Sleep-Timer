@@ -60,6 +60,35 @@
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem title="File" id="kf9-Yf-gO1">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="File" id="e0o-FV-e8b">
+                                    <items>
+                                        <menuItem title="Open Timer" keyEquivalent="o" id="Rbm-TQ-LDX">
+                                            <connections>
+                                                <action selector="openTimerWindow:" target="Ady-hI-5gd" id="yMv-9s-xip"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="6Ae-gL-lqG"/>
+                                        <menuItem title="Start Timer" keyEquivalent="n" id="mb3-xj-ueK">
+                                            <connections>
+                                                <action selector="startTimer:" target="Ady-hI-5gd" id="G5Q-4c-8Ae"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Stop Timer" keyEquivalent="N" id="Bwo-mm-3rB">
+                                            <connections>
+                                                <action selector="stopTimer:" target="Ady-hI-5gd" id="OX2-Tw-PGi"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="1yq-cC-nDG"/>
+                                        <menuItem title="Close Window" keyEquivalent="w" id="UKZ-rX-SK7">
+                                            <connections>
+                                                <action selector="closeKeyWindow:" target="Ady-hI-5gd" id="ea9-m1-D86"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                         </items>
                     </menu>
                     <connections>
@@ -67,6 +96,19 @@
                     </connections>
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="SleepWithMe" customModuleProvider="target"/>
+                <menu id="zq2-5f-e3D">
+                    <items>
+                        <menuItem title="Item 1" id="p0e-MR-Ph8">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="Item 2" id="VDG-eS-bsj">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="Item 3" id="YHp-IJ-5vY">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                    </items>
+                </menu>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -410,7 +452,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ltN-sa-zXF"/>
+        <segue reference="lE5-h5-zTW"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="SettingsIconTemplate" width="50" height="50"/>

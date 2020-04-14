@@ -112,7 +112,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         }
     }
     
-    //MARK: - Helper methods
+    //MARK: - Helper Methods
     private func sendNotification(withCurrentMinutes currentMinutes: Int) {
         NSUserNotificationCenter.default.removeAllDeliveredNotifications()
         
@@ -318,5 +318,24 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     func setLaunchOnLogin() {
         let appBundleIdentifier: CFString = "com.an23lm.SleepWithMeHelper" as CFString
         SMLoginItemSetEnabled(appBundleIdentifier, preferences.autoLaunchEnabled)
+    }
+    
+    //MARK: - Menu Methods
+    @IBAction func closeKeyWindow(_ sender: Any) {
+        NSApplication.shared.keyWindow?.close()
+    }
+    
+    @IBAction func openTimerWindow(_ sender: Any) {
+        let mainWC = NSStoryboard(name: "Main", bundle: nil)
+            .instantiateController(withIdentifier: "MainWindowController") as! NSWindowController
+        mainWC.showWindow(self)
+    }
+    
+    @IBAction func startTimer(_ sender: Any) {
+        autoSleep(minutes: preferences.defaultTimer)
+    }
+    
+    @IBAction func stopTimer(_ sender: Any) {
+        SleepTimer.shared.stopTimer(didComplete: false)
     }
 }
