@@ -22,6 +22,9 @@ internal class SleepTimer {
     //MARK: - Internal properties
     internal var currentMinutes: Int = 0 {
         didSet {
+            if currentMinutes == 0 {
+                currentMinutes = 1
+            }
             notifyTimeRemainingChange()
         }
     }
