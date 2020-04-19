@@ -19,6 +19,8 @@
 		F76DB256210003D40097172D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76DB255210003D40097172D /* Constants.swift */; };
 		F77593D823368B8800F797ED /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F77593DA23368B8A00F797ED /* AppleScriptObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F728FD3F20C69CE60008AC5A /* AppleScriptObjC.framework */; };
+		F77D1B5C244C67340042C076 /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D1B5B244C67340042C076 /* MenuBarView.swift */; };
+		F783D796244C934D00ADCCDE /* InterfaceStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783D795244C934D00ADCCDE /* InterfaceStyle.swift */; };
 		F7BB7DE120C5CE1D00824919 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB7DE020C5CE1D00824919 /* AppDelegate.swift */; };
 		F7BB7DE320C5CE1D00824919 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB7DE220C5CE1D00824919 /* ViewController.swift */; };
 		F7BB7DE520C5CE1F00824919 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7BB7DE420C5CE1F00824919 /* Assets.xcassets */; };
@@ -65,6 +67,8 @@
 		F76DB24D20FFCC740097172D /* SleepTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimer.swift; sourceTree = "<group>"; };
 		F76DB251210001DA0097172D /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		F76DB255210003D40097172D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F77D1B5B244C67340042C076 /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
+		F783D795244C934D00ADCCDE /* InterfaceStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceStyle.swift; sourceTree = "<group>"; };
 		F7BB7DDD20C5CE1D00824919 /* SleepWithMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepWithMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7BB7DE020C5CE1D00824919 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7BB7DE220C5CE1D00824919 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,22 +120,41 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F764D4A3233692B8006ED9AC /* Views */ = {
+		F764D4A3233692B8006ED9AC /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
 				F7BB7DE220C5CE1D00824919 /* ViewController.swift */,
 				F76DB251210001DA0097172D /* PreferencesViewController.swift */,
 			);
-			path = Views;
+			path = "View Controller";
 			sourceTree = "<group>";
 		};
-		F764D4A4233692DF006ED9AC /* View Components */ = {
+		F764D4A4233692DF006ED9AC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F77D1B5B244C67340042C076 /* MenuBarView.swift */,
 				F74F10DC20C81BB5000AB074 /* NSTimerButton.swift */,
 				F7BB7E0C20C5DA4F00824919 /* NSTimerView.swift */,
 			);
-			path = "View Components";
+			path = View;
+			sourceTree = "<group>";
+		};
+		F77D1B5D244C68990042C076 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F76DB24D20FFCC740097172D /* SleepTimer.swift */,
+				F76DB255210003D40097172D /* Constants.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F77D1B5E244C68A90042C076 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				F74F10E020C82407000AB074 /* EventMonitor.swift */,
+				F783D795244C934D00ADCCDE /* InterfaceStyle.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		F7BB7DD420C5CE1D00824919 = {
@@ -157,11 +180,10 @@
 			isa = PBXGroup;
 			children = (
 				F7BB7DE020C5CE1D00824919 /* AppDelegate.swift */,
-				F764D4A3233692B8006ED9AC /* Views */,
-				F764D4A4233692DF006ED9AC /* View Components */,
-				F76DB24D20FFCC740097172D /* SleepTimer.swift */,
-				F76DB255210003D40097172D /* Constants.swift */,
-				F74F10E020C82407000AB074 /* EventMonitor.swift */,
+				F764D4A3233692B8006ED9AC /* View Controller */,
+				F764D4A4233692DF006ED9AC /* View */,
+				F77D1B5D244C68990042C076 /* Model */,
+				F77D1B5E244C68A90042C076 /* Helper */,
 				F7BB7DE420C5CE1F00824919 /* Assets.xcassets */,
 				F7BB7DE620C5CE1F00824919 /* Main.storyboard */,
 				F7BB7DE920C5CE1F00824919 /* Info.plist */,
@@ -290,12 +312,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F77D1B5C244C67340042C076 /* MenuBarView.swift in Sources */,
 				F76DB256210003D40097172D /* Constants.swift in Sources */,
 				F74F10DD20C81BB5000AB074 /* NSTimerButton.swift in Sources */,
 				F7BB7DE320C5CE1D00824919 /* ViewController.swift in Sources */,
 				F7BB7E0D20C5DA4F00824919 /* NSTimerView.swift in Sources */,
 				F76DB252210001DA0097172D /* PreferencesViewController.swift in Sources */,
 				F7BB7DE120C5CE1D00824919 /* AppDelegate.swift in Sources */,
+				F783D796244C934D00ADCCDE /* InterfaceStyle.swift in Sources */,
 				F76DB24E20FFCC740097172D /* SleepTimer.swift in Sources */,
 				F74F10E120C82407000AB074 /* EventMonitor.swift in Sources */,
 			);

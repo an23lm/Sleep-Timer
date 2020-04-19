@@ -61,6 +61,7 @@ class ViewController: NSViewController {
     override func viewWillAppear() {
         super.viewWillAppear()
         
+        NSApp.activate(ignoringOtherApps: true)
         NSApplication.shared.becomeFirstResponder()
         self.view.window?.isMovableByWindowBackground = !self.isPopover
         
@@ -75,25 +76,28 @@ class ViewController: NSViewController {
         self.view.becomeFirstResponder()
         
         keyMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
-            (event) -> NSEvent? in
+            [weak self] (event) -> NSEvent? in
+            
+            guard let here = self else {
+                return event
+            }
             
             guard let character = event.characters else {
-                print("return")
                 return event
             }
             
             if let number = Int(character) {
-                if (self.isFirstNumberEntry) {
-                    self.isFirstNumberEntry = false
-                    SleepTimer.shared.currentMinutes = number
+                if (here.isFirstNumberEntry) {
+                    here.isFirstNumberEntry = false
+                    SleepTimer.shared.set(minutes: number)
                 } else {
-                    SleepTimer.shared.currentMinutes =
-                        (SleepTimer.shared.currentMinutes * 10) + number
+                    let minutes = (SleepTimer.shared.currentMinutes * 10) + number
+                    SleepTimer.shared.set(minutes: minutes)
                 }
             } else if let keyCode = event.specialKey {
                 if keyCode == .backspace || keyCode == .delete {
-                    SleepTimer.shared.currentMinutes =
-                        (SleepTimer.shared.currentMinutes / 10)
+                    let minutes = (SleepTimer.shared.currentMinutes / 10)
+                    SleepTimer.shared.set(minutes: minutes)
                 } else if keyCode == .enter || keyCode == .carriageReturn {
                     SleepTimer.shared.startTimer()
                 }
@@ -115,8 +119,12 @@ class ViewController: NSViewController {
     
     override func viewDidAppear() {
         timerLabel.stringValue = String(currentMinutes)
-        timerView.animateBackgroundArc(duration: 1.0)
-        timerView.animateForegroundArc(toPosition: CGFloat(self.currentMinutes) * self.stepSize, fromPosition: 0, duration: 1.0)
+        timerView.animateBackgroundArc(duration: 0.5)
+        if (SleepTimer.shared.isTimerRunning) {
+            timerView.animateForegroundArc(toPosition: CGFloat(self.currentMinutes) * self.stepSize, fromPosition: 0, duration: 1.0)
+        } else {
+            timerView.animateForegroundArc(toPosition: CGFloat(SleepTimer.shared.currentMinutes) * self.stepSize, fromPosition: 0, duration: 1.0)
+        }
     }
     
     //MARK: - Private Methods
@@ -185,15 +193,19 @@ class ViewController: NSViewController {
     //MARK: - Callback Closures
     lazy var onTimeRemainingChange: SleepTimer.onTimeRemainingCallback = {[weak self] (minutes) in
         self?.timerLabel.stringValue = String(minutes)
-        self?.timerView.moveForegorundArc(toPosition: CGFloat(minutes) * SleepTimer.shared.stepSize)
+        if (SleepTimer.shared.isTimerRunning) {
+            self?.timerView.moveForegorundArc(toPosition: CGFloat(minutes) * SleepTimer.shared.stepSize)
+        }
     }
     
     lazy var onTimerActivated: SleepTimer.onTimerActivatedCallback = {[weak self] in
         self?.setStopTimerButton()
+        self?.timerView.moveForegorundArc(toPosition: 1.0)
     }
     
     lazy var onTimerInvalidated: SleepTimer.onTimerInvalidatedCallback = {[weak self] (_) in
         self?.setStartTimerButton()
+        self?.timerView.moveForegorundArc(toPosition: 1.0)
     }
     
     //MARK: - Actions

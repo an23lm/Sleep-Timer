@@ -20,14 +20,12 @@ internal class SleepTimer {
     private var onTimerInvalidatedCallbacks: [onTimerInvalidatedCallback?] = []
     
     //MARK: - Internal properties
-    internal var currentMinutes: Int = 0 {
+    private(set) var currentMinutes: Int = 0 {
         didSet {
-            if currentMinutes == 0 {
-                currentMinutes = 1
-            }
             notifyTimeRemainingChange()
         }
     }
+    
     internal var isTimerRunning: Bool = false
     internal var stepSize: CGFloat = 0
     
@@ -75,12 +73,12 @@ internal class SleepTimer {
     
     internal func set(minutes: Int) {
         currentMinutes = minutes
-        stepSize = 1.0/CGFloat(currentMinutes)
+        stepSize = 1.0 / CGFloat(currentMinutes)
     }
     
     internal func increaseTime() {
         currentMinutes += 1
-        stepSize = 1.0/CGFloat(currentMinutes)
+        stepSize = 1.0 / CGFloat(currentMinutes)
     }
     
     internal func decreaseTime() {
@@ -90,6 +88,9 @@ internal class SleepTimer {
     }
     
     internal func startTimer() {
+        if (currentMinutes == 0) {
+            currentMinutes = 1
+        }
         if #available(OSX 10.12, *) {
             timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { (timer) in
                 self.timerFired(timer)

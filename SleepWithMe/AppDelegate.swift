@@ -13,11 +13,9 @@ import ServiceManagement
 class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate {
 
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+    var statusItemView: MenuBarView!
     var popover: NSPopover! = nil
     var eventMonitor: EventMonitor?
-    
-    let textField = NSTextField()
-    let imageView = NSImageView()
     
     private(set) var sleepTimer: SleepTimer! = nil
     private var scheduledSleepTimer: Timer? = nil
@@ -25,14 +23,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     
     private var notification: NSUserNotification? = nil
     
-    private var preferences: (autoLaunchEnabled: Bool, isDockEnabled: Bool, isScheduledSleepTimerEnabled: Bool, scheduledSleepTime: Date, defaultTimer: Int)! = (false, true, false, Date(timeIntervalSince1970: 0), 0)
+    private var preferences: (autoLaunchEnabled: Bool, isDockEnabled: Bool, isScheduledSleepTimerEnabled: Bool,
+        scheduledSleepTime: Date, defaultTimer: Int)! = (false, true, false, Date(timeIntervalSince1970: 0), 0)
     
     //MARK: - Life cycle methods
     func applicationWillFinishLaunching(_ notification: Notification) {
         self.sleepTimer = SleepTimer()
         SleepTimer.shared = self.sleepTimer
         SleepTimer.shared.onTimeRemainingChange(onTimeRemainingChange)
-        SleepTimer.shared.onTimerActivated(onTimerActivated)
         SleepTimer.shared.onTimerInvalidated(onTimerInvalidated)
         
         firstLaunch()
@@ -90,25 +88,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     //MARK: - Callback closures
     lazy var onTimeRemainingChange: SleepTimer.onTimeRemainingCallback = {[weak self] (minutes) in
         if SleepTimer.shared.isTimerRunning {
-            self?.setMenuBarTitle(String(minutes))
             if minutes == 5 && SleepTimer.shared.isTimerRunning {
                 self?.sendNotification(withCurrentMinutes: minutes)
             }
-        } else {
-            self?.setMenuBarTitle("")
         }
-    }
-    
-    lazy var onTimerActivated: SleepTimer.onTimerActivatedCallback = {[weak self] in
-        self?.setMenuBarTitle(String(SleepTimer.shared.currentMinutes))
     }
     
     lazy var onTimerInvalidated: SleepTimer.onTimerInvalidatedCallback = {[weak self] (didComplete) in
         if didComplete {
-            SleepTimer.shared.set(minutes: (self?.defaultTimer) ?? 0)
             self?.sush()
-        } else {
-            self?.setMenuBarTitle("")
         }
     }
     
@@ -133,30 +121,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         task.arguments = ["sleepnow"]
         task.launch()
     }
-
-    private func setMenuBarTitle(_ title: String) {
-        textField.stringValue = title
-        textField.sizeToFit()
-        if title == "" {
-            statusItem.length = 40
-            imageView.frame.origin.x = (imageView.frame.width - statusItem.length)/2
-        } else if (imageView.frame.width + textField.frame.width) <= 65 {
-            statusItem.length = 65
-            let tLen = textField.frame.width + imageView.frame.width
-            textField.frame.origin.x = (statusItem.length - tLen) / 2
-            imageView.frame.origin.x = textField.frame.origin.x + textField.frame.width
-        } else if (imageView.frame.width + textField.frame.width) <= 70 {
-            statusItem.length = 70
-            let tLen = textField.frame.width + imageView.frame.width
-            textField.frame.origin.x = (statusItem.length - tLen) / 2
-            imageView.frame.origin.x = textField.frame.origin.x + textField.frame.width
-        } else {
-            let tLen = textField.frame.width + imageView.frame.width
-            statusItem.length = tLen
-            textField.frame.origin.x = (statusItem.length - tLen) / 2
-            imageView.frame.origin.x = textField.frame.origin.x + textField.frame.width
-        }
-    }
     
     @objc internal func togglePopover(_ sender: Any) {
         if popover.isShown {
@@ -179,30 +143,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     }
     
     private func setupMenuBarAsset() {
-        func loadImageView() {
-            let image = NSImage(named: "MenuBarIconTemplate")
-            imageView.frame = NSRect(origin: CGPoint(x: 0, y: 2), size: CGSize(width: 40, height: 18))
-            imageView.image = image
-            imageView.imageAlignment = .alignCenter
-        }
-        
-        func loadTextField() {
-            textField.frame = NSRect(origin: CGPoint(x: 5, y: 1), size: CGSize.zero)
-            textField.font = NSFont.systemFont(ofSize: 15, weight: .regular)
-            textField.isEditable = false
-            textField.isBordered = false
-            textField.isBezeled = false
-            textField.drawsBackground = false
-            setMenuBarTitle("")
-            textField.sizeToFit()
-        }
-        
+        statusItem.length = 28
         if let statusButton = statusItem.button {
-            loadImageView()
-            loadTextField()
-            
-            statusButton.addSubview(imageView)
-            statusButton.addSubview(textField)
+            statusItemView = MenuBarView(frame: NSRect(origin: CGPoint(x: 4, y: 2), size: CGSize(width: 20, height: 18)))
+            statusButton.addSubview(statusItemView)
             statusButton.action = #selector(togglePopover)
         }
     }
