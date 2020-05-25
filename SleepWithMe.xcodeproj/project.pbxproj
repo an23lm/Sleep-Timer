@@ -26,6 +26,8 @@
 		F7BB7DE520C5CE1F00824919 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7BB7DE420C5CE1F00824919 /* Assets.xcassets */; };
 		F7BB7DE820C5CE1F00824919 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7BB7DE620C5CE1F00824919 /* Main.storyboard */; };
 		F7BB7E0D20C5DA4F00824919 /* NSTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB7E0C20C5DA4F00824919 /* NSTimerView.swift */; };
+		F7E03BEA24765CA200C5794C /* HotKey in Frameworks */ = {isa = PBXBuildFile; productRef = F7E03BE924765CA200C5794C /* HotKey */; };
+		F7E03BEC24765F9B00C5794C /* GlobalKeybindPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E03BEB24765F9B00C5794C /* GlobalKeybindPreferences.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -77,6 +79,7 @@
 		F7BB7DE920C5CE1F00824919 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7BB7DEA20C5CE1F00824919 /* SleepWithMe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SleepWithMe.entitlements; sourceTree = "<group>"; };
 		F7BB7E0C20C5DA4F00824919 /* NSTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTimerView.swift; sourceTree = "<group>"; };
+		F7E03BEB24765F9B00C5794C /* GlobalKeybindPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalKeybindPreferences.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7E03BEA24765CA200C5794C /* HotKey in Frameworks */,
 				F77593DA23368B8A00F797ED /* AppleScriptObjC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,6 +148,7 @@
 			children = (
 				F76DB24D20FFCC740097172D /* SleepTimer.swift */,
 				F76DB255210003D40097172D /* Constants.swift */,
+				F7E03BEB24765F9B00C5794C /* GlobalKeybindPreferences.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -227,6 +232,9 @@
 			dependencies = (
 			);
 			name = SleepWithMe;
+			packageProductDependencies = (
+				F7E03BE924765CA200C5794C /* HotKey */,
+			);
 			productName = SleepWithMe;
 			productReference = F7BB7DDD20C5CE1D00824919 /* SleepWithMe.app */;
 			productType = "com.apple.product-type.application";
@@ -267,6 +275,9 @@
 				Base,
 			);
 			mainGroup = F7BB7DD420C5CE1D00824919;
+			packageReferences = (
+				F7E03BE824765CA200C5794C /* XCRemoteSwiftPackageReference "HotKey" */,
+			);
 			productRefGroup = F7BB7DDE20C5CE1D00824919 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -312,6 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7E03BEC24765F9B00C5794C /* GlobalKeybindPreferences.swift in Sources */,
 				F77D1B5C244C67340042C076 /* MenuBarView.swift in Sources */,
 				F76DB256210003D40097172D /* Constants.swift in Sources */,
 				F74F10DD20C81BB5000AB074 /* NSTimerButton.swift in Sources */,
@@ -581,6 +593,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F7E03BE824765CA200C5794C /* XCRemoteSwiftPackageReference "HotKey" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/soffes/HotKey";
+			requirement = {
+				kind = exactVersion;
+				version = 0.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F7E03BE924765CA200C5794C /* HotKey */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F7E03BE824765CA200C5794C /* XCRemoteSwiftPackageReference "HotKey" */;
+			productName = HotKey;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F7BB7DD520C5CE1D00824919 /* Project object */;
 }

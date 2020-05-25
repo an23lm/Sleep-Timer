@@ -58,6 +58,10 @@ class ViewController: NSViewController {
         SleepTimer.shared.onTimerInvalidated(onTimerInvalidated)
     }
     
+    override func becomeFirstResponder() -> Bool {
+        return true
+    }
+    
     override func viewWillAppear() {
         super.viewWillAppear()
         
@@ -73,10 +77,11 @@ class ViewController: NSViewController {
             setStartTimerButton()
         }
         
-        self.view.becomeFirstResponder()
-        
         keyMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
             [weak self] (event) -> NSEvent? in
+            
+            guard let locWindow = self?.view.window,
+                NSApplication.shared.keyWindow === locWindow else { return event }
             
             guard let here = self else {
                 return event
@@ -111,10 +116,6 @@ class ViewController: NSViewController {
         if (keyMonitor != nil) {
             NSEvent.removeMonitor(keyMonitor!)
         }
-    }
-    
-    override func becomeFirstResponder() -> Bool {
-        return true
     }
     
     override func viewDidAppear() {
