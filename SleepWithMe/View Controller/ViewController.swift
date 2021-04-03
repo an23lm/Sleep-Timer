@@ -108,7 +108,7 @@ class ViewController: NSViewController {
                 }
             }
 
-            return event
+            return nil
         }
     }
     
