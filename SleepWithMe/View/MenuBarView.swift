@@ -11,7 +11,8 @@ import Cocoa
 class MenuBarView: NSView {
     var titleTextField: NSTextField!
     var timerTextField: NSTextField!
-    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+    var borderView: NSBox!
+    var effectiveAppearanceObserver: Any!
     
     weak var appDelegate = (NSApp.delegate as! AppDelegate)
     
@@ -32,10 +33,15 @@ class MenuBarView: NSView {
         SleepTimer.shared.onTimerActivated(onTimerActivated)
         SleepTimer.shared.onTimerInvalidated(onTimerInvalidated)
         
-        
-        DistributedNotificationCenter.default().addObserver(self, selector: #selector(didChangeToSystemTheme),
-                                                            name: NSNotification.Name("AppleInterfaceThemeChangedNotification"),
-                                                            object: nil)
+//        if #available(OSX 10.14, *) {
+//            self.effectiveAppearanceObserver = NSApp.observe(\.effectiveAppearance) { _, _ in
+//                print(self.effectiveAppearance)
+//            }
+//        } else {
+//            DistributedNotificationCenter.default().addObserver(self, selector: #selector(didChangeToSystemTheme),
+//                                                                name: NSNotification.Name("AppleInterfaceThemeChangedNotification"),
+//                                                                object: nil)
+//        }
     }
     
     lazy var onTimeRemainingChange: SleepTimer.onTimeRemainingCallback = {[weak self] (minutes) in
@@ -54,18 +60,19 @@ class MenuBarView: NSView {
         self?.animate(width: 20, duration: 0.5)
         self?.animateTimerTextField(alpha: 0.0, duration: 0.5)
     }
-
-    @objc func didChangeToSystemTheme(_ notification: NSNotification) {
-        if (InterfaceStyle.current == .Dark) {
-            layer!.borderColor = CGColor.white
-        } else {
-            layer!.borderColor = CGColor.black
-        }
-    }
+    
+//    @objc func didChangeToSystemTheme(_ notification: NSNotification) {
+//        if (InterfaceStyle.current == .Dark) {
+//            layer!.borderColor = CGColor.white
+//        } else {
+//            layer!.borderColor = CGColor.black
+//        }
+//    }
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
-
+        
+        layer?.borderColor = NSColor.labelColor.cgColor
         appDelegate?.statusItem.length = dirtyRect.size.width + 8
     }
     
@@ -95,6 +102,7 @@ class MenuBarView: NSView {
         titleTextField.isBordered = false
         titleTextField.isSelectable = false
         titleTextField.drawsBackground = true
+        titleTextField.textColor = NSColor.labelColor
         titleTextField.backgroundColor = NSColor(cgColor: CGColor(gray: 0.0, alpha: 0.0))
         if #available(OSX 10.15, *) {
             let descriptor = NSFont.systemFont(ofSize: 12, weight: .heavy).fontDescriptor.withDesign(.rounded)
@@ -112,6 +120,7 @@ class MenuBarView: NSView {
         timerTextField.isSelectable = false
         timerTextField.drawsBackground = true
         timerTextField.alphaValue = 0
+        timerTextField.textColor = NSColor.labelColor
         timerTextField.backgroundColor = NSColor(cgColor: CGColor(gray: 0.0, alpha: 0.0))
         timerTextField.usesSingleLineMode = true
         timerTextField.lineBreakMode = .byTruncatingTail
@@ -128,7 +137,6 @@ class MenuBarView: NSView {
         
         wantsLayer = true
         
-        layer!.borderColor = NSColor.labelColor.cgColor
         layer!.borderWidth = 2
         layer!.cornerRadius = 5
     }
