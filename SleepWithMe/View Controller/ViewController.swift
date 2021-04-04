@@ -66,7 +66,9 @@ class ViewController: NSViewController {
         super.viewWillAppear()
         
         NSApp.activate(ignoringOtherApps: true)
-        NSApplication.shared.becomeFirstResponder()
+        DispatchQueue.main.async {
+            NSApplication.shared.becomeFirstResponder()
+        }
         self.view.window?.isMovableByWindowBackground = !self.isPopover
         
         isFirstNumberEntry = true
@@ -91,7 +93,10 @@ class ViewController: NSViewController {
                 return event
             }
             
+            var eventIntercepted = false
+            
             if let number = Int(character) {
+                eventIntercepted = true
                 if (here.isFirstNumberEntry) {
                     here.isFirstNumberEntry = false
                     SleepTimer.shared.set(minutes: number)
@@ -100,6 +105,7 @@ class ViewController: NSViewController {
                     SleepTimer.shared.set(minutes: minutes)
                 }
             } else if let keyCode = event.specialKey {
+                eventIntercepted = true
                 if keyCode == .backspace || keyCode == .delete {
                     let minutes = (SleepTimer.shared.currentMinutes / 10)
                     SleepTimer.shared.set(minutes: minutes)
@@ -108,7 +114,7 @@ class ViewController: NSViewController {
                 }
             }
 
-            return nil
+            return eventIntercepted ? nil : event
         }
     }
     
