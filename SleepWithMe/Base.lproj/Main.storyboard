@@ -217,12 +217,12 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cti-Ua-K0g">
-                                <rect key="frame" x="230" y="312" width="18" height="20"/>
+                                <rect key="frame" x="227" y="308" width="25" height="27"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="18" id="9rK-wA-xXN"/>
-                                    <constraint firstAttribute="width" constant="18" id="Vh9-OL-o4B"/>
+                                    <constraint firstAttribute="height" constant="25" id="9rK-wA-xXN"/>
+                                    <constraint firstAttribute="width" constant="25" id="Vh9-OL-o4B"/>
                                 </constraints>
-                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="SettingsIconTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5qn-L4-xB8">
+                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="gearshape.fill" catalog="system" imagePosition="only" alignment="center" alternateImage="gear" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5qn-L4-xB8">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -244,7 +244,7 @@
                             <constraint firstItem="Hw2-Jj-ZsP" firstAttribute="top" secondItem="5S8-Mu-06e" secondAttribute="bottom" constant="12" id="1aN-x5-l5b"/>
                             <constraint firstItem="Hw2-Jj-ZsP" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="50" id="2zK-Wf-FVz"/>
                             <constraint firstItem="Hw2-Jj-ZsP" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="6Ot-3z-2re"/>
-                            <constraint firstAttribute="trailing" secondItem="cti-Ua-K0g" secondAttribute="trailing" constant="12" id="NWh-Id-z80"/>
+                            <constraint firstAttribute="trailing" secondItem="cti-Ua-K0g" secondAttribute="trailing" constant="8" id="NWh-Id-z80"/>
                             <constraint firstItem="CwL-XQ-D5i" firstAttribute="top" secondItem="Hw2-Jj-ZsP" secondAttribute="bottom" constant="8" id="R47-VH-u6T"/>
                             <constraint firstItem="CwL-XQ-D5i" firstAttribute="trailing" secondItem="Hw2-Jj-ZsP" secondAttribute="trailing" constant="-10" id="S5C-Y2-sXq"/>
                             <constraint firstItem="5S8-Mu-06e" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="Xkx-Lo-aVb"/>
@@ -428,13 +428,13 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gKj-QN-2eN">
-                                <rect key="frame" x="124" y="67" width="25" height="26"/>
+                                <rect key="frame" x="124" y="66.5" width="25" height="27"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="R0E-c8-dvp"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="R0E-c8-dvp"/>
                                 </constraints>
-                                <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="xmark.circle.fill" catalog="system" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="273-Wo-voO">
+                                <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="xmark.circle.fill" catalog="system" imagePosition="overlaps" alignment="center" alternateImage="xmark.circle.fill" imageScaling="proportionallyDown" inset="2" id="273-Wo-voO">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="systemBlack" size="13"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="clearShortcutButtonOnPress:" target="wSh-KX-gF6" id="9Ge-jV-YB0"/>
@@ -469,6 +469,7 @@
                             <constraint firstItem="xTu-Xc-ucX" firstAttribute="top" secondItem="ovJ-fP-KJI" secondAttribute="bottom" constant="8" id="bXr-Re-jjj"/>
                             <constraint firstAttribute="width" constant="500" id="cdE-Xj-tsR"/>
                             <constraint firstItem="ovJ-fP-KJI" firstAttribute="leading" secondItem="Sy4-kX-3J8" secondAttribute="leading" constant="20" id="dXQ-PH-JHq"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gKj-QN-2eN" secondAttribute="trailing" constant="20" id="e3y-sw-1oU"/>
                             <constraint firstItem="Adr-gC-unM" firstAttribute="top" secondItem="Sy4-kX-3J8" secondAttribute="top" constant="20" id="eS5-55-gJs"/>
                             <constraint firstItem="WoE-mH-nuv" firstAttribute="top" secondItem="30i-e1-rB3" secondAttribute="bottom" constant="4" id="eTB-3q-OB0"/>
                             <constraint firstItem="We8-zT-5tU" firstAttribute="top" secondItem="va1-3L-u7l" secondAttribute="bottom" constant="8" id="eiV-kC-x4U"/>
@@ -504,7 +505,8 @@
         <segue reference="ltN-sa-zXF"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="SettingsIconTemplate" width="50" height="50"/>
+        <image name="gear" width="15" height="15"/>
+        <image name="gearshape.fill" catalog="system" width="16" height="16"/>
         <image name="xmark.circle.fill" catalog="system" width="15" height="15"/>
     </resources>
 </document>

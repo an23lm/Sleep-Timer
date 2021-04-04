@@ -8,7 +8,6 @@
 
 import Cocoa
 import Carbon
-import HotKey
 
 class PreferencesViewController: NSViewController {
 
@@ -117,13 +116,13 @@ class PreferencesViewController: NSViewController {
                 return nil
             }
 
-            guard event.characters != nil && self!.isGlobalShortcutListening else {
+            guard event.charactersIgnoringModifiers != nil && self!.isGlobalShortcutListening else {
                 return event
             }
             
-            print(event.characters!)
+            print(event.charactersIgnoringModifiers!)
             
-            self!.shortcutCharKeys = event.characters!
+            self!.shortcutCharKeys = event.charactersIgnoringModifiers!
             
             if self!.shortcutModifierKeys.isEmpty {
                 return event
