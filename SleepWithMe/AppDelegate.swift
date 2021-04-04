@@ -8,6 +8,7 @@
 
 import Cocoa
 import ServiceManagement
+import HotKey
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate {
@@ -20,6 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     private(set) var sleepTimer: SleepTimer! = nil
     private var scheduledSleepTimer: Timer? = nil
     private var defaultTimer: Int = 0
+    private var hotKey: HotKey? = nil
     
     private var notification: NSUserNotification? = nil
     
@@ -122,7 +124,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         task.launch()
     }
     
-    @objc internal func togglePopover(_ sender: Any) {
+    @objc internal func togglePopover(_ sender: Any?) {
         if popover.isShown {
             closePopover(sender)
         } else {
@@ -245,6 +247,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             defaultTimer = UserDefaults.standard.integer(forKey: Constants.defaultTimer)
             preferences.defaultTimer = defaultTimer
             SleepTimer.shared.set(minutes: defaultTimer)
+        }
+        if let globalShortcutKeybind = UserDefaults.standard.string(forKey: Constants.globalShortcutKeybind) {
+            hotKey = HotKey(keys: globalShortcutKeybind) {
+                self.togglePopover(nil)
+            }
         }
     }
 
