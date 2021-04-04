@@ -436,6 +436,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="clearShortcutButtonOnPress:" target="wSh-KX-gF6" id="9Ge-jV-YB0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>

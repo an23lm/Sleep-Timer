@@ -12,6 +12,7 @@ import HotKey
 
 class PreferencesViewController: NSViewController {
 
+    //MARK: - Outlet variables
     @IBOutlet weak var autoLaunchChecker: NSButton!
     @IBOutlet weak var showDockChecker: NSButton!
     @IBOutlet weak var defaultSleepTimerChecker: NSButton!
@@ -19,6 +20,7 @@ class PreferencesViewController: NSViewController {
     @IBOutlet weak var defaultTimerTextField: NSTextField!
     @IBOutlet weak var shortcutButton: NSButton!
     
+    //MARK: - Helper variables
     var isAutoLaunchEnabled: Bool! = nil
     var isShowDockEnabled: Bool! = nil
     var isSleepTimerEnabled: Bool! = nil
@@ -31,17 +33,24 @@ class PreferencesViewController: NSViewController {
     
     var shortcutModifierKeys: String = "" {
         didSet {
-            self.shortcutButton.title = shortcutModifierKeys + shortcutCharKeys.uppercased()
+            shortcutKeybind = shortcutModifierKeys + shortcutCharKeys.uppercased()
         }
     }
     
     var shortcutCharKeys: String = "" {
         didSet {
-            if shortcutModifierKeys.isEmpty{
+            if shortcutModifierKeys.isEmpty {
                 print("Shortcuts must start with at least one modifier key")
+                shortcutKeybind = ""
             } else {
-                self.shortcutButton.title = shortcutModifierKeys + shortcutCharKeys.uppercased()
+                shortcutKeybind = shortcutModifierKeys + shortcutCharKeys.uppercased()
             }
+        }
+    }
+    
+    var shortcutKeybind: String = "" {
+        didSet {
+            self.shortcutButton.title = shortcutKeybind
         }
     }
     
@@ -51,6 +60,7 @@ class PreferencesViewController: NSViewController {
         }
     }
     
+    //MARK: - Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,6 +69,7 @@ class PreferencesViewController: NSViewController {
         isSleepTimerEnabled = UserDefaults.standard.bool(forKey: Constants.isSleepTimerEnabled)
         sleepTime = Date(timeIntervalSince1970: UserDefaults.standard.double(forKey: Constants.sleepTime))
         defaultTimer = UserDefaults.standard.integer(forKey: Constants.defaultTimer)
+        shortcutKeybind = UserDefaults.standard.string(forKey: Constants.globalShortcutKeybind) ?? ""
         
         autoLaunchChecker.state = isAutoLaunchEnabled ? .on : .off
         showDockChecker.state = isShowDockEnabled ? .on : .off
@@ -143,41 +154,10 @@ class PreferencesViewController: NSViewController {
             print(event.modifierFlags.intersection(.deviceIndependentFlagsMask).description)
             shortcutModifierKeys = event.modifierFlags.intersection(.deviceIndependentFlagsMask).description
         }
-//        switch event.modifierFlags.intersection(.deviceIndependentFlagsMask) {
-//            case [.shift]:
-//                print("shift key is pressed")
-//            case [.control]:
-//                print("control key is pressed")
-//            case [.option] :
-//                print("option key is pressed")
-//            case [.command]:
-//                print("Command key is pressed")
-//            case [.control, .shift]:
-//                print("control-shift keys are pressed")
-//            case [.option, .shift]:
-//                print("option-shift keys are pressed")
-//            case [.command, .shift]:
-//                print("command-shift keys are pressed")
-//            case [.control, .option]:
-//                print("control-option keys are pressed")
-//            case [.control, .command]:
-//                print("control-command keys are pressed")
-//            case [.option, .command]:
-//                print("option-command keys are pressed")
-//            case [.shift, .control, .option]:
-//                print("shift-control-option keys are pressed")
-//            case [.shift, .control, .command]:
-//                print("shift-control-command keys are pressed")
-//            case [.control, .option, .command]:
-//                print("control-option-command keys are pressed")
-//            case [.shift, .command, .option]:
-//                print("shift-command-option keys are pressed")
-//            case [.shift, .control, .option, .command]:
-//                print("shift-control-option-command keys are pressed")
-//            default:
-//                print("no modifier keys are pressed")
-//        }
     }
+    
+    
+    //MARK: - Actions
     
     @IBAction func shortcutButtonOnPress(_ sender: Any) {
         self.shortcutCharKeys = ""
@@ -189,10 +169,15 @@ class PreferencesViewController: NSViewController {
         }
     }
     
+    @IBAction func clearShortcutButtonOnPress(_ sender: Any) {
+        self.shortcutCharKeys = ""
+        self.shortcutModifierKeys = ""
+    }
+    
     @IBAction func doneButton(_ sender: Any) {
-        isAutoLaunchEnabled = getToF(fromState: autoLaunchChecker.state)
-        isShowDockEnabled = getToF(fromState: showDockChecker.state)
-        isSleepTimerEnabled = getToF(fromState: defaultSleepTimerChecker.state)
+        isAutoLaunchEnabled = getBoolean(forState: autoLaunchChecker.state)
+        isShowDockEnabled = getBoolean(forState: showDockChecker.state)
+        isSleepTimerEnabled = getBoolean(forState: defaultSleepTimerChecker.state)
         sleepTime = defaultSleepTimerPicker.dateValue
         
         if defaultTimerTextField.stringValue.trimmingCharacters(in: .whitespaces) == "" {
@@ -207,6 +192,7 @@ class PreferencesViewController: NSViewController {
         let ti: Double = sleepTime.timeIntervalSince1970
         UserDefaults.standard.set(ti, forKey: Constants.sleepTime)
         UserDefaults.standard.set(defaultTimer, forKey: Constants.defaultTimer)
+        UserDefaults.standard.set(shortcutKeybind, forKey: Constants.globalShortcutKeybind)
         UserDefaults.standard.synchronize()
         
         if (isShowDockEnabled) {
@@ -219,7 +205,8 @@ class PreferencesViewController: NSViewController {
         NSApplication.shared.mainWindow?.close()
     }
     
-    private func getToF(fromState state: NSControl.StateValue) -> Bool {
+    //MARK: - Private helper methods
+    private func getBoolean(forState state: NSControl.StateValue) -> Bool {
         switch state {
         case .on:
             return true
@@ -227,24 +214,6 @@ class PreferencesViewController: NSViewController {
             return false
         default:
             return false
-        }
-    }
-    
-    func updateGlobalShortcut(_ event: NSEvent) {
-        if let characters = event.charactersIgnoringModifiers {
-            let newGlobalKeybind = GlobalKeybindPreferences.init(
-                function: event.modifierFlags.contains(.function),
-                control: event.modifierFlags.contains(.control),
-                command: event.modifierFlags.contains(.command),
-                shift: event.modifierFlags.contains(.shift),
-                option: event.modifierFlags.contains(.option),
-                capsLock: event.modifierFlags.contains(.capsLock),
-                carbonFlags: event.modifierFlags.carbonFlags,
-                characters: characters,
-                keyCode: UInt32(event.keyCode)
-            )
-            
-            print(newGlobalKeybind.description)
         }
     }
 }
