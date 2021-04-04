@@ -25,8 +25,25 @@ class PreferencesViewController: NSViewController {
     var sleepTime: Date! = nil
     var defaultTimer: Int! = nil
     
+    var mouseMonitor: Any? = nil
     var keyMonitor: Any? = nil
     var flagMonitor: Any? = nil
+    
+    var shortcutModifierKeys: String = "" {
+        didSet {
+            self.shortcutButton.title = shortcutModifierKeys + shortcutCharKeys.uppercased()
+        }
+    }
+    
+    var shortcutCharKeys: String = "" {
+        didSet {
+            if shortcutModifierKeys.isEmpty{
+                print("Shortcuts must start with at least one modifier key")
+            } else {
+                self.shortcutButton.title = shortcutModifierKeys + shortcutCharKeys.uppercased()
+            }
+        }
+    }
     
     var isGlobalShortcutListening: Bool {
         get {
@@ -54,38 +71,78 @@ class PreferencesViewController: NSViewController {
         super.viewWillAppear()
         
         NSApp.activate(ignoringOtherApps: true)
-        NSApplication.shared.becomeFirstResponder()
-        view.window?.becomeFirstResponder()
+        DispatchQueue.main.async {
+            self.view.window?.makeFirstResponder(nil)
+        }
         
-//        flagMonitor = NSEvent.addLocalMonitorForEvents(matching: .flagsChanged) {
-//            guard let locWindow = self.view.window,
-//                NSApplication.shared.keyWindow === locWindow else { return $0 }
-//
-//            self.flagsChanged(with: $0)
-//
-//            return $0
-//        }
+        mouseMonitor = NSEvent.addLocalMonitorForEvents(matching: .leftMouseDown) {
+            if self.isGlobalShortcutListening {
+                self.shortcutButton.highlight(false)
+            }
+            
+            return $0
+        }
         
-//        keyMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
-//            [weak self] (event) -> NSEvent? in
-//
-//            guard let here = self else {
-//                return event
-//            }
-//
-//            print("hello")
-//
-//            guard let character = event.characters else {
-//                return event
-//            }
-//
-//            return event
-//        }
+        flagMonitor = NSEvent.addLocalMonitorForEvents(matching: .flagsChanged) {
+            guard let locWindow = self.view.window,
+                NSApplication.shared.keyWindow === locWindow else { return $0 }
+
+            self.flagsChanged(with: $0)
+
+            return self.isGlobalShortcutListening ? nil : $0
+        }
+        
+        keyMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
+            [weak self] (event) -> NSEvent? in
+
+            guard self != nil else {
+                return event
+            }
+
+            if event.keyCode == 53 && self!.isGlobalShortcutListening {
+                DispatchQueue.main.async {
+                    self?.shortcutButton.highlight(false)
+                }
+                return nil
+            }
+
+            guard event.characters != nil && self!.isGlobalShortcutListening else {
+                return event
+            }
+            
+            print(event.characters!)
+            
+            self!.shortcutCharKeys = event.characters!
+            
+            if self!.shortcutModifierKeys.isEmpty {
+                return event
+            } else {
+                DispatchQueue.main.async {
+                    self!.shortcutButton.highlight(false)
+                }
+                return nil
+            }
+        }
+    }
+    
+    override func viewWillDisappear() {
+        super.viewWillDisappear()
+        if (keyMonitor != nil) {
+            NSEvent.removeMonitor(keyMonitor!)
+        }
+        if (flagMonitor != nil) {
+            NSEvent.removeMonitor(flagMonitor!)
+        }
+        if (mouseMonitor != nil) {
+            NSEvent.removeMonitor(mouseMonitor!)
+        }
     }
     
     override func flagsChanged(with event: NSEvent) {
-        print(event.modifierFlags.intersection(.deviceIndependentFlagsMask))
-        
+        if (self.isGlobalShortcutListening) {
+            print(event.modifierFlags.intersection(.deviceIndependentFlagsMask).description)
+            shortcutModifierKeys = event.modifierFlags.intersection(.deviceIndependentFlagsMask).description
+        }
 //        switch event.modifierFlags.intersection(.deviceIndependentFlagsMask) {
 //            case [.shift]:
 //                print("shift key is pressed")
@@ -122,13 +179,13 @@ class PreferencesViewController: NSViewController {
 //        }
     }
     
-    override func viewWillDisappear() {
-        super.viewWillDisappear()
-        if (keyMonitor != nil) {
-            NSEvent.removeMonitor(keyMonitor!)
-        }
-        if (flagMonitor != nil) {
-            NSEvent.removeMonitor(flagMonitor!)
+    @IBAction func shortcutButtonOnPress(_ sender: Any) {
+        self.shortcutCharKeys = ""
+        self.shortcutModifierKeys = ""
+        view.window?.makeFirstResponder(nil)
+        
+        DispatchQueue.main.async {
+            self.shortcutButton.highlight(true)
         }
     }
     

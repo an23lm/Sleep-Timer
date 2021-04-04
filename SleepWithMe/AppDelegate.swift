@@ -149,6 +149,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             statusButton.addSubview(statusItemView)
             statusButton.action = #selector(togglePopover)
         }
+        
     }
     
     private func setupPopoverAsset() {
