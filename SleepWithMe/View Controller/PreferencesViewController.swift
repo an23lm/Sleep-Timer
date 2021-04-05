@@ -20,15 +20,48 @@ class PreferencesViewController: NSViewController {
     @IBOutlet weak var shortcutButton: NSButton!
     
     //MARK: - Helper variables
-    var isAutoLaunchEnabled: Bool! = nil
-    var isShowDockEnabled: Bool! = nil
-    var isSleepTimerEnabled: Bool! = nil
-    var sleepTime: Date! = nil
-    var defaultTimer: Int! = nil
-    
-    var mouseMonitor: Any? = nil
-    var keyMonitor: Any? = nil
-    var flagMonitor: Any? = nil
+    var isAutoLaunchEnabled: Bool! = nil {
+        didSet {
+            DispatchQueue.main.async {
+                self.autoLaunchChecker.state = self.isAutoLaunchEnabled ? .on : .off
+            }
+        }
+    }
+    var isShowDockEnabled: Bool! = nil {
+        didSet {
+            DispatchQueue.main.async {
+                self.showDockChecker.state = self.isShowDockEnabled ? .on : .off
+            }
+        }
+    }
+    var isSleepTimerEnabled: Bool! = nil {
+        didSet {
+            DispatchQueue.main.async {
+                self.defaultSleepTimerChecker.state = self.isSleepTimerEnabled ? .on : .off
+            }
+        }
+    }
+    var sleepTime: Date! = nil {
+        didSet {
+            DispatchQueue.main.async {
+                self.defaultSleepTimerPicker.dateValue = self.sleepTime
+            }
+        }
+    }
+    var defaultTimer: Int! = nil {
+        didSet {
+            DispatchQueue.main.async {
+                self.defaultTimerTextField.stringValue = String(self.defaultTimer)
+            }
+        }
+    }
+    var shortcutKeybind: String = "" {
+        didSet {
+            DispatchQueue.main.async {
+                self.shortcutButton.title = self.shortcutKeybind
+            }
+        }
+    }
     
     var shortcutModifierKeys: String = "" {
         didSet {
@@ -47,34 +80,27 @@ class PreferencesViewController: NSViewController {
         }
     }
     
-    var shortcutKeybind: String = "" {
-        didSet {
-            self.shortcutButton.title = shortcutKeybind
-        }
-    }
-    
     var isGlobalShortcutListening: Bool {
         get {
             return shortcutButton.isHighlighted
         }
     }
     
+    var mouseMonitor: Any? = nil
+    var keyMonitor: Any? = nil
+    var flagMonitor: Any? = nil
+    
     //MARK: - Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        isAutoLaunchEnabled = UserDefaults.standard.bool(forKey: Constants.autoLaunch)
-        isShowDockEnabled = UserDefaults.standard.bool(forKey: Constants.isDockIconEnabled)
-        isSleepTimerEnabled = UserDefaults.standard.bool(forKey: Constants.isSleepTimerEnabled)
-        sleepTime = Date(timeIntervalSince1970: UserDefaults.standard.double(forKey: Constants.sleepTime))
-        defaultTimer = UserDefaults.standard.integer(forKey: Constants.defaultTimer)
-        shortcutKeybind = UserDefaults.standard.string(forKey: Constants.globalShortcutKeybind) ?? ""
-        
-        autoLaunchChecker.state = isAutoLaunchEnabled ? .on : .off
-        showDockChecker.state = isShowDockEnabled ? .on : .off
-        defaultSleepTimerChecker.state = isSleepTimerEnabled ? .on : .off
-        defaultSleepTimerPicker.dateValue = sleepTime
-        defaultTimerTextField.stringValue = String(defaultTimer)
+                
+        let preferences = loadPreferencesFromStorage()
+        isAutoLaunchEnabled = preferences.isAutoLaunchEnabled
+        isShowDockEnabled = preferences.isShowDockEnabled
+        isSleepTimerEnabled = preferences.isSleepTimerEnabled
+        sleepTime = preferences.sleepTimer
+        defaultTimer = preferences.defaultTimer
+        shortcutKeybind = preferences.shortcutKeybind
     }
     
     override func viewWillAppear() {
@@ -84,6 +110,8 @@ class PreferencesViewController: NSViewController {
         DispatchQueue.main.async {
             self.view.window?.makeFirstResponder(nil)
         }
+        
+        self.view.window?.delegate = self
         
         mouseMonitor = NSEvent.addLocalMonitorForEvents(matching: .leftMouseDown) {
             if self.isGlobalShortcutListening {
@@ -155,7 +183,6 @@ class PreferencesViewController: NSViewController {
         }
     }
     
-    
     //MARK: - Actions
     
     @IBAction func shortcutButtonOnPress(_ sender: Any) {
@@ -174,34 +201,7 @@ class PreferencesViewController: NSViewController {
     }
     
     @IBAction func doneButton(_ sender: Any) {
-        isAutoLaunchEnabled = getBoolean(forState: autoLaunchChecker.state)
-        isShowDockEnabled = getBoolean(forState: showDockChecker.state)
-        isSleepTimerEnabled = getBoolean(forState: defaultSleepTimerChecker.state)
-        sleepTime = defaultSleepTimerPicker.dateValue
-        
-        if defaultTimerTextField.stringValue.trimmingCharacters(in: .whitespaces) == "" {
-            defaultTimer = 0
-        } else {
-            defaultTimer = Int(defaultTimerTextField.stringValue.trimmingCharacters(in: .whitespaces))!
-        }
-        
-        UserDefaults.standard.set(isAutoLaunchEnabled, forKey: Constants.autoLaunch)
-        UserDefaults.standard.set(isShowDockEnabled, forKey: Constants.isDockIconEnabled)
-        UserDefaults.standard.set(isSleepTimerEnabled, forKey: Constants.isSleepTimerEnabled)
-        let ti: Double = sleepTime.timeIntervalSince1970
-        UserDefaults.standard.set(ti, forKey: Constants.sleepTime)
-        UserDefaults.standard.set(defaultTimer, forKey: Constants.defaultTimer)
-        UserDefaults.standard.set(shortcutKeybind, forKey: Constants.globalShortcutKeybind)
-        UserDefaults.standard.synchronize()
-        
-        if (isShowDockEnabled) {
-            NSApplication.shared.setActivationPolicy(.regular)
-        } else {
-            NSApplication.shared.setActivationPolicy(.accessory)
-        }
-        
-        (NSApplication.shared.delegate as! AppDelegate).loadPreferences()
-        NSApplication.shared.mainWindow?.close()
+        savePreferences()
     }
     
     //MARK: - Private helper methods
@@ -214,5 +214,91 @@ class PreferencesViewController: NSViewController {
         default:
             return false
         }
+    }
+    
+    private func loadPreferencesFromStorage() -> (isAutoLaunchEnabled: Bool, isShowDockEnabled: Bool, isSleepTimerEnabled: Bool, sleepTimer: Date, defaultTimer: Int, shortcutKeybind: String){
+        let isAutoLaunchEnabled = UserDefaults.standard.bool(forKey: Constants.autoLaunch)
+        let isShowDockEnabled = UserDefaults.standard.bool(forKey: Constants.isDockIconEnabled)
+        let isSleepTimerEnabled = UserDefaults.standard.bool(forKey: Constants.isSleepTimerEnabled)
+        let sleepTime = Date(timeIntervalSince1970: UserDefaults.standard.double(forKey: Constants.sleepTime))
+        let defaultTimer = UserDefaults.standard.integer(forKey: Constants.defaultTimer)
+        let shortcutKeybind = UserDefaults.standard.string(forKey: Constants.globalShortcutKeybind) ?? ""
+        
+        return (isAutoLaunchEnabled, isShowDockEnabled, isSleepTimerEnabled, sleepTime, defaultTimer, shortcutKeybind)
+    }
+    
+    private func didPreferencesChange() -> Bool {
+        updateLocalPreferenceVariables()
+        let oldPreferences = loadPreferencesFromStorage()
+        let newPreferences = (isAutoLaunchEnabled, isShowDockEnabled, isSleepTimerEnabled, sleepTime, defaultTimer, shortcutKeybind)
+    
+        return oldPreferences != newPreferences
+    }
+    
+    private func savePreferences() {
+        updateLocalPreferenceVariables()
+        
+        UserDefaults.standard.set(isAutoLaunchEnabled, forKey: Constants.autoLaunch)
+        UserDefaults.standard.set(isShowDockEnabled, forKey: Constants.isDockIconEnabled)
+        UserDefaults.standard.set(isSleepTimerEnabled, forKey: Constants.isSleepTimerEnabled)
+        let sleepTimeEpoch: Double = sleepTime.timeIntervalSince1970
+        UserDefaults.standard.set(sleepTimeEpoch, forKey: Constants.sleepTime)
+        UserDefaults.standard.set(defaultTimer, forKey: Constants.defaultTimer)
+        UserDefaults.standard.set(shortcutKeybind, forKey: Constants.globalShortcutKeybind)
+        UserDefaults.standard.synchronize()
+        
+        refreshApplicationPreferences()
+    }
+    
+    private func updateLocalPreferenceVariables() {
+        isAutoLaunchEnabled = getBoolean(forState: autoLaunchChecker.state)
+        isShowDockEnabled = getBoolean(forState: showDockChecker.state)
+        isSleepTimerEnabled = getBoolean(forState: defaultSleepTimerChecker.state)
+        sleepTime = defaultSleepTimerPicker.dateValue
+        
+        if defaultTimerTextField.stringValue.trimmingCharacters(in: .whitespaces) == "" {
+            defaultTimer = 0
+        } else {
+            defaultTimer = Int(defaultTimerTextField.stringValue.trimmingCharacters(in: .whitespaces))!
+        }
+        
+    }
+    
+    private func refreshApplicationPreferences() {
+        if (isShowDockEnabled) {
+            NSApplication.shared.setActivationPolicy(.regular)
+        } else {
+            NSApplication.shared.setActivationPolicy(.accessory)
+        }
+        
+        (NSApplication.shared.delegate as! AppDelegate).loadPreferences()
+    }
+}
+
+
+extension PreferencesViewController: NSWindowDelegate {
+    func windowShouldClose(_ sender: NSWindow) -> Bool {
+        if (didPreferencesChange()) {
+            
+            let alert = NSAlert()
+            alert.alertStyle = .warning
+            alert.messageText = "Changes not saved"
+            alert.informativeText = "Do you want to save the changes?"
+            alert.addButton(withTitle: "Cancel")
+            alert.addButton(withTitle: "Save")
+            alert.addButton(withTitle: "Don't Save")
+            
+            let modalResponse = alert.runModal()
+            if (modalResponse == .alertFirstButtonReturn) {
+                return false
+            } else if (modalResponse == .alertSecondButtonReturn) {
+                self.savePreferences()
+                return true
+            } else if (modalResponse == .alertThirdButtonReturn) {
+                return true
+            }
+        }
+        
+        return true
     }
 }

@@ -278,7 +278,7 @@
         <scene sceneID="UiQ-8H-Jja">
             <objects>
                 <windowController storyboardIdentifier="PreferencesController" showSeguePresentationStyle="single" id="IuC-9I-mYl" sceneMemberID="viewController">
-                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="wjt-aN-RcN">
+                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="wjt-aN-RcN">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -365,8 +365,8 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EgT-Xg-JpQ">
-                                <rect key="frame" x="217" y="13" width="66" height="32"/>
-                                <buttonCell key="cell" type="push" title="Done" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ULC-9f-I8l">
+                                <rect key="frame" x="218" y="13" width="64" height="32"/>
+                                <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ULC-9f-I8l">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -505,7 +505,7 @@
         <segue reference="ltN-sa-zXF"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="gear" width="15" height="15"/>
+        <image name="gear" catalog="system" width="17" height="17"/>
         <image name="gearshape.fill" catalog="system" width="16" height="16"/>
         <image name="xmark.circle.fill" catalog="system" width="15" height="15"/>
     </resources>

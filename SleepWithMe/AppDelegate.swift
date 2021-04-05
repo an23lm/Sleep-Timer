@@ -274,7 +274,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     
     //MARK: - Menu Methods
     @IBAction func closeKeyWindow(_ sender: Any) {
-        NSApplication.shared.keyWindow?.close()
+        NSApplication.shared.keyWindow?.performClose(sender)
     }
     
     @IBAction func openTimerWindow(_ sender: Any) {
