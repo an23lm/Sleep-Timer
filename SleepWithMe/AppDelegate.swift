@@ -8,6 +8,7 @@
 
 import Cocoa
 import ServiceManagement
+import HotKey
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate {
@@ -19,12 +20,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     
     private(set) var sleepTimer: SleepTimer! = nil
     private var scheduledSleepTimer: Timer? = nil
-    private var defaultTimer: Int = 0
+    private var defaultTimer: Int = 30
+    private var hotKey: HotKey? = nil
     
     private var notification: NSUserNotification? = nil
     
     private var preferences: (autoLaunchEnabled: Bool, isDockEnabled: Bool, isScheduledSleepTimerEnabled: Bool,
-        scheduledSleepTime: Date, defaultTimer: Int)! = (false, true, false, Date(timeIntervalSince1970: 0), 0)
+        scheduledSleepTime: Date, defaultTimer: Int)! = (false, true, false, Date(timeIntervalSince1970: 0), 30)
     
     //MARK: - Life cycle methods
     func applicationWillFinishLaunching(_ notification: Notification) {
@@ -63,9 +65,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         if notification.activationType == .actionButtonClicked {
             SleepTimer.shared.stopTimer(didComplete: false)
             showPopover(notification)
+        } else if notification.activationType == .additionalActionClicked {
+            SleepTimer.shared.set(minutes: defaultTimer > 0 ? defaultTimer : 30)
         } else if notification.activationType == .contentsClicked {
             showPopover(notification)
         }
+        NSUserNotificationCenter.default.removeAllDeliveredNotifications()
     }
     
     @objc func willSleepNotification(notification: NSNotification) {
@@ -110,6 +115,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         notification!.soundName = nil
         notification!.hasActionButton = true
         notification!.actionButtonTitle = "Stop Timer"
+        notification!.additionalActions = [ NSUserNotificationAction(identifier: "snooze", title: "Snooze") ]
         
         let center = NSUserNotificationCenter.default
         center.deliver(notification!)
@@ -122,7 +128,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         task.launch()
     }
     
-    @objc internal func togglePopover(_ sender: Any) {
+    @objc internal func togglePopover(_ sender: Any?) {
         if popover.isShown {
             closePopover(sender)
         } else {
@@ -149,6 +155,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             statusButton.addSubview(statusItemView)
             statusButton.action = #selector(togglePopover)
         }
+        
     }
     
     private func setupPopoverAsset() {
@@ -179,7 +186,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         let date = Date(timeIntervalSince1970: 0)
         let ti: Double = date.timeIntervalSince1970
         UserDefaults.standard.set(ti, forKey: Constants.sleepTime)
-        UserDefaults.standard.set(0, forKey: Constants.defaultTimer)
+        UserDefaults.standard.set(30, forKey: Constants.defaultTimer)
         UserDefaults.standard.synchronize()
     }
     
@@ -204,7 +211,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         
         let diff = Calendar.current.dateComponents([.day, .hour, .minute], from: Date(), to: date)
         print(diff)
-        if diff.day! == 0 && diff.hour! == 0 && diff.minute! <= 30 {
+        if diff.day! == 0 && diff.hour! == 0 && diff.minute! <= 30 && diff.minute! > 5 {
             self.autoSleep(minutes: diff.minute!)
         } else {
             let fDate = Calendar.current.date(byAdding: .minute, value: -30, to: date)!
@@ -245,6 +252,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             preferences.defaultTimer = defaultTimer
             SleepTimer.shared.set(minutes: defaultTimer)
         }
+        if let globalShortcutKeybind = UserDefaults.standard.string(forKey: Constants.globalShortcutKeybind) {
+            hotKey = HotKey(keys: globalShortcutKeybind) {
+                if (self.defaultTimer > 0) {
+                    SleepTimer.shared.toggleTimer()
+                    SleepTimer.shared.set(minutes: self.defaultTimer)
+                } else {
+                    self.togglePopover(nil)
+                }
+            }
+        }
     }
 
     @objc func autoSleep(_ sender: Any) {
@@ -266,7 +283,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     
     //MARK: - Menu Methods
     @IBAction func closeKeyWindow(_ sender: Any) {
-        NSApplication.shared.keyWindow?.close()
+        NSApplication.shared.keyWindow?.performClose(sender)
     }
     
     @IBAction func openTimerWindow(_ sender: Any) {

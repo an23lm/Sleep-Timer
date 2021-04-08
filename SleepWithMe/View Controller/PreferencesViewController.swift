@@ -8,10 +8,10 @@
 
 import Cocoa
 import Carbon
-import HotKey
 
 class PreferencesViewController: NSViewController {
 
+    //MARK: - Outlet variables
     @IBOutlet weak var autoLaunchChecker: NSButton!
     @IBOutlet weak var showDockChecker: NSButton!
     @IBOutlet weak var defaultSleepTimerChecker: NSButton!
@@ -19,14 +19,66 @@ class PreferencesViewController: NSViewController {
     @IBOutlet weak var defaultTimerTextField: NSTextField!
     @IBOutlet weak var shortcutButton: NSButton!
     
-    var isAutoLaunchEnabled: Bool! = nil
-    var isShowDockEnabled: Bool! = nil
-    var isSleepTimerEnabled: Bool! = nil
-    var sleepTime: Date! = nil
-    var defaultTimer: Int! = nil
+    //MARK: - Helper variables
+    var isAutoLaunchEnabled: Bool! = nil {
+        didSet {
+            DispatchQueue.main.async {
+                self.autoLaunchChecker.state = self.isAutoLaunchEnabled ? .on : .off
+            }
+        }
+    }
+    var isShowDockEnabled: Bool! = nil {
+        didSet {
+            DispatchQueue.main.async {
+                self.showDockChecker.state = self.isShowDockEnabled ? .on : .off
+            }
+        }
+    }
+    var isSleepTimerEnabled: Bool! = nil {
+        didSet {
+            DispatchQueue.main.async {
+                self.defaultSleepTimerChecker.state = self.isSleepTimerEnabled ? .on : .off
+            }
+        }
+    }
+    var sleepTime: Date! = nil {
+        didSet {
+            DispatchQueue.main.async {
+                self.defaultSleepTimerPicker.dateValue = self.sleepTime
+            }
+        }
+    }
+    var defaultTimer: Int! = nil {
+        didSet {
+            DispatchQueue.main.async {
+                self.defaultTimerTextField.stringValue = String(self.defaultTimer)
+            }
+        }
+    }
+    var shortcutKeybind: String = "" {
+        didSet {
+            DispatchQueue.main.async {
+                self.shortcutButton.title = self.shortcutKeybind
+            }
+        }
+    }
     
-    var keyMonitor: Any? = nil
-    var flagMonitor: Any? = nil
+    var shortcutModifierKeys: String = "" {
+        didSet {
+            shortcutKeybind = shortcutModifierKeys + shortcutCharKeys.uppercased()
+        }
+    }
+    
+    var shortcutCharKeys: String = "" {
+        didSet {
+            if shortcutModifierKeys.isEmpty {
+                print("Shortcuts must start with at least one modifier key")
+                shortcutKeybind = ""
+            } else {
+                shortcutKeybind = shortcutModifierKeys + shortcutCharKeys.uppercased()
+            }
+        }
+    }
     
     var isGlobalShortcutListening: Bool {
         get {
@@ -34,92 +86,81 @@ class PreferencesViewController: NSViewController {
         }
     }
     
+    var mouseMonitor: Any? = nil
+    var keyMonitor: Any? = nil
+    var flagMonitor: Any? = nil
+    
+    //MARK: - Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        isAutoLaunchEnabled = UserDefaults.standard.bool(forKey: Constants.autoLaunch)
-        isShowDockEnabled = UserDefaults.standard.bool(forKey: Constants.isDockIconEnabled)
-        isSleepTimerEnabled = UserDefaults.standard.bool(forKey: Constants.isSleepTimerEnabled)
-        sleepTime = Date(timeIntervalSince1970: UserDefaults.standard.double(forKey: Constants.sleepTime))
-        defaultTimer = UserDefaults.standard.integer(forKey: Constants.defaultTimer)
-        
-        autoLaunchChecker.state = isAutoLaunchEnabled ? .on : .off
-        showDockChecker.state = isShowDockEnabled ? .on : .off
-        defaultSleepTimerChecker.state = isSleepTimerEnabled ? .on : .off
-        defaultSleepTimerPicker.dateValue = sleepTime
-        defaultTimerTextField.stringValue = String(defaultTimer)
+                
+        let preferences = loadPreferencesFromStorage()
+        isAutoLaunchEnabled = preferences.isAutoLaunchEnabled
+        isShowDockEnabled = preferences.isShowDockEnabled
+        isSleepTimerEnabled = preferences.isSleepTimerEnabled
+        sleepTime = preferences.sleepTimer
+        defaultTimer = preferences.defaultTimer
+        shortcutKeybind = preferences.shortcutKeybind
     }
     
     override func viewWillAppear() {
         super.viewWillAppear()
         
         NSApp.activate(ignoringOtherApps: true)
-        NSApplication.shared.becomeFirstResponder()
-        view.window?.becomeFirstResponder()
+        DispatchQueue.main.async {
+            self.view.window?.makeFirstResponder(nil)
+        }
         
-//        flagMonitor = NSEvent.addLocalMonitorForEvents(matching: .flagsChanged) {
-//            guard let locWindow = self.view.window,
-//                NSApplication.shared.keyWindow === locWindow else { return $0 }
-//
-//            self.flagsChanged(with: $0)
-//
-//            return $0
-//        }
+        self.view.window?.delegate = self
         
-//        keyMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
-//            [weak self] (event) -> NSEvent? in
-//
-//            guard let here = self else {
-//                return event
-//            }
-//
-//            print("hello")
-//
-//            guard let character = event.characters else {
-//                return event
-//            }
-//
-//            return event
-//        }
-    }
-    
-    override func flagsChanged(with event: NSEvent) {
-        print(event.modifierFlags.intersection(.deviceIndependentFlagsMask))
+        mouseMonitor = NSEvent.addLocalMonitorForEvents(matching: .leftMouseDown) {
+            if self.isGlobalShortcutListening {
+                self.shortcutButton.highlight(false)
+            }
+            
+            return $0
+        }
         
-//        switch event.modifierFlags.intersection(.deviceIndependentFlagsMask) {
-//            case [.shift]:
-//                print("shift key is pressed")
-//            case [.control]:
-//                print("control key is pressed")
-//            case [.option] :
-//                print("option key is pressed")
-//            case [.command]:
-//                print("Command key is pressed")
-//            case [.control, .shift]:
-//                print("control-shift keys are pressed")
-//            case [.option, .shift]:
-//                print("option-shift keys are pressed")
-//            case [.command, .shift]:
-//                print("command-shift keys are pressed")
-//            case [.control, .option]:
-//                print("control-option keys are pressed")
-//            case [.control, .command]:
-//                print("control-command keys are pressed")
-//            case [.option, .command]:
-//                print("option-command keys are pressed")
-//            case [.shift, .control, .option]:
-//                print("shift-control-option keys are pressed")
-//            case [.shift, .control, .command]:
-//                print("shift-control-command keys are pressed")
-//            case [.control, .option, .command]:
-//                print("control-option-command keys are pressed")
-//            case [.shift, .command, .option]:
-//                print("shift-command-option keys are pressed")
-//            case [.shift, .control, .option, .command]:
-//                print("shift-control-option-command keys are pressed")
-//            default:
-//                print("no modifier keys are pressed")
-//        }
+        flagMonitor = NSEvent.addLocalMonitorForEvents(matching: .flagsChanged) {
+            guard let locWindow = self.view.window,
+                NSApplication.shared.keyWindow === locWindow else { return $0 }
+
+            self.flagsChanged(with: $0)
+
+            return self.isGlobalShortcutListening ? nil : $0
+        }
+        
+        keyMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
+            [weak self] (event) -> NSEvent? in
+
+            guard self != nil else {
+                return event
+            }
+
+            if event.keyCode == 53 && self!.isGlobalShortcutListening {
+                DispatchQueue.main.async {
+                    self?.shortcutButton.highlight(false)
+                }
+                return nil
+            }
+
+            guard event.charactersIgnoringModifiers != nil && self!.isGlobalShortcutListening else {
+                return event
+            }
+            
+            print(event.charactersIgnoringModifiers!)
+            
+            self!.shortcutCharKeys = event.charactersIgnoringModifiers!
+            
+            if self!.shortcutModifierKeys.isEmpty {
+                return event
+            } else {
+                DispatchQueue.main.async {
+                    self!.shortcutButton.highlight(false)
+                }
+                return nil
+            }
+        }
     }
     
     override func viewWillDisappear() {
@@ -130,39 +171,41 @@ class PreferencesViewController: NSViewController {
         if (flagMonitor != nil) {
             NSEvent.removeMonitor(flagMonitor!)
         }
+        if (mouseMonitor != nil) {
+            NSEvent.removeMonitor(mouseMonitor!)
+        }
+    }
+    
+    override func flagsChanged(with event: NSEvent) {
+        if (self.isGlobalShortcutListening) {
+            print(event.modifierFlags.intersection(.deviceIndependentFlagsMask).description)
+            shortcutModifierKeys = event.modifierFlags.intersection(.deviceIndependentFlagsMask).description
+        }
+    }
+    
+    //MARK: - Actions
+    
+    @IBAction func shortcutButtonOnPress(_ sender: Any) {
+        self.shortcutCharKeys = ""
+        self.shortcutModifierKeys = ""
+        view.window?.makeFirstResponder(nil)
+        
+        DispatchQueue.main.async {
+            self.shortcutButton.highlight(true)
+        }
+    }
+    
+    @IBAction func clearShortcutButtonOnPress(_ sender: Any) {
+        self.shortcutCharKeys = ""
+        self.shortcutModifierKeys = ""
     }
     
     @IBAction func doneButton(_ sender: Any) {
-        isAutoLaunchEnabled = getToF(fromState: autoLaunchChecker.state)
-        isShowDockEnabled = getToF(fromState: showDockChecker.state)
-        isSleepTimerEnabled = getToF(fromState: defaultSleepTimerChecker.state)
-        sleepTime = defaultSleepTimerPicker.dateValue
-        
-        if defaultTimerTextField.stringValue.trimmingCharacters(in: .whitespaces) == "" {
-            defaultTimer = 0
-        } else {
-            defaultTimer = Int(defaultTimerTextField.stringValue.trimmingCharacters(in: .whitespaces))!
-        }
-        
-        UserDefaults.standard.set(isAutoLaunchEnabled, forKey: Constants.autoLaunch)
-        UserDefaults.standard.set(isShowDockEnabled, forKey: Constants.isDockIconEnabled)
-        UserDefaults.standard.set(isSleepTimerEnabled, forKey: Constants.isSleepTimerEnabled)
-        let ti: Double = sleepTime.timeIntervalSince1970
-        UserDefaults.standard.set(ti, forKey: Constants.sleepTime)
-        UserDefaults.standard.set(defaultTimer, forKey: Constants.defaultTimer)
-        UserDefaults.standard.synchronize()
-        
-        if (isShowDockEnabled) {
-            NSApplication.shared.setActivationPolicy(.regular)
-        } else {
-            NSApplication.shared.setActivationPolicy(.accessory)
-        }
-        
-        (NSApplication.shared.delegate as! AppDelegate).loadPreferences()
-        NSApplication.shared.mainWindow?.close()
+        savePreferences()
     }
     
-    private func getToF(fromState state: NSControl.StateValue) -> Bool {
+    //MARK: - Private helper methods
+    private func getBoolean(forState state: NSControl.StateValue) -> Bool {
         switch state {
         case .on:
             return true
@@ -173,21 +216,89 @@ class PreferencesViewController: NSViewController {
         }
     }
     
-    func updateGlobalShortcut(_ event: NSEvent) {
-        if let characters = event.charactersIgnoringModifiers {
-            let newGlobalKeybind = GlobalKeybindPreferences.init(
-                function: event.modifierFlags.contains(.function),
-                control: event.modifierFlags.contains(.control),
-                command: event.modifierFlags.contains(.command),
-                shift: event.modifierFlags.contains(.shift),
-                option: event.modifierFlags.contains(.option),
-                capsLock: event.modifierFlags.contains(.capsLock),
-                carbonFlags: event.modifierFlags.carbonFlags,
-                characters: characters,
-                keyCode: UInt32(event.keyCode)
-            )
-            
-            print(newGlobalKeybind.description)
+    private func loadPreferencesFromStorage() -> (isAutoLaunchEnabled: Bool, isShowDockEnabled: Bool, isSleepTimerEnabled: Bool, sleepTimer: Date, defaultTimer: Int, shortcutKeybind: String){
+        let isAutoLaunchEnabled = UserDefaults.standard.bool(forKey: Constants.autoLaunch)
+        let isShowDockEnabled = UserDefaults.standard.bool(forKey: Constants.isDockIconEnabled)
+        let isSleepTimerEnabled = UserDefaults.standard.bool(forKey: Constants.isSleepTimerEnabled)
+        let sleepTime = Date(timeIntervalSince1970: UserDefaults.standard.double(forKey: Constants.sleepTime))
+        let defaultTimer = UserDefaults.standard.integer(forKey: Constants.defaultTimer)
+        let shortcutKeybind = UserDefaults.standard.string(forKey: Constants.globalShortcutKeybind) ?? ""
+        
+        return (isAutoLaunchEnabled, isShowDockEnabled, isSleepTimerEnabled, sleepTime, defaultTimer, shortcutKeybind)
+    }
+    
+    private func didPreferencesChange() -> Bool {
+        updateLocalPreferenceVariables()
+        let oldPreferences = loadPreferencesFromStorage()
+        let newPreferences = (isAutoLaunchEnabled, isShowDockEnabled, isSleepTimerEnabled, sleepTime, defaultTimer, shortcutKeybind)
+    
+        return oldPreferences != newPreferences
+    }
+    
+    private func savePreferences() {
+        updateLocalPreferenceVariables()
+        
+        UserDefaults.standard.set(isAutoLaunchEnabled, forKey: Constants.autoLaunch)
+        UserDefaults.standard.set(isShowDockEnabled, forKey: Constants.isDockIconEnabled)
+        UserDefaults.standard.set(isSleepTimerEnabled, forKey: Constants.isSleepTimerEnabled)
+        let sleepTimeEpoch: Double = sleepTime.timeIntervalSince1970
+        UserDefaults.standard.set(sleepTimeEpoch, forKey: Constants.sleepTime)
+        UserDefaults.standard.set(defaultTimer, forKey: Constants.defaultTimer)
+        UserDefaults.standard.set(shortcutKeybind, forKey: Constants.globalShortcutKeybind)
+        UserDefaults.standard.synchronize()
+        
+        refreshApplicationPreferences()
+    }
+    
+    private func updateLocalPreferenceVariables() {
+        isAutoLaunchEnabled = getBoolean(forState: autoLaunchChecker.state)
+        isShowDockEnabled = getBoolean(forState: showDockChecker.state)
+        isSleepTimerEnabled = getBoolean(forState: defaultSleepTimerChecker.state)
+        sleepTime = defaultSleepTimerPicker.dateValue
+        
+        if defaultTimerTextField.stringValue.trimmingCharacters(in: .whitespaces) == "" {
+            defaultTimer = 30
+        } else {
+            defaultTimer = Int(defaultTimerTextField.stringValue.trimmingCharacters(in: .whitespaces))!
         }
+        
+    }
+    
+    private func refreshApplicationPreferences() {
+        if (isShowDockEnabled) {
+            NSApplication.shared.setActivationPolicy(.regular)
+        } else {
+            NSApplication.shared.setActivationPolicy(.accessory)
+        }
+        
+        (NSApplication.shared.delegate as! AppDelegate).loadPreferences()
+    }
+}
+
+
+extension PreferencesViewController: NSWindowDelegate {
+    func windowShouldClose(_ sender: NSWindow) -> Bool {
+        if (didPreferencesChange()) {
+            
+            let alert = NSAlert()
+            alert.alertStyle = .warning
+            alert.messageText = "Changes not saved"
+            alert.informativeText = "Do you want to save the changes?"
+            alert.addButton(withTitle: "Cancel")
+            alert.addButton(withTitle: "Save")
+            alert.addButton(withTitle: "Don't Save")
+            
+            let modalResponse = alert.runModal()
+            if (modalResponse == .alertFirstButtonReturn) {
+                return false
+            } else if (modalResponse == .alertSecondButtonReturn) {
+                self.savePreferences()
+                return true
+            } else if (modalResponse == .alertThirdButtonReturn) {
+                return true
+            }
+        }
+        
+        return true
     }
 }
