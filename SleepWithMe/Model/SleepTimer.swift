@@ -26,7 +26,11 @@ internal class SleepTimer {
         }
     }
     
-    internal var isTimerRunning: Bool = false
+    internal var isTimerRunning: Bool {
+        get {
+            return timer != nil && timer!.isValid
+        }
+    }
     internal var stepSize: CGFloat = 0
     
     //MARK: - Typealiases
@@ -92,13 +96,14 @@ internal class SleepTimer {
             currentMinutes = 1
         }
         if #available(OSX 10.12, *) {
-            timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { (timer) in
+            self.timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { (timer) in
                 self.timerFired(timer)
             }
         } else {
-            timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(timerFired(_:)), userInfo: nil, repeats: true)
+            self.timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(self.timerFired(_:)), userInfo: nil, repeats: true)
         }
-        isTimerRunning = true
+
+
         notifyTimerActivated()
     }
     
@@ -111,9 +116,9 @@ internal class SleepTimer {
     }
     
     internal func stopTimer(didComplete: Bool) {
-        timer?.invalidate()
+        self.timer?.invalidate()
         timer = nil
-        isTimerRunning = false
+        
         notifyTimerInvalidated(didComplete: didComplete)
     }
 }

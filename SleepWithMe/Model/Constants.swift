@@ -15,4 +15,5 @@ struct Constants {
     static let isSleepTimerEnabled = "SLEEP_TIMER_ENABLED"
     static let sleepTime = "SLEEP_TIME"
     static let defaultTimer = "DEFAULT_TIMER"
+    static let globalShortcutKeybind = "GLOBAL_SHORTCUT_KEYBIND"
 }
