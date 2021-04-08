@@ -77,19 +77,23 @@ class MenuBarView: NSView {
     }
     
     private func animate(width: Int, duration: Double) {
-        NSAnimationContext.beginGrouping()
-        NSAnimationContext.current.duration = duration
-        self.animator().setFrameSize(NSSize(width: width, height: 18))
-        NSAnimationContext.endGrouping()
-        self.animator().setFrameSize(NSSize(width: width, height: 18))
+        DispatchQueue.main.async {
+            NSAnimationContext.beginGrouping()
+            NSAnimationContext.current.duration = duration
+            self.animator().setFrameSize(NSSize(width: width, height: 18))
+            NSAnimationContext.endGrouping()
+            self.animator().setFrameSize(NSSize(width: width, height: 18))
+        }
     }
     
     private func animateTimerTextField(alpha: CGFloat, duration: Double) {
-        NSAnimationContext.beginGrouping()
-        NSAnimationContext.current.duration = duration
-        timerTextField.animator().alphaValue = alpha
-        NSAnimationContext.endGrouping()
-        timerTextField.alphaValue = alpha
+        DispatchQueue.main.async {
+            NSAnimationContext.beginGrouping()
+            NSAnimationContext.current.duration = duration
+            self.timerTextField.animator().alphaValue = alpha
+            NSAnimationContext.endGrouping()
+            self.timerTextField.alphaValue = alpha
+        }
     }
     
     private func setup(frameRect: CGRect) {

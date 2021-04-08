@@ -392,7 +392,7 @@
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fhq-Pt-Kth">
                                 <rect key="frame" x="18" y="133" width="464" height="16"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Global Shortcut to Start Default Timer" id="OyM-kd-KDZ">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Global Shortcut to Start/End Default Timer" id="OyM-kd-KDZ">
                                     <font key="font" metaFont="systemSemibold" size="13"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>

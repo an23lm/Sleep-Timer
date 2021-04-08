@@ -257,7 +257,7 @@ class PreferencesViewController: NSViewController {
         sleepTime = defaultSleepTimerPicker.dateValue
         
         if defaultTimerTextField.stringValue.trimmingCharacters(in: .whitespaces) == "" {
-            defaultTimer = 0
+            defaultTimer = 30
         } else {
             defaultTimer = Int(defaultTimerTextField.stringValue.trimmingCharacters(in: .whitespaces))!
         }
