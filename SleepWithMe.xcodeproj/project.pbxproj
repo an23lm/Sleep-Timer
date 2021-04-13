@@ -12,6 +12,8 @@
 		F7070F062126AC9100A1E643 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7070F042126AC9100A1E643 /* MainMenu.xib */; };
 		F7070F092126AC9100A1E643 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7070F082126AC9100A1E643 /* main.m */; };
 		F7070F0F2126ADE100A1E643 /* SleepWithMeHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = F7070EFD2126AC9000A1E643 /* SleepWithMeHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F7472BB8262422500071C85E /* Simple_App_Updater.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F726638E262421E50042B583 /* Simple_App_Updater.framework */; };
+		F7472BB9262422500071C85E /* Simple_App_Updater.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F726638E262421E50042B583 /* Simple_App_Updater.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F74F10DD20C81BB5000AB074 /* NSTimerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74F10DC20C81BB5000AB074 /* NSTimerButton.swift */; };
 		F74F10E120C82407000AB074 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74F10E020C82407000AB074 /* EventMonitor.swift */; };
 		F76DB24E20FFCC740097172D /* SleepTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76DB24D20FFCC740097172D /* SleepTimer.swift */; };
@@ -31,6 +33,23 @@
 		F7E03BEC24765F9B00C5794C /* GlobalKeybindPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E03BEB24765F9B00C5794C /* GlobalKeybindPreferences.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		F726638D262421E50042B583 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7266388262421E50042B583 /* Simple App Updater.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F726633226237CAE0042B583;
+			remoteInfo = "Simple App Updater";
+		};
+		F726638F262421E50042B583 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7266388262421E50042B583 /* Simple App Updater.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F726633B26237CAE0042B583;
+			remoteInfo = "Simple App UpdaterTests";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		F7070F0E2126AD8900A1E643 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -48,6 +67,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				F7472BB9262422500071C85E /* Simple_App_Updater.framework in Embed Frameworks */,
 				F77593D823368B8800F797ED /* (null) in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -64,6 +84,7 @@
 		F7070F072126AC9100A1E643 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7070F082126AC9100A1E643 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F7070F0A2126AC9100A1E643 /* SleepWithMeHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SleepWithMeHelper.entitlements; sourceTree = "<group>"; };
+		F7266388262421E50042B583 /* Simple App Updater.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Simple App Updater.xcodeproj"; path = "../../Simple App Updater/Simple App Updater.xcodeproj"; sourceTree = "<group>"; };
 		F728FD3F20C69CE60008AC5A /* AppleScriptObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppleScriptObjC.framework; path = System/Library/Frameworks/AppleScriptObjC.framework; sourceTree = SDKROOT; };
 		F74F10DC20C81BB5000AB074 /* NSTimerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTimerButton.swift; sourceTree = "<group>"; };
 		F74F10E020C82407000AB074 /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
@@ -96,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7472BB8262422500071C85E /* Simple_App_Updater.framework in Frameworks */,
 				F7E03BEA24765CA200C5794C /* HotKey in Frameworks */,
 				F77593DA23368B8A00F797ED /* AppleScriptObjC.framework in Frameworks */,
 			);
@@ -116,6 +138,15 @@
 				F7070F0A2126AC9100A1E643 /* SleepWithMeHelper.entitlements */,
 			);
 			path = SleepWithMeHelper;
+			sourceTree = "<group>";
+		};
+		F7266389262421E50042B583 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F726638E262421E50042B583 /* Simple_App_Updater.framework */,
+				F7266390262421E50042B583 /* Simple App UpdaterTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		F728FD3E20C69CE60008AC5A /* Frameworks */ = {
@@ -194,6 +225,7 @@
 		F7BB7DDF20C5CE1D00824919 /* SleepWithMe */ = {
 			isa = PBXGroup;
 			children = (
+				F7266388262421E50042B583 /* Simple App Updater.xcodeproj */,
 				F7BB7DE020C5CE1D00824919 /* AppDelegate.swift */,
 				F764D4A3233692B8006ED9AC /* View Controller */,
 				F764D4A4233692DF006ED9AC /* View */,
@@ -291,6 +323,12 @@
 			);
 			productRefGroup = F7BB7DDE20C5CE1D00824919 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F7266389262421E50042B583 /* Products */;
+					ProjectRef = F7266388262421E50042B583 /* Simple App Updater.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				F7BB7DDC20C5CE1D00824919 /* SleepWithMe */,
@@ -298,6 +336,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		F726638E262421E50042B583 /* Simple_App_Updater.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Simple_App_Updater.framework;
+			remoteRef = F726638D262421E50042B583 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F7266390262421E50042B583 /* Simple App UpdaterTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Simple App UpdaterTests.xctest";
+			remoteRef = F726638F262421E50042B583 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		F7070EFB2126AC9000A1E643 /* Resources */ = {
@@ -540,6 +595,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2340;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = F698675JBS;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SleepWithMe/Info.plist;
@@ -565,6 +621,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2340;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = F698675JBS;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SleepWithMe/Info.plist;

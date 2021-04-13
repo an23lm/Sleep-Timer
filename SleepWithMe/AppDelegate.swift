@@ -9,6 +9,7 @@
 import Cocoa
 import ServiceManagement
 import HotKey
+import Simple_App_Updater
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate {
@@ -45,6 +46,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         setupPopoverAsset()
         setupMenuBarAsset()
         loadPreferences()
+        
+        do {
+            let updater = try Updater(withGitHubRepoURL: "https://github.com/an23lm/sleepwithme")
+            try updater.getLatestVersion { (version) in
+                print("latest version", version)
+            }
+        } catch {
+            print(error)
+        }
+        
     }
 
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
