@@ -5,6 +5,7 @@ Puts your Mac to sleep, with you.
 
 ## Website
 #### [an23lm.me/sleepwithme](http://www.an23lm.me/sleepwithme/)
+[Source code for the website](https://github.com/an23lm/SleepWithMe-Website)
 
 ## Downloads
 #### [App Store](https://apps.apple.com/in/app/sleep-with-me/id1396421003?mt=12)
